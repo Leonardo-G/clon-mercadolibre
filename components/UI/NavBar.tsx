@@ -30,7 +30,6 @@ export const NavBar = () => {
                             placeholder='Buscar productos, marcas y mas...'
                         />
                         <FontAwesomeIcon 
-                            style={{ fontSize: "20px" }}
                             icon={ faMagnifyingGlass }
                             className={ styles.search__icon } 
                         />
