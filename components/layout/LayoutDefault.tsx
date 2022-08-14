@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { FC, ReactNode } from 'react'
+import { NavBar } from '../UI/NavBar';
 
 interface Props {
     title: string;
@@ -16,9 +17,7 @@ export const LayoutDefault: FC<Props> = ({ title, description, children }) => {
             </Head>
 
             <header>
-                <nav>
-
-                </nav>
+                <NavBar />
             </header>
             <main>
                 { children }
