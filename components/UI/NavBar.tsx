@@ -29,10 +29,14 @@ export const NavBar = () => {
                             type="text"
                             placeholder='Buscar productos, marcas y mas...'
                         />
-                        <FontAwesomeIcon 
-                            icon={ faMagnifyingGlass }
-                            className={ styles.search__icon } 
-                        />
+                        <div 
+                            style={{ width: "2rem"}}
+                        >
+                            <FontAwesomeIcon 
+                                icon={ faMagnifyingGlass }
+                                className={ styles.search__icon } 
+                            />
+                        </div>
                     </div>
                     <Image 
                         src={ dplus }
@@ -59,43 +63,6 @@ export const NavBar = () => {
                     </div>
                 </nav>
             </div>
-            {/* div(class="navegacion")
-                div(class="contenedor")
-                    div(class="navegacion__superior")
-                        a(href="/")
-                            img(src=`${enlace}/img/logo.png`, alt="Logo Mercado Libre")
-                        form(class="busqueda")
-                            input(type="text", placeholder="Buscar productos, marcas y más")
-                            i(class="fa-solid fa-magnifying-glass iconInput")
-                        div 
-                            img(src=`${enlace}/img/D_NQ_877425-MLA47306668299_082021-OO.webp` class="imgHeight" alt="subscripcion disney")
-                    nav(class="navegacion__inferior")
-                        div(class="inferior--menu")
-                            a(href="#categorias") Categorías
-                            a(href="/newpost") Vender
-                        div(class="inferior--cuenta")
-                        
-                            if (user)
-                                div(class="cuenta")
-                                    img(class="cuenta__img" src=`${user.imgUrl}`)
-                                    a(href="$") #{user.username}
-                                    i(class="fa-solid fa-angle-down")
-                                    div(class="cuenta__nav") 
-                                        div(class="nav--user") 
-                                            img(class="cuenta__img" src=`${user.imgUrl}`)
-                                            p Hola #{user.username}
-                                        div(class="nav--options")
-                                            a(href="/myorder") Compras
-                                            a(href="/profile") Mi Perfil
-                                            a(href="/auth/sign-off") Salir
-                                            
-                            else    
-                                div(class="cuenta cuenta--login")
-                                    a(href="/auth/sign-in") Creá tu cuenta 
-                                    a(href="/auth/login") Ingresá
-
-                            a(href="/cart/save")
-                                i(class="fa-solid fa-cart-shopping iconShop") */}
         </div>
     )
 }

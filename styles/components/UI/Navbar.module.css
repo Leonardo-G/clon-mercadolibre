@@ -23,9 +23,9 @@
 
 .search__icon{
     position: absolute;
+    width: 2rem;
     font-size: 2rem;
     right: 0.5rem;
-    z-index: 99;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;

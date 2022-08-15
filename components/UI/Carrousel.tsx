@@ -1,8 +1,10 @@
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useState } from 'react';
 
 import AliceCarousel from 'react-alice-carousel';
+
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 import styles from "../../styles/components/UI/Carrousel.module.css";
@@ -27,6 +29,7 @@ export const Carrousel:FC = () => {
         }
         setActiveIndex(activeIndex - 1)
     };
+
     const slideNext = () => {
         if ( activeIndex >= items.length - 1 ) {
             setActiveIndex( 0 );
@@ -34,6 +37,7 @@ export const Carrousel:FC = () => {
         }
         setActiveIndex(activeIndex + 1)
     }
+
     const syncActiveIndex = ({ item }: { item: number }) => setActiveIndex(item);
 
     return (

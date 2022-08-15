@@ -33,6 +33,9 @@ html {
   box-sizing: border-box;
 }
 
+p{
+  font-size: 1.4rem;
+}
 
 legend, input, textarea, label, p, a, h1, h2, h3, button, li, span {
   font-family: "Proxima Nova", sans-serif;
@@ -41,6 +44,24 @@ legend, input, textarea, label, p, a, h1, h2, h3, button, li, span {
 
 input{
   outline: none;
+}
+
+.pos-initial{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.background-wh{
+  background-color: #fff;
 }
 
 .container {
@@ -60,7 +81,30 @@ input{
 .flex-row{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+}
+
+.flex-row-2{
+  display: flex;
+  align-items: flex-end;
+  column-gap: 2rem;
+}
+
+.f-auto{
+  flex: 1;
+}
+
+.c-gap-2{
+  column-gap: 2rem;
+}
+
+.r-gap-2{
+  row-gap: 2rem;
+}
+
+.font-5{
+  color: #3483fa;
+  font-size: 1.6rem;
+  font-weight: 300;
 }
 
 .font-3{
@@ -85,4 +129,45 @@ input{
 
 .mt-1{
   margin-top: 1rem;
+}
+
+.mt-2{
+  margin-top: 2rem;
+}
+
+.mt{
+  margin-top: 0.5rem;
+}
+
+.mb-1{
+  margin-bottom: 0.5rem;
+}
+
+.mb{
+  margin-bottom: 0.4rem;
+}
+
+.section{
+  margin: 4rem 0;
+}
+
+.title-section{
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #666;
+}
+
+/* globales componentes */
+
+.title-green-shipping{
+  color: #00a650;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.font-green-main{
+  font-weight: 400;
+  color: #00a650;
+  font-size: 14px;
 }
