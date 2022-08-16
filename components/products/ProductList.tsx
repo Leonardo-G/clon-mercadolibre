@@ -10,7 +10,7 @@ interface Props {
 
 export const ProductList: FC<Props> = ({ products }) => {
     return (
-      <div className='relative mt-2'>
+      <div className='relative mt-2' style={{ minHeight: "38rem" }}>
           <div className='pos-initial flex-row c-gap-2'>
               {
                   productsDB.map( product => (

@@ -1,0 +1,76 @@
+.subscription{
+    border-radius: 0.6rem;
+    background-color: #fff;
+}
+
+.subscription__head{
+    background: linear-gradient(90deg,#a90f90 55%,#0c1a51);
+    color: #fff;
+    min-height: 5.5rem;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.6rem 0.6rem 0 0;
+}
+
+.subscription__head h3{
+    font-size: 2.6rem;
+    font-weight: 600;
+}
+
+.subscription__head .head--price{
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #fff;
+    padding-left: 1rem;
+}
+
+.subscription__head .head--price span{
+    text-decoration: line-through;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.subscription__head .head--price p{
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.subscription__head .head--price p span{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.subscription__description{
+    padding: 2.4rem;
+}
+
+.subscription__description p{
+    font-size: 1.8rem;
+}
+
+.subscription__options{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 2.4rem 2rem 2.4rem;
+    border-bottom: 1px solid #ededed;
+}
+
+.options--product{
+    display: flex;
+    align-items: center;
+    flex: 0.5;
+    column-gap: 2rem;
+}
+
+.options--product p{
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.subscription__button{
+    text-align: right;
+    padding: 2rem;
+}

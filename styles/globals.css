@@ -1,5 +1,7 @@
 :root {
   --main-color: #fff059;
+  --main-color-blue: #3483fa;
+  --color-dark-blue: #2968c8;
 }
 
 html,
@@ -170,4 +172,29 @@ input{
   font-weight: 400;
   color: #00a650;
   font-size: 14px;
+}
+
+.img-contain{
+  position: relative;
+  object-fit: contain;
+}
+
+.btn{
+    padding: 1.5rem 2.4rem;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn--blue{
+  background-color: var(--main-color-blue);
+  transition: background-color .2s ease-in
+}
+
+.btn--blue:hover{
+  background-color: var(--color-dark-blue);
+  transition: background-color .2s ease-in
 }

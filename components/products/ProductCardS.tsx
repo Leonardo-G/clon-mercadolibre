@@ -13,9 +13,7 @@ interface Props {
 
 export const ProductCardS: FC<Props> = ({ product: { title, priceDetail, imgProduct, shipping, interests } }) => {
     return (
-        <div
-            className={ styles['product-card-s'] }
-        >
+        <div className={ styles['product-card-s'] }>
             <a 
                 href=""
             >
@@ -35,7 +33,8 @@ export const ProductCardS: FC<Props> = ({ product: { title, priceDetail, imgProd
                                 priceDetail.price > priceDetail.offerPrice! &&
                                 <span
                                     style={{ paddingLeft: "1rem", verticalAlign: "0.35rem" }} 
-                                    className='font-green-main'>{ discountPercentage( priceDetail.price, priceDetail.offerPrice! ) }% OFF</span>
+                                    className='font-green-main'>{ discountPercentage( priceDetail.price, priceDetail.offerPrice! ) }% OFF
+                                </span>
                             }       
                     </p>
 
