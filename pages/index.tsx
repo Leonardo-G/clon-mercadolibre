@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { LayoutDefault } from '../components/layout/LayoutDefault'
 import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
+import { Profit } from '../components/UI/Profit'
 import { TitleSection } from '../components/UI/TitleSection'
 
 import styles from "../styles/pages/home.module.css";
@@ -74,6 +75,12 @@ const Home: NextPage = () => {
                   <button className='btn btn--blue'>Suscribite</button>
                 </div>
               </div>
+          </section>
+          <section className="section">
+            <Profit />
+          </section>
+          <section>
+            
           </section>
         </div>
     </LayoutDefault>

@@ -1,0 +1,38 @@
+.profit__card{
+    flex: 1;
+    height: 25rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card--description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    padding: 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.card--description div:first-of-type{
+    position: relative;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+}
+
+.card--description h3{
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.card--description p{
+    font-size: 1.8rem;
+    letter-spacing: .4px;
+}
