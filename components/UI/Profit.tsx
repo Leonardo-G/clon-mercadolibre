@@ -14,7 +14,7 @@ export const Profit: FC = () => {
                url
                urlTitle="Ver todos los beneficios"
             />
-            <div className="flex-row c-gap-2 section">
+            <div className="flex-row c-gap-2 my-media">
                 <div className={`relative ${styles.profit__card}`}>
                     <Image 
                         src="/assets/profit/disney-nivel6-mla-mco-mlm@2x.png"

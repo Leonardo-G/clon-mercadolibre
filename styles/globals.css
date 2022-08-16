@@ -67,7 +67,7 @@ input{
 }
 
 .container {
-  width: min(120rem, 98%);
+  width: min(120rem, 95%);
   margin: 0 auto;
 }
 

@@ -1,0 +1,66 @@
+.info{
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+}
+
+.info__description{
+    flex: 1;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.info__description h3{
+    color: #4b4b4b;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 2rem;
+    font-weight: 300;
+}
+
+.info__description p{
+    color: #999;
+    font-size: 1.5rem;
+    margin-top: 0.7rem;
+    line-height: 1.2;
+}
+
+.info__description p:last-of-type{
+    font-size: 1.4rem;
+    color: #3483fa;
+    margin-top: 1rem;
+}
+
+.description--icon{
+    font-size: 6rem;
+}
+
+.help{
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 0;
+    column-gap: 4rem;
+    align-items: center;
+}
+
+.help__card{
+    text-align: center;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.help__card span{
+    color: rgba(0, 0, 0, .55);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.help__card p{
+    color: #3483fa;
+    line-height: 1.3;
+}

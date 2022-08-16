@@ -12,6 +12,7 @@
     background-color: #fff;
     flex: 1;
     border-left: 1px solid #eae6e6;
+    cursor: pointer;
 }
 
 .category__icon{
@@ -25,4 +26,12 @@
     text-align: center;
     font-weight: 300;
     text-transform: capitalize;
+}
+
+.category:hover {
+    background-color: #3483fa;
+}
+
+.category:hover .category__icon, .category:hover .category__info{
+    color: #fff;
 }

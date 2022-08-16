@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { Categories } from '../components/home/Categories'
 import { Discover } from '../components/home/Discover'
+import { Info } from '../components/home/Info'
 import { LayoutDefault } from '../components/layout/LayoutDefault'
 import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
@@ -17,8 +18,8 @@ const Home: NextPage = () => {
         title='Mercado Libre Argentina - Envios gratis al día'
     >
         <Carrousel />
-        <div className='container'>
-          <section className='section'>
+        <div>
+          <section className='section container'>
               <TitleSection 
                 title='Ofertas'
                 url
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
               />
               <ProductList />
           </section>
-          <section className='section'>
+          <section className='my-full container'>
               <div className={ styles.subscription }>
                 <div className={ styles.subscription__head }>
                     <h3>Subscribete al nivel 6</h3>
@@ -78,14 +79,17 @@ const Home: NextPage = () => {
                 </div>
               </div>
           </section>
-          <section className="section">
+          <section className="my-full container">
             <Profit />
           </section>
-          <section className='my-full'>
+          <section className='my-full container'>
             <Discover />
           </section>
-          <section className='my-full'>
+          <section className='my-full container'>
             <Categories />
+          </section>
+          <section className='background-wh'>
+            <Info />
           </section>
         </div>
     </LayoutDefault>

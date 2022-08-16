@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.carrousel img{
+    padding: 0 1.5rem;
+}
+
 .btn-slide-left{
     position: relative;
     position: absolute;
