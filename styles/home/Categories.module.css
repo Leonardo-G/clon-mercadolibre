@@ -1,0 +1,28 @@
+.categories{
+    display: flex;
+    border-radius: 0.6rem;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%)
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 3.5rem 1.5rem;
+    background-color: #fff;
+    flex: 1;
+    border-left: 1px solid #eae6e6;
+}
+
+.category__icon{
+    font-size: 4rem;
+    color: #3483fa;
+}
+
+.category__info{
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    font-weight: 300;
+    text-transform: capitalize;
+}

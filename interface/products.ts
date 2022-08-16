@@ -53,7 +53,7 @@ export type CategoryTitleProduct = "herramientas"
                                     | "deportes y fitness"
                                     | "tecnología"
                                     | "electromésticos"
-                                    | "moda"
+                                    | "ropa y accesorios"
 
 export type SubCategoryCodeProduct = "electrical"
                                     | "manuals"

@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import { Categories } from '../components/home/Categories'
 import { Discover } from '../components/home/Discover'
 import { LayoutDefault } from '../components/layout/LayoutDefault'
 import { ProductList } from '../components/products/ProductList'
@@ -82,6 +83,9 @@ const Home: NextPage = () => {
           </section>
           <section className='my-full'>
             <Discover />
+          </section>
+          <section className='my-full'>
+            <Categories />
           </section>
         </div>
     </LayoutDefault>
