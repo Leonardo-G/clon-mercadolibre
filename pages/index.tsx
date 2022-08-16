@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import { Discover } from '../components/home/Discover'
 import { LayoutDefault } from '../components/layout/LayoutDefault'
 import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
@@ -79,8 +80,8 @@ const Home: NextPage = () => {
           <section className="section">
             <Profit />
           </section>
-          <section>
-            
+          <section className='my-full'>
+            <Discover />
           </section>
         </div>
     </LayoutDefault>
