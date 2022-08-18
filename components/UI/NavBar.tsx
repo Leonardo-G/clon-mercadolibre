@@ -10,6 +10,7 @@ import logo from "../../public/assets/logo.png"
 import dplus from "../../public/assets/dplus.webp"
 
 import styles from "../../styles/components/UI/Navbar.module.css";
+import Link from 'next/link';
 
 export const NavBar = () => {
     return (
@@ -22,9 +23,7 @@ export const NavBar = () => {
                             alt="logo mercado libre"
                             />
                     </a>
-                    <div
-                        className={ styles.search }
-                    >
+                    <div className={ styles.search }>
                         <input 
                             type="text"
                             placeholder='Buscar productos, marcas y mas...'
@@ -47,10 +46,12 @@ export const NavBar = () => {
                 </div>
                 <nav className='flex-row ptop-2'>
                     <div>
-                        <a 
-                            style={{ paddingLeft: "0" }}
-                            className='font-3 p-1'
-                        >Categorías</a>
+                        <Link href="/">
+                            <a 
+                                style={{ paddingLeft: "0" }}
+                                className='font-3 p-1'
+                            >Categorías</a>
+                        </Link>
                         <a className='font-3 p-1' href="#">Ofertas</a>
                         <a className='font-3 p-1' href="#">Historial</a>
                     </div>

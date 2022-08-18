@@ -1,6 +1,7 @@
 import { faFutbol } from '@fortawesome/free-regular-svg-icons';
 import { faPersonDigging, faPhone, faShirt, faTv, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import React from 'react';
 
 import styles from "../../styles/home/Categories.module.css";
@@ -11,10 +12,12 @@ export const Categories = () => {
         <>
             <TitleSection title='Categorías'/>
             <div className={`my-full ${ styles.categories}`}>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faWrench } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>herramientas</p>    
-                </div>
+                <Link href="/category/herramientas">
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faWrench } className={ styles.category__icon}/>
+                        <p className={ styles.category__info }>herramientas</p>    
+                    </a>
+                </Link>
                 <div className={ styles.category }>
                     <FontAwesomeIcon icon={ faPersonDigging } className={ styles.category__icon}/>
                     <p className={ styles.category__info }>construcción</p>    

@@ -2,14 +2,8 @@ export interface IProduct {
     _id: string;
     title: string;
     imgProduct: [string];
-    category: {
-        code: CategoryCodeProduct,
-        title: CategoryTitleProduct
-    }[],
-    subCategory: {
-        code: SubCategoryCodeProduct,
-        title: SubCategoryTitleProduct
-    }[],
+    category: ICategoryObj[],
+    subCategory: ISubCategoryObj[],
     characteristics?: string[],
     characteristicsDetail?: 
         {
@@ -41,12 +35,22 @@ export interface IProduct {
     
 }
 
-export type CategoryCodeProduct = "tools" 
-                                | "construction" 
-                                | "sports_and_fitness"
-                                | "tecnology"
-                                | "home_appliances"
-                                | "clothes"
+export interface ICategoryObj {
+    code: CategoryCodeProduct,
+    title: CategoryTitleProduct
+}
+
+export interface ISubCategoryObj {
+    code: SubCategoryCodeProduct,
+    title: SubCategoryTitleProduct
+}
+
+export type CategoryCodeProduct = "herramientas" 
+                                | "construccion" 
+                                | "deportes-y-fitness"
+                                | "tecnologia"
+                                | "electrodomesticos"
+                                | "ropa-y-accesorios"
 
 export type CategoryTitleProduct = "herramientas" 
                                     | "construcción" 
@@ -55,16 +59,16 @@ export type CategoryTitleProduct = "herramientas"
                                     | "electromésticos"
                                     | "ropa y accesorios"
 
-export type SubCategoryCodeProduct = "electrical"
-                                    | "manuals"
-                                    | "garden"
-                                    | "accessories"
-                                    | "pressure_washer"
-                                    | "welders"
-                                    | "saws"
-                                    | "drills"
+export type SubCategoryCodeProduct = "electricas"
+                                    | "manuales"
+                                    | "jardin"
+                                    | "accesorios"
+                                    | "hidrolavadora"
+                                    | "soldadora"
+                                    | "sierras"
+                                    | "taladros"
 
-export type SubCategoryTitleProduct = "eléctricidad" 
+export type SubCategoryTitleProduct = "eléctricas" 
                                     | "manuales"
                                     | "jardín"
                                     | "accesorios"

@@ -7,13 +7,13 @@ export const productsDB: IProduct[] = [
         imgProduct: ["/assets/product.webp"],
         category: [
             {
-            code: "tools",
+            code: "construccion",
             title: "construcción"
             },
         ],
         subCategory: [{
-            code: "electrical",
-            title: "eléctricidad"
+            code: "electricas",
+            title: "eléctricas"
         }],
         characteristics: ["Con función reversa.", "Cuenta con función destornillador.", "Incluye función percutor.", "Velocidad máxima de rotación: 3000rpm.", "Dimensiones: 7cm de ancho, 25cm de alto y 25cm de largo.", "La solución ideal para taladrar de manera precisa, eficiente y eficaz." ],
         characteristicsDetail: [
@@ -39,7 +39,7 @@ export const productsDB: IProduct[] = [
         stock: 412,
         sold: 120,
         created: 2131123213123123,
-        offer: false,
+        offer: true,
         priceDetail: {
             price: 5400,
             offerPrice: 4500
@@ -59,13 +59,13 @@ export const productsDB: IProduct[] = [
         imgProduct: ["/assets/product.webp"],
         category: [
             {
-                code: "tools",
+                code: "construccion",
                 title: "construcción"
             },
         ],
         subCategory: [{
-            code: "electrical",
-            title: "eléctricidad"
+            code: "electricas",
+            title: "eléctricas"
         }],
         characteristics: ["Con función reversa.", "Cuenta con función destornillador.", "Incluye función percutor.", "Velocidad máxima de rotación: 3000rpm.", "Dimensiones: 7cm de ancho, 25cm de alto y 25cm de largo.", "La solución ideal para taladrar de manera precisa, eficiente y eficaz." ],
         characteristicsDetail: [
@@ -110,13 +110,13 @@ export const productsDB: IProduct[] = [
         imgProduct: ["/assets/product.webp"],
         category: [
             {
-                code: "tools",
+                code: "construccion",
                 title: "construcción"
             },
         ],
         subCategory: [{
-            code: "electrical",
-            title: "eléctricidad"
+            code: "electricas",
+            title: "eléctricas"
         }],
         characteristics: ["Con función reversa.", "Cuenta con función destornillador.", "Incluye función percutor.", "Velocidad máxima de rotación: 3000rpm.", "Dimensiones: 7cm de ancho, 25cm de alto y 25cm de largo.", "La solución ideal para taladrar de manera precisa, eficiente y eficaz." ],
         characteristicsDetail: [
@@ -161,13 +161,13 @@ export const productsDB: IProduct[] = [
         imgProduct: ["/assets/product.webp"],
         category: [
             {
-                code: "tools",
+                code: "construccion",
                 title: "construcción"
             },
         ],
         subCategory: [{
-            code: "electrical",
-            title: "eléctricidad"
+            code: "electricas",
+            title: "eléctricas"
         }],
         characteristics: ["Con función reversa.", "Cuenta con función destornillador.", "Incluye función percutor.", "Velocidad máxima de rotación: 3000rpm.", "Dimensiones: 7cm de ancho, 25cm de alto y 25cm de largo.", "La solución ideal para taladrar de manera precisa, eficiente y eficaz." ],
         characteristicsDetail: [
@@ -212,13 +212,13 @@ export const productsDB: IProduct[] = [
         imgProduct: ["/assets/product.webp"],
         category: [
             {
-                code: "tools",
+                code: "construccion",
                 title: "construcción"
             },
         ],
         subCategory: [{
-            code: "electrical",
-            title: "eléctricidad"
+            code: "electricas",
+            title: "eléctricas"
         }],
         characteristics: ["Con función reversa.", "Cuenta con función destornillador.", "Incluye función percutor.", "Velocidad máxima de rotación: 3000rpm.", "Dimensiones: 7cm de ancho, 25cm de alto y 25cm de largo.", "La solución ideal para taladrar de manera precisa, eficiente y eficaz." ],
         characteristicsDetail: [
