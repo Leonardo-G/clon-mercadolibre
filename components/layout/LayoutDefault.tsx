@@ -14,6 +14,7 @@ export const LayoutDefault: FC<Props> = ({ title, description, children }) => {
             <Head>
                 <meta name="og:title" content={ title } />
                 <meta name="og:description" content={ description } />
+                <title>{ title }</title>
             </Head>
 
             <header>

@@ -18,10 +18,12 @@ export const Categories = () => {
                         <p className={ styles.category__info }>herramientas</p>    
                     </a>
                 </Link>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faPersonDigging } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>construcción</p>    
-                </div>
+                <Link href="/category/construccion">
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faPersonDigging } className={ styles.category__icon}/>
+                        <p className={ styles.category__info }>construcción</p>    
+                    </a>
+                </Link>
                 <div className={ styles.category }>
                     <FontAwesomeIcon icon={ faFutbol } className={ styles.category__icon}/>
                     <p className={ styles.category__info }>deportes y fitness</p>    

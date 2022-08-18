@@ -98,4 +98,100 @@ export const subCategoriesDB: ISubCategory[] = [
         },
         imgUrl: "https://http2.mlstatic.com/D_NQ_NP905821-MLA45346081617_032021-B.webp"
     },
+    {
+        _id: "3215asdf",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "griferias",
+            title: "griferías"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP963782-MLA45341666674_032021-B.webp"
+    },
+    {
+        _id: "3215123asdf",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "pinturas",
+            title: "pinturas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP731064-MLA45341687691_032021-B.webp"
+    },
+    {
+        _id: "32151131asdf",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "pisos-y-revestimientos",
+            title: "pisos y revestimientos"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP664102-MLA45341687661_032021-B.webp"
+    },
+    {
+        _id: "32151131sad511",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "electricidad",
+            title: "electricidad"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP754924-MLA49304539988_032022-B.webp"
+    },
+    {
+        _id: "215sa6dga6sda",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "plomeria",
+            title: "plomería"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP673498-MLA45343413073_032021-B.webp"
+    },
+    {
+        _id: "2154asdfa5",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "aberturas",
+            title: "aberturas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP865256-MLA45343110295_032021-B.webp"
+    },
+    {
+        _id: "2154a41c2fa5",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "materiales-de-obra",
+            title: "materiales de obra"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP864296-MLA45343110514_032021-B.webp"
+    },
+    {
+        _id: "2154a1231cfa5",
+        category: {
+            code: "construccion",
+            title: "construcción"
+        },
+        subCategory: {
+            code: "accesorios-de-construccion",
+            title: "acc. de construcción"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP718555-MLA45343993407_032021-B.webp"
+    },
 ]

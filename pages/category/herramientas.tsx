@@ -14,12 +14,12 @@ import { IUser } from '../../interface/users'
 
 interface Props {
   //Todas las subcategorias de Herramientas
-  herramientas: ISubCategory[]
+  subCategories: ISubCategory[]
   //Marcas de herramientas
   marcas: IUser[]
 }
 
-const CategoriesPage: NextPage<Props> = ({ herramientas, marcas }) => {
+const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 
   return (
     <LayoutDefault 
@@ -38,7 +38,7 @@ const CategoriesPage: NextPage<Props> = ({ herramientas, marcas }) => {
         <div className='container'>
             <CardsList 
                 typeCard='Card_S'
-                items={ herramientas.filter( (item, idx) => idx >= 0 && idx <= 3 && item ) }
+                items={ subCategories.filter( (item, idx) => idx >= 0 && idx <= 3 && item ) }
             />
         </div>
         <div className='container py-2'>
@@ -65,7 +65,7 @@ const CategoriesPage: NextPage<Props> = ({ herramientas, marcas }) => {
         <div className='container'>
             <CardsList 
                 typeCard='Card_S'
-                items={ herramientas.filter( (item, idx) => idx >= 4 && idx <= 7 && item ) }
+                items={ subCategories.filter( (item, idx) => idx >= 4 && idx <= 7 && item ) }
             />
         </div>
         <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
@@ -92,12 +92,12 @@ const CategoriesPage: NextPage<Props> = ({ herramientas, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const herramientas = subCategoriesDB.filter( ( subCategory: ISubCategory )  => subCategory.category.code === "herramientas" );
+  const subCategories = subCategoriesDB.filter( ( subCategory: ISubCategory )  => subCategory.category.code === "herramientas" );
   const marcas = userDB.filter( marca => marca.type === "company-brand" && marca.category?.find( m => m === "herramientas"))
 
   return {
     props: {
-        herramientas,
+        subCategories,
         marcas
     }
   }

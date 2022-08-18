@@ -17,12 +17,14 @@ export const NavBar = () => {
         <div className='background-main'>
             <div className='container flex-col py-1'>
                 <div className='flex-row'>
-                    <a href="#">
-                        <Image 
-                            src={ logo }
-                            alt="logo mercado libre"
-                            />
-                    </a>
+                    <Link href="/">
+                        <a href="#">
+                            <Image 
+                                src={ logo }
+                                alt="logo mercado libre"
+                                />
+                        </a>
+                    </Link>
                     <div className={ styles.search }>
                         <input 
                             type="text"

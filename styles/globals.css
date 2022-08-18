@@ -66,7 +66,7 @@ input{
   background-color: #fff;
 }
 
-.container {
+.container{
   width: min(120rem, 95%);
   margin: 0 auto;
 }
@@ -117,6 +117,14 @@ input{
   row-gap: 2rem;
 }
 
+/* COMPONENTES FUENTES */
+.font-2{
+  font-weight: 300;
+  letter-spacing: .6px;
+  color: #4a4a4a;
+  font-size: 2.6rem;
+}
+
 .font-5{
   color: #3483fa;
   font-size: 1.6rem;
@@ -156,6 +164,24 @@ input{
 
 .py-2{
   padding: 2rem 0;
+}
+
+.pb-1{
+  padding-bottom: 1rem;
+}
+
+.pb-2{
+  padding-bottom: 2rem;
+}
+
+/* MARGIN */
+
+.m-1{
+  margin: 1rem
+}
+
+.m-2{
+  margin: 2rem;
 }
 
 .mt-1{
