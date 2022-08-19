@@ -24,10 +24,12 @@ export const Categories = () => {
                         <p className={ styles.category__info }>construcción</p>    
                     </a>
                 </Link>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faFutbol } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>deportes y fitness</p>    
-                </div>
+                <Link href='/category/deportes-y-fitness'>
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faFutbol } className={ styles.category__icon}/>
+                        <p className={ styles.category__info }>deportes y fitness</p>    
+                    </a>
+                </Link>
                 <div className={ styles.category }>
                     <FontAwesomeIcon icon={ faPhone } className={ styles.category__icon}/>
                     <p className={ styles.category__info }>tecnología</p>    

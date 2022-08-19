@@ -13,11 +13,11 @@ interface Props{
     width?  : string;  //Unidades en rem
 }
 
-export const CardsList: FC<Props> = ({ typeCard, items }) => {
+export const CardsList: FC<Props> = ({ typeCard, items, width }) => {
 
     if ( typeCard === "Card_S" ){
         return (
-            <div className='flex-row'>
+            <div className='flex-row' style={{ display: "grid", gridTemplateColumns: `repeat( auto-fit, minmax(${ width ? width : "10rem" }, 1fr))`}}>
                 {
                     items.map( item => (
                         <CardS key={ item._id } items={ item as ISubCategory }/>

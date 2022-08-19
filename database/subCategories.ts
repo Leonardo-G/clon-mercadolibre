@@ -194,4 +194,52 @@ export const subCategoriesDB: ISubCategory[] = [
         },
         imgUrl: "https://http2.mlstatic.com/D_NQ_NP718555-MLA45343993407_032021-B.webp"
     },
+    {
+        _id: "2123ca1231cfa5",
+        category: {
+            code: "deportes-y-fitness",
+            title: "deportes y fitness"
+        },
+        subCategory: {
+            code: "fitness-y-musculacion",
+            title: "fitness y musculación"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP619820-MLA45685680719_042021-B.webp"
+    },
+    {
+        _id: "2123ca1231cfa5",
+        category: {
+            code: "deportes-y-fitness",
+            title: "deportes y fitness"
+        },
+        subCategory: {
+            code: "ciclismo",
+            title: "ciclismo"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP793745-MLA45685643829_042021-B.webp"
+    },
+    {
+        _id: "2123ca123asdasd55",
+        category: {
+            code: "deportes-y-fitness",
+            title: "deportes y fitness"
+        },
+        subCategory: {
+            code: "zapatillas",
+            title: "zapatillas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP873871-MLA45686065037_042021-B.webp"
+    },
+    {
+        _id: "2123ca311safa5",
+        category: {
+            code: "deportes-y-fitness",
+            title: "deportes y fitness"
+        },
+        subCategory: {
+            code: "camping",
+            title: "camping"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP826791-MLA45685643992_042021-B.webp"
+    },
 ]

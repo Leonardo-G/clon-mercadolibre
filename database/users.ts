@@ -129,4 +129,68 @@ export const userDB: IUser[] = [
        created: "5651215da565",
        category: ["construccion"]
     },
+    {
+       _id: "as2v1234scdd2",
+       username: "nike",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_938404-MLA32348277016_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v32d313d2",
+       username: "adidas perfomance",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_602821-MLA32347730883_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v314ca13d2",
+       username: "new balance",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_938957-MLA32348237072_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v3113cs3d2",
+       username: "puma",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_770676-MLA32348274541_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v3113cs3d2",
+       username: "under armour",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_679916-MLA32778469830_112019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v3113cs3d2",
+       username: "reebok",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_679916-MLA32778469830_112019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v3113cs3d2",
+       username: "stanley",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_936247-MLA32348274562_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    },
+    {
+       _id: "as2v3113cs3d2",
+       username: "top mega",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_620653-MLA32348237104_092019-G.webp",
+       created: "5651215da565",
+       category: ["deportes-y-fitness"]
+    }
 ]

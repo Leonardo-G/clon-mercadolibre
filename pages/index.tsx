@@ -8,6 +8,7 @@ import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
 import { Profit } from '../components/UI/Profit'
 import { TitleSection } from '../components/UI/TitleSection'
+import { productsDB } from '../database/products'
 
 import styles from "../styles/pages/home.module.css";
 
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
                     url
                     urlTitle='Ver Ofertas'
                 />
-                <ProductList />
+                <ProductList products={ productsDB }/>
             </section>
             <section className='my-full container'>
                 <div className={ styles.subscription }>
