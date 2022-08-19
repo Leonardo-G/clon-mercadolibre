@@ -15,6 +15,7 @@ export const LayoutDefault: FC<Props> = ({ title, description, children }) => {
                 <meta name="og:title" content={ title } />
                 <meta name="og:description" content={ description } />
                 <title>{ title }</title>
+                <link rel="shortcut icon" href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.19.5/mercadolibre/favicon.svg" type="image/x-icon" />
             </Head>
 
             <header>

@@ -34,10 +34,12 @@ export const Categories = () => {
                     <FontAwesomeIcon icon={ faPhone } className={ styles.category__icon}/>
                     <p className={ styles.category__info }>tecnología</p>    
                 </div>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faTv } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>electrodomésticos</p>    
-                </div>
+                <Link href="/category/electrodomesticos">
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faTv } className={ styles.category__icon}/>
+                        <p className={ styles.category__info }>electrodomésticos</p>    
+                    </a>
+                </Link>
                 <div className={ styles.category }>
                     <FontAwesomeIcon icon={ faShirt } className={ styles.category__icon}/>
                     <p className={ styles.category__info }>ropa y Accesorios</p>    
