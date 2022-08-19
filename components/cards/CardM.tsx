@@ -5,7 +5,7 @@ import { IUser } from '../../interface/users';
 
 interface Props{
     items: IUser;
-    height: string; // Pasar el numero en STRING y en REM (unidad de medida)
+    height?: string; // Pasar el numero en STRING y en REM (unidad de medida)
 }
 
 export const CardM: FC<Props> = ({ items, height }) => {

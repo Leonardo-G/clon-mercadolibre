@@ -11,6 +11,7 @@ import { TitleCenter } from '../../components/UI/TitleCenter';
 import { ProductList } from '../../components/products/ProductList'
 import { userDB } from '../../database/users';
 import { IUser } from '../../interface/users'
+import { productsDB } from '../../database/products'
 
 interface Props {
   //Todas las subcategorias de Herramientas
@@ -70,7 +71,7 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
         </div>
         <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
         <div className='container'>
-            <ProductList />
+            <ProductList products={ productsDB }/>
         </div>
         <TitleCenter title='tus marcas favoritos'/>
         <div className='container'>

@@ -65,4 +65,68 @@ export const userDB: IUser[] = [
        created: "5651215da565",
        category: ["herramientas"]
     },
+    {
+       _id: "asda1313131231236asdd2",
+       username: "FV",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_600242-MLA45341687389_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "asda14113cdd2",
+       username: "piazza",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_724547-MLA45341663417_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "asda1441vc1acdd2",
+       username: "ferrium",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_675631-MLA45341666416_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "asda1441vc1acdd2",
+       username: "roca",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_740225-MLA45341666418_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "asda1441vc1acdd2",
+       username: "sinteplast",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_696144-MLA45341666425_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "as2v32dscdd2",
+       username: "alba",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_601949-MLA45341663426_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "as2v32dscdd2",
+       username: "sica",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_960623-MLA45341666436_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
+    {
+       _id: "as2v32dscdd2",
+       username: "klaukol",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_995015-MLA45341666451_032021-G.webp",
+       created: "5651215da565",
+       category: ["construccion"]
+    },
 ]

@@ -9,12 +9,18 @@ import { subCategoriesDB } from '../../database/subCategories'
 import { ISubCategory } from '../../interface/subCategory'
 import { CardsList } from '../../components/cards/CardsList'
 import Link from 'next/link'
+import { userDB } from '../../database/users'
+import { IUser } from '../../interface/users'
+import { productsDB } from '../../database/products'
+import { ProductList } from '../../components/products/ProductList'
+import { IProduct } from '../../interface/products'
 
 interface Props {
-    subCategories: ISubCategory[]
+    subCategories: ISubCategory[];
+    marcas: IUser[]
 }
 
-const construccion: NextPage<Props> = ({ subCategories }) => {
+const construccion: NextPage<Props> = ({ subCategories, marcas }) => {
     return (
         <LayoutDefault 
             title='Construcción en Mercado Libre Argentina'
@@ -94,7 +100,7 @@ const construccion: NextPage<Props> = ({ subCategories }) => {
                     items={ subCategories.filter( (item, idx) => idx >= 4 && idx <= 7 && item ) }
                 />
             </div>
-            <div className='relative my-2' style={{ height: "16.5rem" }}>
+            <div className='relative my-2 pointer container shadow-default' style={{ height: "16.5rem" }}>
                 <Image 
                     src="https://http2.mlstatic.com/D_NQ_NP_918834-MLA43275144245_082020-OO.webp"
                     alt="Energía renovable"
@@ -102,8 +108,23 @@ const construccion: NextPage<Props> = ({ subCategories }) => {
                     objectFit='cover'
                 />
             </div>
-            <TitleCenter title='las mejores marcas'/>
+            <section>
+                <TitleCenter title='las mejores marcas'/>
+                <div className='container'>
+                    <CardsList items={ marcas } typeCard="Card_Circle" />
+                </div>
+            </section>
             <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
+            <ProductList products={ productsDB }/>
+            <div className='container'>
+                <div className='relative shadow-default radius-default mb-2' style={{ height: "16.5rem" }}>
+                    <Image 
+                        src="https://http2.mlstatic.com/D_NQ_NP_779467-MLA45342134582_032021-OO.webp"
+                        alt="Servicios, encontrá los mejores profesionales"
+                        layout='fill'
+                    />
+                </div>
+            </div>
         </LayoutDefault>
     )
 }
@@ -111,10 +132,12 @@ const construccion: NextPage<Props> = ({ subCategories }) => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
     const subCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "construccion" )
+    const marcas = userDB.filter( marca => marca.type === "company-brand" && marca.category?.find( m => m === "construccion"))
 
     return {
         props: {
-            subCategories
+            subCategories,
+            marcas
         }
     }
 }
