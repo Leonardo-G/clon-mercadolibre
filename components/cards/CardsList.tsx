@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { IProduct } from '../../interface/products';
 import { ISubCategory } from '../../interface/subCategory';
 import { IUser } from '../../interface/users';
+import { CardGrid } from '../grid/CardGrid';
 import { CardCricle } from './CardCricle';
 import { CardM } from './CardM';
 import { CardS } from './CardS';

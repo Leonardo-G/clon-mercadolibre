@@ -192,5 +192,69 @@ export const userDB: IUser[] = [
        imgUrl: "https://http2.mlstatic.com/D_Q_NP_620653-MLA32348237104_092019-G.webp",
        created: "5651215da565",
        category: ["deportes-y-fitness"]
-    }
+    },
+    {
+       _id: "as2v3ad1313d2",
+       username: "bgh",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_791290-MLA43148296495_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e11c494dsa",
+       username: "whirlpool",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_631011-MLA43148371423_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e12asdas14dsa",
+       username: "oster",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_907273-MLA43148296610_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e12a12c1dsa",
+       username: "atma",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_987652-MLA43148296664_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e11231c1dsa",
+       username: "electrolux",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_806562-MLA43148296801_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e11231c1dsa",
+       username: "philips",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_627921-MLA43148296839_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e11231c1dsa",
+       username: "samsung",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_928523-MLA43148296891_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e12313dsa",
+       username: "nespresso",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_766266-MLA43148371936_082020-G.webp",
+       created: "5651215da565",
+       category: ["electrodomesticos"]
+    },
 ]

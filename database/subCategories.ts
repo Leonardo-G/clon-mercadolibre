@@ -242,4 +242,124 @@ export const subCategoriesDB: ISubCategory[] = [
         },
         imgUrl: "https://http2.mlstatic.com/D_NQ_NP826791-MLA45685643992_042021-B.webp"
     },
+    {
+        _id: "sadar87adas13sadd4",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "aires-ac",
+            title: "aires accon."
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP737077-MLA43145775567_082020-B.webp"
+    },
+    {
+        _id: "sadar84123add4",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "aires-inverter",
+            title: "aires inverter"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP988455-MLA43145987130_082020-B.webp"
+    },
+    {
+        _id: "sazxveq$3add4",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "calefaccion",
+            title: "calefacción"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP617229-MLA49984275554_052022-B.webp"
+    },
+    {
+        _id: "215a4dada",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "pequeños",
+            title: "pequeños"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP_764415-MLA43144374886_082020-B.webp"
+    },
+    {
+        _id: "215a4d1c21daa",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "heladeras",
+            title: "heladeras"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_963290-MLA43144733410_082020-V.webp"
+    },
+    {
+        _id: "215a41asxzczsf1daa",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "lavarropas",
+            title: "lavarropas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_732355-MLA43144755315_082020-G.webp"
+    },
+    {
+        _id: "12asd4asdaf12",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "cocinas",
+            title: "cocinas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP_976723-MLA43145120256_082020-C.webp"
+    },
+    {
+        _id: "12ac1asdad",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "freezers",
+            title: "freezers"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_601193-MLA43145120899_082020-G.webp"
+    },
+    {
+        _id: "12513123dad",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "hornos",
+            title: "hornos"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_713057-MLA43145167868_082020-G.webp"
+    },
+    {
+        _id: "12412313",
+        category: {
+            code: "electrodomesticos",
+            title: "electromésticos"
+        },
+        subCategory: {
+            code: "microondas",
+            title: "microondas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP_792407-MLA43145167223_082020-C.webp"
+    },
 ]
