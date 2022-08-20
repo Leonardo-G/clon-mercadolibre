@@ -53,12 +53,12 @@ export const CardGrid: FC<Props>= ({ idx, item, quantity }) => {
     if ( idx === 2 ) {
         return (
             <div style={{ gridColumn:  "auto/span 2"}}>
-                <div className='radius-default shadow-default flex-col-center background-wh p-2'>
-                    <div className='relative' style={{ height: "12.5rem", width: "100%" }}>
+                <div className='radius-default shadow-default flex-col-center background-wh p-2' style={{ height: "100%" }}>
+                    <div className='relative' style={{ height: "10rem", width: "100%" }}>
                         <Image 
                             src={ item.imgUrl }
                             alt={ item.category.title }
-                            objectFit="cover"
+                            objectFit="contain"
                             layout='fill'
                         />
                     </div>

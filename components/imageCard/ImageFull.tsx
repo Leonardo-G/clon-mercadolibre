@@ -11,7 +11,7 @@ interface Props {
 
 export const ImageFull: FC<Props> = ({ src, height, alt, objectFit, styles }) => {
     return (
-        <div className={`relative pointer ${ styles ? "radius-default shadow-default pointer ov-hidd" : "" }`} style={ height ? { height } : { height: "16.5rem" } }>
+        <div className={`relative pointer mb-2 ${ styles ? "radius-default shadow-default pointer ov-hidd" : "" }`} style={ height ? { height } : { height: "16.5rem" } }>
             <Image 
                 src={ src }
                 alt={ alt ? alt : "Imagen full" }

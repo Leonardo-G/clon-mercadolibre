@@ -1,5 +1,5 @@
 import { faFutbol } from '@fortawesome/free-regular-svg-icons';
-import { faPersonDigging, faPhone, faShirt, faTv, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faCouch, faPersonDigging, faShirt, faTv, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
@@ -30,20 +30,24 @@ export const Categories = () => {
                         <p className={ styles.category__info }>deportes y fitness</p>    
                     </a>
                 </Link>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faPhone } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>tecnología</p>    
-                </div>
+                <Link href="/category/hogar-muebles">
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faCouch } className={ styles.category__icon}/>
+                        <p className={ styles.category__info }>Hogar y Muebles</p>    
+                    </a>
+                </Link>
                 <Link href="/category/electrodomesticos">
                     <a className={ styles.category }>
-                        <FontAwesomeIcon icon={ faTv } className={ styles.category__icon}/>
+                        <FontAwesomeIcon icon={ faTv } className={ styles.category__icon }/>
                         <p className={ styles.category__info }>electrodomésticos</p>    
                     </a>
                 </Link>
-                <div className={ styles.category }>
-                    <FontAwesomeIcon icon={ faShirt } className={ styles.category__icon}/>
-                    <p className={ styles.category__info }>ropa y Accesorios</p>    
-                </div>
+                <Link href="/category/ropa-y-accesorios">
+                    <a className={ styles.category }>
+                        <FontAwesomeIcon icon={ faShirt } className={ styles.category__icon }/>
+                        <p className={ styles.category__info }>ropa y Accesorios</p>    
+                    </a>
+                </Link>
             </div>
         </>
     )

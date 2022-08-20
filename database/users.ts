@@ -239,7 +239,7 @@ export const userDB: IUser[] = [
        type: "company-brand",
        imgUrl: "https://http2.mlstatic.com/D_Q_NP_627921-MLA43148296839_082020-G.webp",
        created: "5651215da565",
-       category: ["electrodomesticos"]
+       category: ["electrodomesticos", "hogar-muebles"]
     },
     {
        _id: "2e11231c1dsa",
@@ -256,5 +256,125 @@ export const userDB: IUser[] = [
        imgUrl: "https://http2.mlstatic.com/D_Q_NP_766266-MLA43148371936_082020-G.webp",
        created: "5651215da565",
        category: ["electrodomesticos"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "lacoste",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_766266-MLA43148371936_082020-G.web",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "ray ban",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_687351-MLA49129721523_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "47 street",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_700962-MLA46838568018_072021-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "portsaid",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_757515-MLA49129688683_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "inifinit",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_867287-MLA49129688716_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "equus",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_615912-MLA49129772193_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "cher mix",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_741281-MLA49129721428_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e31vsaddsa",
+       username: "akiabara",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_833004-MLA49129772164_022022-G.webp",
+       created: "5651215da565",
+       category: ["ropa-y-accesorios"]
+    },
+    {
+       _id: "2e3131123124a",
+       username: "joseph joseph",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_924707-MLA41298316488_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "4352saagasd",
+       username: "simmons",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_931497-MLA41298429375_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "412dsad",
+       username: "sommiercenter",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_864002-MLA41298429469_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "412dsad",
+       username: "boker arbolito",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_751637-MLA41298316619_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "412dsad",
+       username: "la cardeuse",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_857138-MLA41298429556_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "412dsad",
+       username: "springwall",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_888251-MLA41298316688_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
+    },
+    {
+       _id: "412dsad",
+       username: "morph",
+       type: "company-brand",
+       imgUrl: "https://http2.mlstatic.com/D_Q_NP_708261-MLA41298316727_032020-G.webp",
+       created: "5651215da565",
+       category: ["hogar-muebles"]
     },
 ]

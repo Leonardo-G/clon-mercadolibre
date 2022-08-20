@@ -362,4 +362,232 @@ export const subCategoriesDB: ISubCategory[] = [
         },
         imgUrl: "https://http2.mlstatic.com/D_NQ_NP_792407-MLA43145167223_082020-C.webp"
     },
+    {
+        _id: "12412423",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "zapatillas",
+            title: "zapatillas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP629213-MLA51148233499_082022-B.webp"
+    },
+    {
+        _id: "1212313",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "calzado",
+            title: "calzado"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP963338-MLA51148174881_082022-B.webp"
+    },
+    {
+        _id: "2sasdad1",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "remeras-y-chombas",
+            title: "remeras ychombas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP841942-MLA51153728276_082022-B.webp"
+    },
+    {
+        _id: "sadaafasdd",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "jeans-y-pantalones",
+            title: "jeans y pantalones"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP711086-MLA51150641805_082022-B.webp"
+    },
+    {
+        _id: "sada31sadafsdd",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "buzos-y-sweaters",
+            title: "buzos y sweaters"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP814808-MLA51153728296_082022-B.webp"
+    },
+    {
+        _id: "asdd34ef",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "anteojos",
+            title: "anteojos"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP752426-MLA51152385266_082022-B.webp"
+    },
+    {
+        _id: "321sadaf",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "bolso-y-mochilas",
+            title: "bolso y mochilas"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP827273-MLA51153728340_082022-B.webp"
+    },
+    {
+        _id: "5sad8w4ad",
+        category: {
+            code: "ropa-y-accesorios",
+            title: "ropa y accesorios"
+        },
+        subCategory: {
+            code: "joyas-y-relojes",
+            title: "joyas y relojes"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP661519-MLA51152389339_082022-B.webp"
+    },
+    {
+        _id: "5sad832131",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "muebles",
+            title: "muebles"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP986826-MLA41297389999_032020-B.webp"
+    },
+    {
+        _id: "5saca2131",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "cocina-y-bazar",
+            title: "cocina y bazar"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP926500-MLA41318673115_042020-B.webp"
+    },
+    {
+        _id: "5s3121sad131",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "decoracion",
+            title: "decoración"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP668324-MLA41298316004_032020-B.webp"
+    },
+    {
+        _id: "5s31123asdd131",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "jardin",
+            title: "jardín"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP870826-MLA41298316429_032020-B.webp"
+    },
+    {
+        _id: "5s3123zda31",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "iluminacion",
+            title: "iluminación"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_925261-MLA44208661259_112020-N.webp"
+    },
+    {
+        _id: "53121asdf31",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "baños",
+            title: "baños"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_620200-MLA44208661273_112020-V.webp"
+    },
+    {
+        _id: "53231asfgasa",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "segurdidad-para-el-hogar",
+            title: "segurdidad para el hogar"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_Q_NP_620703-MLA44208758126_112020-G.webp"
+    },
+    {
+        _id: "123sfasdsad",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "textiles-y-blancos",
+            title: "textiles y blancos"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP687895-MLA41299067531_032020-B.webp"
+    },
+    {
+        _id: "1233151adsad",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "cortinas-y-accesorios",
+            title: "cortinas y accesorios"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP823710-MLA41299067693_032020-B.webp"
+    },
+    {
+        _id: "123312acasad",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "organizacion",
+            title: "organización"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP838038-MLA41299067560_032020-B.webp"
+    },
+    {
+        _id: "123312acasad",
+        category: {
+            code: "hogar-muebles",
+            title: "hogar muebles"
+        },
+        subCategory: {
+            code: "cuidado-y-lavanderia",
+            title: "cuidado y lavanderia"
+        },
+        imgUrl: "https://http2.mlstatic.com/D_NQ_NP743270-MLA41299067736_032020-B.webp"
+    },
 ]
