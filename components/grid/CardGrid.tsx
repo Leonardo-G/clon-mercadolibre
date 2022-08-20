@@ -20,7 +20,7 @@ export const CardGrid: FC<Props>= ({ idx, item, quantity }) => {
                         objectFit="cover"
                         layout='fill'
                     />
-                    <div className='flex-col pos-left-bot mt-2 background-wh p-2 radius-default'>
+                    <div className='flex-col pos-left-bot m-2 background-wh p-2 radius-default'>
                         <p className='title-section capitalize subtitle-grey font-xl'>{ item.subCategory.title }</p>
                         <p className='mt-1 font-5'>Ver productos</p>
                     </div>
