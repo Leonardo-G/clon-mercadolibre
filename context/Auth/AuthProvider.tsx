@@ -1,0 +1,58 @@
+import React, { FC, ReactNode, useEffect, useReducer } from 'react'
+import { AuthContext } from './AuthContext'
+import { authReducer } from './authReducer';
+
+import Cookies from "js-cookie";
+import { useRouter } from 'next/router';
+
+export interface IAuthState {
+    isAutenticated: boolean;
+}
+
+const INITIAL_STATE: IAuthState = {
+    isAutenticated: false,
+}
+
+interface Props {
+    children: ReactNode;
+}
+
+export const AuthProvider: FC<Props> = ({ children }) => {
+    
+    const [state, dispatch] = useReducer(authReducer, INITIAL_STATE);
+    const router = useRouter()
+
+    useEffect(() => {
+        if ( Cookies.get("isAutenticated") ) {
+            dispatch({
+                type: "AUTH - Login"
+            })
+        }
+    }, [])
+    
+    const logIn = () => {
+        dispatch({
+            type: "AUTH - Login"
+        })
+
+        Cookies.set("isAutenticated", JSON.stringify(true))
+        
+    }
+    const logOut = () => {
+        Cookies.remove("isAutenticated");
+
+        router.reload()
+    }
+
+    return (
+        <AuthContext.Provider value={{
+            ...state,
+
+            // METHODS
+            logIn,
+            logOut
+        }}>
+            { children }
+        </AuthContext.Provider>
+    )
+}

@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { MouseEvent, useContext } from 'react'
 
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 
 import { LayoutAuth } from '../../components/layout/LayoutAuth'
+import { AuthContext } from '../../context/Auth/AuthContext'
 
 const LoginPage: NextPage = () => {
+    
+    const router = useRouter();
+    const { logIn } = useContext( AuthContext );
+
+    const handleLogIn = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        
+        logIn();
+        router.replace("/")
+    }
+
     return (
         <LayoutAuth title='Hola! Para seguir, ingresá a tu cuenta' description='Hola! Para seguir, ingresá a tu cuenta'>
             <div>
@@ -19,7 +32,11 @@ const LoginPage: NextPage = () => {
                         <input className='input-form mt-1' type="text"/>
                     </label>
                     <div className='mt-3'>
-                        <button className='btn btn--blue w-full' type="submit">Continuar</button>
+                        <button 
+                            className='btn btn--blue w-full' 
+                            type="submit"
+                            onClick={ handleLogIn }    
+                        >Continuar</button>
                         <button className='btn btn-wh w-full mt-1 ' type="button">Crear Cuenta</button>
                     </div>
                 </form>
