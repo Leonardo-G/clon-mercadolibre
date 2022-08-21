@@ -37,10 +37,11 @@ export const NavBar = () => {
                         />
                         <div 
                             style={{ width: "2rem"}}
+                            className="hover-a"
                         >
                             <FontAwesomeIcon 
                                 icon={ faMagnifyingGlass }
-                                className={ styles.search__icon } 
+                                className={`${ styles.search__icon }`}
                             />
                         </div>
                     </div>

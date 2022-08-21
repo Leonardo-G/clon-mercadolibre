@@ -2,6 +2,7 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head'
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC, ReactNode } from 'react'
 
 interface Props {
@@ -27,14 +28,16 @@ export const LayoutAuth: FC<Props> = ({ title, description, children }) => {
                 background: "#fff059",
                 padding: "1rem"
             }}>
-                <div className='relative' style={{ height: "3.4rem", width: "14rem", }}>
-                    <Image 
-                        src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.1/mercadolibre/logo__large_plus.png"
-                        layout="fill"
-                        objectFit="contain"
-                        alt="logo mercado libre clon"
-                    />
-                </div>
+                <Link href="/">
+                    <a className='relative' style={{ height: "3.4rem", width: "14rem", }}>
+                        <Image 
+                            src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.1/mercadolibre/logo__large_plus.png"
+                            layout="fill"
+                            objectFit="contain"
+                            alt="logo mercado libre clon"
+                        />
+                    </a>
+                </Link>
                 <div style={{ fontSize: "1.5rem" }}>
                     <FontAwesomeIcon icon={ faCircleQuestion }/>
                 </div>

@@ -30,12 +30,20 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         }
     }, [])
     
-    const logIn = () => {
+    const logIn = (email: string, password: string): { hasError: boolean, message: string } => {
+        
+        //Luego se válida con el backend
+        
         dispatch({
             type: "AUTH - Login"
         })
 
-        Cookies.set("isAutenticated", JSON.stringify(true))
+        Cookies.set("isAutenticated", JSON.stringify(true));
+
+        return {
+            hasError: false,
+            message: "OK"
+        }
         
     }
     const logOut = () => {

@@ -4,7 +4,7 @@ export interface IAuthContext {
     isAutenticated: boolean;
 
     // METHODS
-    logIn: () => void; 
+    logIn:  ( email: string, password: string ) => { hasError: boolean, message: string }; 
     logOut: () => void;
 }
 
