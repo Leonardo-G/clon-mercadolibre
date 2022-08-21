@@ -60,7 +60,9 @@ export const NavBar = () => {
                     <div>
                         <div>
                             <a className='p-1' href="">Creá tu cuenta</a>
-                            <a className='p-1' href="">Ingresá</a>
+                            <Link href="/auth/login">
+                                <a className='p-1'>Ingresá</a>
+                            </Link>
                             <a className='p-1' href="">Mis compras</a>
                         </div>
                     </div>
