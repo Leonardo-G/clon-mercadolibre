@@ -29,6 +29,25 @@ export const AuthProvider: FC<Props> = ({ children }) => {
             })
         }
     }, [])
+
+    const register = ( username: string, email: string, password: string, repeat_password: string ): { hasError: boolean, message: string } => {
+
+        // VALIDACION Y NUEVO USUARIO
+            //////////////////        
+        // VALIDACION Y NUEVO USUARIO
+
+
+        dispatch({
+            type: "AUTH - Login"
+        })
+
+        Cookies.set("isAutenticated", JSON.stringify(true));
+
+        return {
+            hasError: false,
+            message: "OK"
+        }
+    }
     
     const logIn = (email: string, password: string): { hasError: boolean, message: string } => {
         
@@ -46,6 +65,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         }
         
     }
+
     const logOut = () => {
         Cookies.remove("isAutenticated");
 
@@ -58,7 +78,8 @@ export const AuthProvider: FC<Props> = ({ children }) => {
 
             // METHODS
             logIn,
-            logOut
+            logOut,
+            register
         }}>
             { children }
         </AuthContext.Provider>

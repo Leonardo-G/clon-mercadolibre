@@ -25,7 +25,7 @@ const LoginPage: NextPage = () => {
 
         if ( e.target.value.length <= 5 ){
             
-            setErrorPassword( true )
+            !errorPassword && setErrorPassword( true )
             return
         }
 
@@ -40,7 +40,7 @@ const LoginPage: NextPage = () => {
 
         if ( !isEmailValid( e.target.value ) ){
             
-            setErrorEmail( true )
+            !errorEmail && setErrorEmail( true )
             return
         }
 
@@ -70,7 +70,7 @@ const LoginPage: NextPage = () => {
                 <h2 className='font-xl p-3' style={{ width: "35rem" }}>Hola! Ingresá tu correo, para acceder a tu cuenta.</h2>
                 <form className='px-3'>
                     <label className='flex-col'>
-                        <span className='font-m'>Correo</span>
+                        <span className={`font-m`} >Correo</span>
                         <input 
                             onChange={ handleUIEmail }
                             className={`input-form mt-1 ${ errorEmail && "input-error" }`}
