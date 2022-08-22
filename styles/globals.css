@@ -79,6 +79,10 @@ input{
 
 /* FLEXBOX */
 
+.flex{
+  display: flex;
+}
+
 .flex-col{
   display: flex;
   flex-direction: column;
@@ -93,7 +97,6 @@ input{
 
 .flex-row-center{
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -241,6 +244,14 @@ input{
   padding-bottom: 2rem;
 }
 
+.pr-full{
+  padding-right: 5rem;
+}
+
+.pl-1{
+  padding-left: 1rem;
+}
+
 /* MARGIN */
 
 .m-1{
@@ -374,7 +385,7 @@ input{
 }
 
 
-/* TEXTOS */
+/* ESTILOS TEXTOS */
 .title-green-shipping{
   color: #00a650;
   font-size: 14px;
@@ -392,6 +403,11 @@ input{
   color: rgb(177, 8, 8);
 }
 
+.font-grey{
+  color: #333;
+  line-height: 1.3;
+}
+
 .center{
   text-align: center;
 }
@@ -404,13 +420,29 @@ input{
   text-transform: uppercase;
 }
 
+.italic{
+  font-style: italic;
+}
+
 .f-bold{
   font-weight: 600;
 }
 
+.f-normal{
+  font-weight: 400;
+}
+
+.f-weight{
+  font-weight: 300;
+}
+
+.dash{
+  text-decoration: line-through;
+}
+
 /* .tamaños */
 .font-xl{
-  font-size: 2.6rem;
+  font-size: 2.4rem;
 }
 
 .font-l{
@@ -446,6 +478,8 @@ input{
   position: relative;
   object-fit: contain;
 }
+
+/* BOTONES */
 
 .btn{
     padding: 1.2rem 2.4rem;
@@ -513,6 +547,25 @@ input{
   opacity: 1;
 }
 
+.hover-card-xl .pos-favorite{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: #3483fa;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hover-card-xl:hover .pos-favorite{
+  visibility: visible;
+  opacity: 1;
+}
+
+.pos-favorite-on{
+  visibility: visible;
+  opacity: 1;
+}
+
 /* BORDERS */
 .border-bt-grey-w{
   border-bottom: 1px solid #eee;
@@ -526,4 +579,9 @@ input{
 
 .hover-a:hover{
   color: rgba(51, 51, 51, .9);
+}
+
+/* COLORES */
+.col-grey-w{
+  color: #999;
 }

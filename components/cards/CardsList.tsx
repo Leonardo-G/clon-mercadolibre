@@ -6,9 +6,10 @@ import { CardGrid } from '../grid/CardGrid';
 import { CardCricle } from './CardCricle';
 import { CardM } from './CardM';
 import { CardS } from './CardS';
+import { CardXL } from './CardXL';
 
 interface Props{
-    typeCard: "Card_S" | "Card_SX" | "Card_M" | "Card_Circle";
+    typeCard: "Card_S" | "Card_SX" | "Card_M" | "Card_Circle" | "Card_XL";
     items   : IProduct[] | ISubCategory[] | IUser[];
     height? : string; //Unidades en rem
     width?  : string;  //Unidades en rem
@@ -52,7 +53,19 @@ export const CardsList: FC<Props> = ({ typeCard, items, width }) => {
         )
     }
 
+    if ( typeCard === "Card_XL" ) {
+        return (
+            <div className='flex-col mt-full'>
+                {
+                    items.map( item => (
+                        <CardXL key={ item._id } item={ item as IProduct }/>
+                    ))
+                }
+            </div>
+        )
+    }
+
     return (
-        <div>CardsList</div>
+        <div>Error</div>
     )
 }

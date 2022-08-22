@@ -2,6 +2,84 @@ import { IProduct } from "../interface/products";
 
 export const productsDB: IProduct[] = [
     {
+        _id: "asdadaa213ds",
+        title: "Amoladora angular Skil 9004 de 50 Hz/60 Hz negra 700 W 220 V",
+        imgProduct: ["https://http2.mlstatic.com/D_NQ_NP_867917-MLA47058527825_082021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_707510-MLA47058564391_082021-O.webp"],
+        category: [
+            {
+                code: "herramientas",
+                title: "herramientas"
+            }
+        ],
+        subCategory: [
+            {
+                code: "electricas",
+                title: "eléctricas"
+            }
+        ],
+        characteristics: ["Apta para un disco de 115 mm de diámetro.", "Trae interruptor tecla.", "Su potencia es de 700 W.", "Velocidad máxima de rotación de 11000 rpm.", "Es antipolvo y protege al motor de la suciedad entrante.", "Tiene botón de bloqueo de disco.", "Tiene botón de bloqueo de disco.", "El largo del cable es de 2 m.", "Pesa 2.4 kg.", "Herramienta versátil para distintos usos.", "Herramienta versátil para distintos usos."],
+        characteristicsDetail: [
+            {
+                code: "Caracteristicas generales",
+                info: [
+                    {
+                        title: "Marca",
+                        description: "Skill"
+                    },
+                    {
+                        title: "Modelo",
+                        description: "9004"
+                    },
+                    {
+                        title: "Color",
+                        description: "Negro"
+                    },
+                    {
+                        title: "Voltaje",
+                        description: "220V"
+                    },
+                ]
+            },
+            {
+                code: "Rotación",
+                info: [
+                    {
+                        title: "Velocidad minima de rotación",
+                        description: "11000 rpm"
+                    },
+                    {
+                        title: "Velocidad máxima de rotación",
+                        description: "11000 rpm"
+                    }
+                ]
+            },
+        ],
+        recommended: true,
+        visited: 121312123,
+        description: `La amoladora Skil es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas.
+
+        Equipá tu casa o taller y ¡hacelo vos mismo! Esta amoladora angular es perfecta para realizar distintos trabajos de amolado, cepillado y pulido. A su vez, se destaca por ser un elemento indispensable para cortar, desbastar y lijar diversos materiales derivados del metal.
+        
+        Segura y fácil de maniobrar.
+        A la hora de trabajar con herramientas es importante que tu seguridad esté garantizada. Con el botón de bloqueo de disco que trae incorporado reducís al máximo el riesgo cuando trabajás con discos de corte.`,
+        stock: 93,
+        sold: 132331,
+        created: 2131123213123123,
+        offer: true,
+        priceDetail: {
+            price: 9631,
+            offerPrice: 7699
+        },
+        shipping: {
+            code: 2,
+            detail: "Envío gratis"
+        },
+        interests: {
+            accept: false,
+            until: undefined
+        }
+    },
+    {
         _id: "1",
         title: "Talandro percutor eléctrico de 13mm Philco TP711 710W + accesorios 220v",
         imgProduct: ["/assets/product.webp"],

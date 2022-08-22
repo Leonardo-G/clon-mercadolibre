@@ -1,7 +1,7 @@
 export interface IProduct {
     _id: string;
     title: string;
-    imgProduct: [string];
+    imgProduct: string[];
     category: ICategoryObj[],
     subCategory: ISubCategoryObj[],
     characteristics?: string[],
