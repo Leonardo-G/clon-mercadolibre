@@ -26,7 +26,7 @@ const Home: NextPage = () => {
                     url
                     urlTitle='Ver Ofertas'
                 />
-                <ProductList products={ productsDB }/>
+                <ProductList products={ productsDB.filter(( p, idx ) => idx >= 0 && idx <= 4) }/>
             </section>
             <section className='my-full container'>
                 <div className={ styles.subscription }>

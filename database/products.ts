@@ -3,7 +3,7 @@ import { IProduct } from "../interface/products";
 export const productsDB: IProduct[] = [
     {
         _id: "asdadaa213ds",
-        title: "Amoladora angular Skil 9004 de 50 Hz/60 Hz negra 700 W 220 V",
+        title: "moladora angular skil 9004 de 50 Hz/60 hz negra 700 w 220 v",
         imgProduct: ["https://http2.mlstatic.com/D_NQ_NP_867917-MLA47058527825_082021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_707510-MLA47058564391_082021-O.webp"],
         category: [
             {
@@ -81,7 +81,7 @@ export const productsDB: IProduct[] = [
     },
     {
         _id: "1",
-        title: "Talandro percutor eléctrico de 13mm Philco TP711 710W + accesorios 220v",
+        title: "talandro percutor eléctrico de 13mm philco TP711 710W + accesorios 220v",
         imgProduct: ["/assets/product.webp"],
         category: [
             {
@@ -133,7 +133,7 @@ export const productsDB: IProduct[] = [
     },
     {
         _id: "2",
-        title: "Amoladora angular Makita MT M9510 de 50 Hz gris 80 W 220 V - 240 V",
+        title: "amoladora angular makita MT M9510 de 50 Hz gris 80 W 220 V - 240 V",
         imgProduct: ["/assets/product.webp"],
         category: [
             {

@@ -22,7 +22,7 @@ export const CardXL: FC<Props> = ({ item: { imgProduct, title, priceDetail, offe
 
     return (
         <div className='flex py-2 background-wh pr-full border-bt-grey-w relative hover-card-xl'>
-            <Link href="/">
+            <Link href={{pathname: "/productos/", query: {search: "hola"}}}>
                 <a className='px-2' style={{ height: "16rem", width: "20rem" }}>
                     <div 
                         className='relative' 
@@ -47,7 +47,7 @@ export const CardXL: FC<Props> = ({ item: { imgProduct, title, priceDetail, offe
                             <span style={{ fontSize: "1.2rem", color: "#fff", paddingLeft: "0.5rem" }}>RECOMENDADO</span>
                         </div>
                     }
-                    <h2 className='font-l font-grey f-weight '>{ title }</h2>
+                    <h2 className='font-l font-grey f-weight capitalize'>{ title }</h2>
                     <div>
                         <div>
                             {

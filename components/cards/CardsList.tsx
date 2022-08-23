@@ -55,7 +55,7 @@ export const CardsList: FC<Props> = ({ typeCard, items, width }) => {
 
     if ( typeCard === "Card_XL" ) {
         return (
-            <div className='flex-col mt-full'>
+            <div className='flex-col mt-2'>
                 {
                     items.map( item => (
                         <CardXL key={ item._id } item={ item as IProduct }/>

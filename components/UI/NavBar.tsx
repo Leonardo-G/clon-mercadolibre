@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 //Experimental en NEXT
 import Image from 'next/future/image'
@@ -13,10 +13,20 @@ import styles from "../../styles/components/UI/Navbar.module.css";
 import Link from 'next/link';
 import { AuthContext } from '../../context/Auth/AuthContext';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { useRouter } from 'next/router';
 
 export const NavBar = () => {
 
     const { isAutenticated, logOut } = useContext( AuthContext );
+    const [searchValue, setsearchValue] = useState("");
+    const router = useRouter();
+
+    const searchProduct = () => {
+        router.push({
+            pathname: "/productos",
+            query: { search: searchValue.trim() }
+        })
+    } 
 
     return (
         <div className='background-main'>
@@ -33,10 +43,14 @@ export const NavBar = () => {
                     <div className={ styles.search }>
                         <input 
                             type="text"
+                            value={ searchValue }
+                            onChange={ (e) => setsearchValue( e.target.value ) }
                             placeholder='Buscar productos, marcas y mas...'
+                            onKeyDown={ (e) => e.key === "Enter" && searchProduct()  }
                         />
                         <div 
                             style={{ width: "2rem"}}
+                            onClick={ searchProduct }
                             className="hover-a"
                         >
                             <FontAwesomeIcon 
