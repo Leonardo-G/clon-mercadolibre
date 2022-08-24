@@ -50,8 +50,8 @@ const ProductosCategoriaPage: NextPage<Props> = ({ productos, params, querys, re
                     querys={ querys }
                     results={ results! }
                 />
-                <div style={{ flex: 3.5 }}>
-                    <div className='flex-row-center my-full flex-right'>
+                <div style={{ flex: 3.5 }} className="my-full">
+                    <div className='flex-row-center flex-right'>
                         <p>Ordenar por</p>
                         <select className='pointer' name="option" style={{
                             border: "none",
@@ -78,7 +78,9 @@ const ProductosCategoriaPage: NextPage<Props> = ({ productos, params, querys, re
 export const getServerSideProps: GetServerSideProps = async ({ params, query }) => {
     console.log(params, query)
 
-    let productos: IProduct[];
+    //////////ESTE CODIGO SERA MAS COMPACTO CUANDO TENGAMOS LA API/////////
+    /////////////////////CORRECTO FUNCIONAMIENTO EN LA VERSIÖN QUE SE CONSULTE CON LA API///////////////////////////
+    let productos: IProduct[] = [];
     let paramsCategories;
     const isExistParams = params?.categorias || null
     const isExistQuery = query?.search || null;
@@ -108,12 +110,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params, query }) 
             }
         }
     }
+    
+    const results = Number(productos.length)
 
-    const results = Number(productos!.length)
-
+    /////////////////////CORRECTO FUNCIONAMIENTO EN LA VERSIÖN QUE SE CONSULTE CON LA API///////////////////////////
+    //////////ESTE CODIGO SERA MAS COMPACTO CUANDO TENGAMOS LA API/////////
+    
     return {
         props: {
-            productos: JSON.parse( JSON.stringify( productos! ) ),
+            productos: JSON.parse( JSON.stringify( productos ) ),
             params: isExistParams ? paramsCategories : null,
             querys: isExistQuery ? query : null,
             results
