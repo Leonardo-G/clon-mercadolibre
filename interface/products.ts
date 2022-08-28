@@ -31,8 +31,8 @@ export interface IProduct {
     interests: {
         accept: boolean;
         until?: 3 | 6 | 12 | null
-    }
-    
+    },
+    condition: "nuevo" | "usado" | "reacondicionado"
 }
 
 export interface ICategoryObj {

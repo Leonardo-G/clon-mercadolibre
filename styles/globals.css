@@ -2,6 +2,7 @@
   --main-color: #fff059;
   --main-color-blue: #3483fa;
   --color-dark-blue: #2968c8;
+  --color-grey-2: rgba(0,0,0,.55)
   --color-grey-bold: #333;
 }
 
@@ -14,7 +15,7 @@ body {
 a {
   font-size: 1.4rem;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 *, *::before, *::after {
@@ -38,13 +39,13 @@ html {
 
 p, span{
   font-size: 1.4rem;
-  color: rgba(0,0,0,.9);
+  color: rgba(0,0,0,.7);
 }
 
 legend, input, textarea, label, p, a, h1, h2, h3, button, li, span, li, ul, b {
   font-family: "Proxima Nova", sans-serif;
   letter-spacing: 0.1px;
-  color: rgba(0,0,0,.9);
+  color: rgba(0,0,0,.7);
 }
 
 input{
@@ -53,6 +54,10 @@ input{
 
 ul, ol {
   list-style: none;
+}
+
+.br{
+  border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .line-h{
@@ -130,11 +135,15 @@ ul, ol {
   justify-content: right;
 }
 
+.flex-left{
+  justify-content: left;
+}
+
 .flex-row-2{
   display: flex;
   align-items: flex-end;
   column-gap: 2rem;
-  row-gap: 2;
+  row-gap: 2rem;
 }
 
 .flex-col-center{
@@ -142,6 +151,10 @@ ul, ol {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.gap-1{
+  column-gap: 1rem;
 }
 
 /* TAMAÑOS CAJAS */
@@ -299,6 +312,10 @@ ul, ol {
   padding-left: 1rem;
 }
 
+.pl-3{
+  padding-left: 3rem;
+}
+
 /* MARGIN */
 
 .m-1{
@@ -341,9 +358,19 @@ ul, ol {
   margin-bottom: 0.4rem;
 }
 
+.my-1{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .my-2{
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.my-3{
+  margin-top: 3em;
+  margin-bottom: 3rem;
 }
 
 .my-full{
@@ -371,6 +398,10 @@ ul, ol {
 
 .ml-2{
   margin-left: 2rem;
+}
+
+.ml-3{
+  margin-left: 3rem;
 }
 
 .section{
@@ -488,6 +519,11 @@ ul, ol {
   font-weight: 600;
 }
 
+.f-bold-black{
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7)
+}
+
 .f-normal{
   font-weight: 400;
 }
@@ -501,8 +537,12 @@ ul, ol {
 }
 
 /* .tamaños */
-.font-xl{
+.font-xxl{
   font-size: 2.4rem;
+}
+
+.font-xl{
+  font-size: 2.2rem;
 }
 
 .font-l{
@@ -511,6 +551,10 @@ ul, ol {
 
 .font-m{
   font-size: 1.5rem;
+}
+
+.font-xs{
+  font-size: 1.4rem;
 }
 
 .font-s{
@@ -668,4 +712,9 @@ ul, ol {
 .active-option{
   transition: all .2s ease-in-out;
   transform: translateX(80%);
+}
+
+/* //TEXTOS ALINEACION */
+.txt-left{
+  text-align: left;
 }

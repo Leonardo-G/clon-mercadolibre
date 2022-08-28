@@ -17,7 +17,7 @@ export const productsDB: IProduct[] = [
                 title: "eléctricas"
             }
         ],
-        characteristics: ["Apta para un disco de 115 mm de diámetro.", "Trae interruptor tecla.", "Su potencia es de 700 W.", "Velocidad máxima de rotación de 11000 rpm.", "Es antipolvo y protege al motor de la suciedad entrante.", "Tiene botón de bloqueo de disco.", "Tiene botón de bloqueo de disco.", "El largo del cable es de 2 m.", "Pesa 2.4 kg.", "Herramienta versátil para distintos usos.", "Herramienta versátil para distintos usos."],
+        characteristics: ["Apta para un disco de 115 mm de diámetro.", "Trae interruptor tecla.", "Su potencia es de 700 W.", "Velocidad máxima de rotación de 11000 rpm.", "Es antipolvo y protege al motor de la suciedad entrante.", "Tiene botón de bloqueo de disco.", "Tiene botón de bloqueo de disco.", "El largo del cable es de 2 m.", "Pesa 2.4 kg.", "Herramienta versátil para distintos usos.", "Protecto de disco incorporado."],
         characteristicsDetail: [
             {
                 code: "Caracteristicas generales",
@@ -77,7 +77,8 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: false,
             until: undefined
-        }
+        },
+        condition: "nuevo"
     },
     {
         _id: "1",
@@ -129,7 +130,8 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: true,
             until: 6
-        }
+        },
+        condition: "nuevo"
     },
     {
         _id: "2",
@@ -180,7 +182,8 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: true,
             until: 6
-        }
+        },
+        condition: "nuevo"
     },
     {
         _id: "3",
@@ -231,7 +234,8 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: false,
             until: undefined
-        }
+        },
+        condition: "nuevo"
     },
     {
         _id: "4",
@@ -282,7 +286,8 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: false,
             until: undefined
-        }
+        },
+        condition: "nuevo"
     },
     {
         _id: "5",
@@ -333,6 +338,7 @@ export const productsDB: IProduct[] = [
         interests: {
             accept: false,
             until: undefined
-        }
+        },
+        condition: "nuevo"
     }
 ]

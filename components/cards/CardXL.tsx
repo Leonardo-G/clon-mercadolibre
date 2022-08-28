@@ -12,7 +12,7 @@ interface Props {
     item: IProduct
 }
 
-export const CardXL: FC<Props> = ({ item: { imgProduct, title, priceDetail, offer, shipping, recommended }}) => {
+export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail, offer, shipping, recommended }}) => {
  
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -22,7 +22,7 @@ export const CardXL: FC<Props> = ({ item: { imgProduct, title, priceDetail, offe
 
     return (
         <div className='flex py-2 background-wh pr-full border-bt-grey-w relative hover-card-xl'>
-            <Link href={{pathname: "/productos/", query: {search: "hola"}}}>
+            <Link href={{pathname: `/producto/${ title.replace(/(\s{1,})|\//g, "-") }/${ _id }`}} passHref>
                 <a className='px-2' style={{ height: "16rem", width: "20rem" }}>
                     <div 
                         className='relative' 
@@ -37,7 +37,7 @@ export const CardXL: FC<Props> = ({ item: { imgProduct, title, priceDetail, offe
                     </div>
                 </a>
             </Link>
-            <Link href="/">
+            <Link href={{pathname: `/producto/${ title.replace(/(\s{1,})|\//g, "-") }/${ _id }`}} passHref>
                 <a>
                     {
                         recommended &&

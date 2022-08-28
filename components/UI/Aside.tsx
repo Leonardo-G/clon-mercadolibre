@@ -59,12 +59,11 @@ export const Aside:FC<Props> = ({ params, querys, results }) => {
                     
                     <ol className='p-none mt-1 font-size-default'>
                         <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li className='subtitle-grey f-normal mt'>Construcción <span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li className='subtitle-grey f-normal mt'>Deportes y Fitness <span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li className='subtitle-grey f-normal mt'>Hogar y Muebles <span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li className='subtitle-grey f-normal mt'>Electrodomésticos <span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li className='subtitle-grey f-normal mt'>Ropa y Accesorios <span className='pl col-grey-w f-weight'>(1.751)</span></li>
                     </ol>
                 </div>
                 <div>

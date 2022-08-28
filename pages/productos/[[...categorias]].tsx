@@ -8,7 +8,7 @@ import { LayoutDefault } from '../../components/layout/LayoutDefault';
 import { CardsList } from '../../components/cards/CardsList';
 import { ImageFull } from '../../components/imageCard/ImageFull';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faMagnifyingGlassMinus } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { NotFound } from '../../components/products/NotFound';
 import { Aside } from '../../components/UI/Aside';
 
