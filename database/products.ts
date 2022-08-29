@@ -56,12 +56,7 @@ export const productsDB: IProduct[] = [
         ],
         recommended: true,
         visited: 121312123,
-        description: `La amoladora Skil es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas.
-
-        Equipá tu casa o taller y ¡hacelo vos mismo! Esta amoladora angular es perfecta para realizar distintos trabajos de amolado, cepillado y pulido. A su vez, se destaca por ser un elemento indispensable para cortar, desbastar y lijar diversos materiales derivados del metal.
-        
-        Segura y fácil de maniobrar.
-        A la hora de trabajar con herramientas es importante que tu seguridad esté garantizada. Con el botón de bloqueo de disco que trae incorporado reducís al máximo el riesgo cuando trabajás con discos de corte.`,
+        description: `La amoladora Skil es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas.\n\nEquipá tu casa o taller y ¡hacelo vos mismo! Esta amoladora angular es perfecta para realizar distintos trabajos de amolado, cepillado y pulido. A su vez, se destaca por ser un elemento indispensable para cortar, desbastar y lijar diversos materiales derivados del metal.\n\nSegura y fácil de maniobrar.A la hora de trabajar con herramientas es importante que tu seguridad esté garantizada. Con el botón de bloqueo de disco que trae incorporado reducís al máximo el riesgo cuando trabajás con discos de corte.`,
         stock: 93,
         sold: 132331,
         created: 2131123213123123,

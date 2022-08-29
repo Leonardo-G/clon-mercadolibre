@@ -2,8 +2,13 @@
   --main-color: #fff059;
   --main-color-blue: #3483fa;
   --color-dark-blue: #2968c8;
-  --color-grey-2: rgba(0,0,0,.55)
+  --color-grey-2: #0000008C;
   --color-grey-bold: #333;
+  --color-green: #00a650;
+}
+
+::selection{
+  background-color: rgba(0, 0, 0, .1);
 }
 
 html,
@@ -153,8 +158,13 @@ ul, ol {
   justify-content: center;
 }
 
+.gap-none{
+  column-gap: 0rem;
+}
+
 .gap-1{
   column-gap: 1rem;
+  row-gap: 1rem;
 }
 
 /* TAMAÑOS CAJAS */
@@ -618,6 +628,18 @@ ul, ol {
   transition: background-color .2s ease-in;
 }
 
+.btn-blue-2{
+  background: #4189e626;
+  transition: background-color .2s ease-in;
+  color: var(--main-color-blue);
+}
+
+.btn-blue-2:hover{
+  background: rgba(65,137,230,.2);
+  transition: background-color .2s ease-in;
+  color: var(--main-color-blue);
+}
+
 .btn-disable{
   background-color: #588cdb;
   cursor: not-allowed;
@@ -696,6 +718,18 @@ ul, ol {
 
 .color-grey-bold{
   color: #333;
+}
+
+.color-grey-2{
+  color: var(--color-grey-2);
+}
+
+.color-grey-3{
+  color: #666c;
+}
+
+.color-green{
+  color: var(--color-green);
 }
 
 /* //COMPONENTE INPUT */

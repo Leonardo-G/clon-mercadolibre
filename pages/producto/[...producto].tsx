@@ -1,18 +1,25 @@
-import { faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
+import { faAward, faHandshakeSimple, faL, faLocationDot, faRotateLeft, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NextPage, GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { LayoutDefault } from '../../components/layout/LayoutDefault';
+import { Opinions } from '../../database/opinions';
 
 import { IProduct } from '../../interface/products';
-import { getProduct } from '../../utils/fetchApi';
+import { IQuestion } from '../../interface/question';
+import { getAllObjs, getProduct } from '../../utils/fetchApi';
 import { formatPrice } from '../../utils/formatPrice';
+import { IOpinion } from '../../interface/opinion';
+import { DeliveryUI } from '../../components/UI/DeliveryUI';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 
 interface Props {
-    producto: IProduct
+    producto: IProduct;
+    questions: IQuestion;
+    opinions: IOpinion[];
 }
 
-const DetailProductPage: NextPage<Props> = ({ producto: { title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail } }) => {
+const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail, description, shipping, stock } }) => {
     return (
         <LayoutDefault 
             title={ title } 
@@ -155,11 +162,138 @@ const DetailProductPage: NextPage<Props> = ({ producto: { title, imgProduct, con
                                     ) )
                                 }
                             </div>
+                            <div className='br mt-full'></div>
+                            <section>
+                                <h2 className='font-xxl mt-3 f-normal'>Descripción</h2>
+                                <div>
+                                    <p className='mt-3 color-grey-3' style={{ whiteSpace: "pre-wrap", fontSize: "2rem"}}>{ description }</p>
+                                </div>
+                            </section>
+                            <div className='br mt-full'></div>
+                            <section>
+                                <h2 className='font-xxl mt-3 f-normal'>Preguntas y respuestas</h2>
+                                <p className='mt-3 font-l f-bold'>Últimas realizadas</p>
+                                {
+                                    questions.questions.map( q => (
+                                        <div key={ q.created } className="mt-2">
+                                            <p style={{ fontSize: "1.6rem" }}>{ q.question }</p>
+                                            <div className='mt-1 flex-row flex-left'>
+                                                <FontAwesomeIcon 
+                                                    className='col-grey-w f-weight'
+                                                    style={{ fontSize: "1.6rem", transform: "translate(100%, -30%)" }}    
+                                                    icon={ faL }
+                                                />
+                                                <div>
+                                                    <span className='color-grey-2' style={{ fontSize: "1.6rem" }}>{ q.response }</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) )
+                                }
+                                <div className='br my-full'></div>
+                            </section>
+                            {/* <section>
+                                <h2 className='font-xxl mt-3 f-normal'>Opiniones sobre el producto</h2>
+                                <div className='br mt-2'></div>
+                                <div>
+
+                                </div>
+                            </section> */}
                         </div>
                     </div>
                     <div 
                         style={{ flex: 0.4 }}
                     >
+                        <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
+                            <DeliveryUI code={ shipping.code } detail={ shipping.detail }/>
+                            <div className='flex-row flex-left mt-1 gap-none'>
+                                <FontAwesomeIcon 
+                                    className='color-blue'
+                                    style={{ fontSize: "1.5rem" }}
+                                    icon={ faLocationDot }
+                                />
+                                <p className='ml-1 color-blue'>Enviar a Capital Federal 14xx</p>
+                            </div>
+                            <div className='mt-2 line-h'>
+                                <p>Vendido por <span className='color-blue upper'>Usuario</span></p>
+                                <p className='line-height'>MercadoLider | 1 venta</p>
+                                <p className='color-grey-2 font-s'>Hace Factura A</p>
+                            </div>
+                            {
+                                stock > 0 &&
+                                <div className='mt-2'>
+                                    <p className='f-bold' style={{fontSize: "1.6rem" }}>Stock disponible</p>
+                                    <div className='mt-2 flex-row flex-left gap-none'>
+                                        <p style={{fontSize: "1.6rem" }}>Cantidad</p>
+                                        <input 
+                                            className='ml-1 center font-m'
+                                            style={{ width: "5rem", border: "none", borderBottom: "1px solid #3483fa" }}
+                                            type="number" 
+                                            name="quantity"
+                                            defaultValue={ 1 }
+                                        />
+                                        <p className='ml-1 color-grey-2'>({ stock } disponibles)</p>
+                                    </div>
+                                </div>
+                                
+                            }
+                            <div className='flex-col mt-2'>
+                                <button className='btn btn--blue'>Comprar ahora</button>
+                                <button className='btn btn-blue-2 mt-1'>Agregar al carrito</button>
+                            </div>
+                            <div className='mt-2'>
+                                <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                                    <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faRotateLeft }/>
+                                    <p>
+                                        <span className='color-blue'>Devolución gratis.</span>
+                                        Tenés 30 días desde que lo recibís
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='mt-2'>
+                                <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                                    <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faCircleCheck }/>
+                                    <p>
+                                        <span className='color-blue'>Compra Protegida.</span>
+                                        , recibí el producto que esperabas o te devolvemos tu dinero.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='mt-2'>
+                                <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                                    <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faTrophy }/>
+                                    <p>
+                                        <span className='color-blue'>Mercado Puntos</span>
+                                        , Sumas 50 puntos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='mt-2'>
+                                <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                                    <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faAward }/>
+                                    <p>
+                                        24 meses de garantía de fábrica.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
+                            <p className='mt-1' style={{ fontSize: "1.8rem" }}>Información sobre el vendedor</p>
+                            <div className='color-grey-2 mt-2 flex-row flex-left'>
+                                <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faLocationDot }/>
+                                <div>
+                                    <span className='font-m '>Ubicación</span>
+                                    <p className='f-weight'>xxxx, Buenos aires</p>
+                                </div>
+                            </div>
+                            <div className='col-green mt-2 flex-row flex-left color-green'>
+                                <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faAward }/>
+                                <div>
+                                    <span className='font-m color-green f-bold'>MercadoLider</span>
+                                    <p className='f-weight'>xxxx, Buenos aires</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,7 +306,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     //En la url vamos a tener el titulo del producto y luego su ID, para 
     const { producto: [ title, _id ] } = params as { producto: string[] } 
 
-    const producto = getProduct( _id )
+    const producto = getProduct( _id );
+    const questions = getAllObjs( _id );
+    const opinions = Opinions.filter( opinion => opinion.idProduct === _id );
+
     if ( !producto ) {
         return {
             redirect: {
@@ -184,7 +321,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
         props: {
-            producto: JSON.parse( JSON.stringify( producto ) )
+            producto: JSON.parse( JSON.stringify( producto ) ),
+            questions: JSON.parse(JSON.stringify( questions[0] )),
+            opinions: JSON.parse( JSON.stringify( opinions ) )
         }
     }
 }
