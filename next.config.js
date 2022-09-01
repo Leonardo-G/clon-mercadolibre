@@ -9,6 +9,9 @@ const nextConfig = {
     images: {
       allowFutureImage: true,
     }
+  },
+  env: {
+    API_URL: "http://localhost:8000/api"
   }
 }
 

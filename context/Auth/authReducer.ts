@@ -1,19 +1,20 @@
 import { IAuthState } from "./AuthProvider";
 
 type ActionType =
-    | { type: "AUTH - Login" }
+    | { type: "AUTH - Login", payload: { isAutenticated: boolean, username: string, email: string, typeUser: string, imgUrl: string } }
     | { type: "AUTH - LogOut" }
 
 export const authReducer = ( state: IAuthState, action: ActionType ): IAuthState => {
     switch ( action.type ) {
         case "AUTH - Login":
             return {
-                isAutenticated: true
+                ...state,
+                user: action.payload
             }
 
         case "AUTH - LogOut":
             return {
-                isAutenticated: false
+                ...state,
             }
 
         default:

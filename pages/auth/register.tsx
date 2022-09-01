@@ -8,7 +8,7 @@ import { isEmailValid } from '../../utils/isValidEmail';
 const RegisterPage = () => {
 
     const router = useRouter();
-    const { logIn } = useContext( AuthContext );
+    const { register } = useContext( AuthContext );
     const [inputsValues, setInputsValues] = useState({email: "", username: "", password: "", repeat_password: "" })
     const [errorForm, setErrorForm] = useState({ error: false, message: ""})
     const [errorPassword, setErrorPassword] = useState(false);
@@ -53,7 +53,7 @@ const RegisterPage = () => {
             repeat_password: e.target.value
         })
 
-        if ( e.target.value.length <= 5 || e.target.value !== inputsValues.password ){
+        if ( e.target.value.length < 6 || e.target.value !== inputsValues.password ){
             
             !errorRepeatPassword && seterrorRepeatPassword( true )
             return
@@ -69,7 +69,7 @@ const RegisterPage = () => {
             username: e.target.value
         })
 
-        if ( e.target.value.length <= 5 ){
+        if ( e.target.value.length < 6 ){
             
             !errorUsername && setErrorUsername( true )
             return
@@ -79,15 +79,15 @@ const RegisterPage = () => {
 
     }
 
-    const handleLogIn = (e: MouseEvent<HTMLButtonElement>) => {
+    const handleLogIn = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-
-        const { hasError, message } = logIn( inputsValues.email, inputsValues.password );
+        const { email, password, repeat_password, username } = inputsValues;
+        const { hasError, error } = await register( username, email, password, repeat_password );
 
         if ( hasError ) {
             setErrorForm({
                 error: hasError,
-                message: message
+                message: error
             })
             return;
         }
@@ -150,9 +150,9 @@ const RegisterPage = () => {
                             type="submit"
                             disabled={ errorEmail || errorPassword }
                             onClick={ handleLogIn }    
-                        >Continuar</button>
-                        <Link href="/auth/register">
-                            <button className='btn btn-wh w-full mt-1 ' type="button">Crear Cuenta</button>
+                        >Crear cuenta</button>
+                        <Link href="/auth/login">
+                            <button className='btn btn-wh w-full mt-1 ' type="button">Ya tengo cuenta</button>
                         </Link>
                         
                     </div>

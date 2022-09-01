@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 
 export const NavBar = () => {
 
-    const { isAutenticated, logOut } = useContext( AuthContext );
+    const { user, logOut } = useContext( AuthContext );
     const [searchValue, setsearchValue] = useState("");
     const router = useRouter();
 
@@ -80,7 +80,7 @@ export const NavBar = () => {
                     <div>
                         <div>
                             {
-                                isAutenticated 
+                                user && user.isAutenticated
                                 ? (
                                     <>
                                         <span className='p-1 relative hover-cursor'>
@@ -107,8 +107,10 @@ export const NavBar = () => {
                                 )
                                 : (
                                     <>
-                                        <a className='p-1' href="">Creá tu cuenta</a>
-                                        <Link href="/auth/login">
+                                        <Link href="/auth/register" passHref>
+                                            <a className='p-1'>Creá tu cuenta</a>
+                                        </Link>
+                                        <Link href="/auth/login" passHref>
                                             <a className='p-1 hover-a'>Ingresá</a>
                                         </Link>
                                     </>

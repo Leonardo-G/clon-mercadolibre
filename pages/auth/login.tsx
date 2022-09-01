@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FormEvent, FormEventHandler, MouseEvent, useContext, useState } from 'react'
+import React, { ChangeEvent, MouseEvent, useContext, useState } from 'react'
 
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import { LayoutAuth } from '../../components/layout/LayoutAuth'
 import { AuthContext } from '../../context/Auth/AuthContext'
-import Link from 'next/link'
 import { isEmailValid } from '../../utils/isValidEmail'
 
 const LoginPage: NextPage = () => {
@@ -23,7 +23,7 @@ const LoginPage: NextPage = () => {
             password: e.target.value
         })
 
-        if ( e.target.value.length <= 5 ){
+        if ( e.target.value.length < 6 ){
             
             !errorPassword && setErrorPassword( true )
             return
@@ -48,15 +48,15 @@ const LoginPage: NextPage = () => {
 
     }
 
-    const handleLogIn = (e: MouseEvent<HTMLButtonElement>) => {
+    const handleLogIn = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        const { hasError, message } = logIn( inputsValues.email, inputsValues.password );
+        const { hasError, error } = await logIn( inputsValues.email, inputsValues.password );
 
         if ( hasError ) {
             setErrorForm({
                 error: hasError,
-                message: message
+                message: error
             })
             return;
         }
@@ -91,11 +91,11 @@ const LoginPage: NextPage = () => {
                     </label>
                     {
                         errorForm.error &&
-                        <p className='font-error mt-2'>{ errorForm.message }</p>
+                        <p className='font-error mt-2' style={{ whiteSpace: "break-spaces", maxWidth: "29rem" }}>{ errorForm.message }</p>
                     }
                     <div className='mt-3'>
                         <button 
-                            className={`btn w-full ${ (errorEmail || errorPassword) ? "btn-disable" : "btn--blue" }`} 
+                            className={`btn w-full ${ (errorEmail || errorPassword || inputsValues.email === "" || inputsValues.password === "") ? "btn-disable" : "btn--blue" }`} 
                             type="submit"
                             disabled={ errorEmail || errorPassword }
                             onClick={ handleLogIn }    
