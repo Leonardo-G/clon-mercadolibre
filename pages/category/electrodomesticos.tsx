@@ -14,6 +14,7 @@ import { userDB } from '../../database/users';
 import { IUser } from '../../interface/users'
 import { ProductList } from '../../components/products/ProductList'
 import { productsDB } from '../../database/products'
+import { fetchApi } from '../../axios/config'
 
 interface Props {
     subCategories: ISubCategory[];
@@ -71,12 +72,14 @@ const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const getSubCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "electrodomesticos" );
-    const marcas = userDB.filter( user => user.category?.includes("electrodomesticos") && user.type === "company-brand");
+    const response = await fetchApi.get("/subcategory/electrodomesticos");
+    const subCategories = await response.data;
+    const response_2 = await fetchApi.get("/user/store-of-electrodomesticos");
+    const marcas = await response_2.data;
 
     return {
         props: {
-            subCategories: getSubCategories,
+            subCategories,
             marcas
         }
     }

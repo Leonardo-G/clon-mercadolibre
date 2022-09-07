@@ -17,6 +17,7 @@
 .subscription__head h3{
     font-size: 2.6rem;
     font-weight: 600;
+    color: #fff;
 }
 
 .subscription__head .head--price{
@@ -30,11 +31,13 @@
     text-decoration: line-through;
     font-size: 1.4rem;
     font-weight: 500;
+    color: #fff;
 }
 
 .subscription__head .head--price p{
     font-weight: 600;
     font-size: 2.4rem;
+    color: #fff;
 }
 
 .subscription__head .head--price p span{

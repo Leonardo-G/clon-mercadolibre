@@ -178,6 +178,12 @@ ul, ol {
   display: grid;
 }
 
+.grid-col-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: masonry;
+}
+
 .grid-full{
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(24rem, 1fr));
@@ -730,6 +736,10 @@ ul, ol {
 
 .color-green{
   color: var(--color-green);
+}
+
+.color-wh{
+  color: #fff
 }
 
 /* //COMPONENTE INPUT */

@@ -1,5 +1,8 @@
-import type { NextPage } from 'next'
 import Image from 'next/image'
+import type { NextPage, GetStaticProps } from 'next'
+
+import { fetchApi } from '../axios/config';
+
 import { Categories } from '../components/home/Categories'
 import { Discover } from '../components/home/Discover'
 import { Info } from '../components/home/Info'
@@ -8,11 +11,15 @@ import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
 import { Profit } from '../components/UI/Profit'
 import { TitleSection } from '../components/UI/TitleSection'
-import { productsDB } from '../database/products'
 
+import { IProduct } from '../interface/products'
 import styles from "../styles/pages/home.module.css";
 
-const Home: NextPage = () => {
+interface Props {
+  productsByOffer: IProduct[]
+}
+
+const Home: NextPage<Props> = ({ productsByOffer }) => {
   return (
     <LayoutDefault
         description='Comprá productos con Envío Gratis en el día en Mercado Libre Argentina. Encontrá miles de marcas y productos a precios increíbles.'
@@ -26,14 +33,14 @@ const Home: NextPage = () => {
                     url
                     urlTitle='Ver Ofertas'
                 />
-                <ProductList products={ productsDB.filter(( p, idx ) => idx >= 0 && idx <= 4) }/>
+                <ProductList products={ productsByOffer }/>
             </section>
             <section className='my-full container'>
                 <div className={ styles.subscription }>
                     <div className={ styles.subscription__head }>
                         <h3>Subscribete al nivel 6</h3>
                         <div className={ styles['head--price'] }>
-                          <span>$ 499</span>
+                          <span>$ 1200</span>
                           <p>$499 <span>/mes</span></p>
                         </div>
                     </div>
@@ -96,5 +103,17 @@ const Home: NextPage = () => {
     </LayoutDefault>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+
+  const responseApi = await fetchApi.get( "/products/short/by-offer" )
+  const productsByOffer = await responseApi.data;
+  
+  return {
+    props: {
+      productsByOffer: JSON.parse( JSON.stringify(productsByOffer) )
+    }
+  }
+} 
 
 export default Home

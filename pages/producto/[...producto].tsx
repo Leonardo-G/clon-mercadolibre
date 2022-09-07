@@ -12,14 +12,22 @@ import { formatPrice } from '../../utils/formatPrice';
 import { IOpinion } from '../../interface/opinion';
 import { DeliveryUI } from '../../components/UI/DeliveryUI';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
 
 interface Props {
     producto: IProduct;
-    questions: IQuestion;
-    opinions: IOpinion[];
+    // questions: IQuestion;
+    // opinions: IOpinion[];
 }
 
-const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail, description, shipping, stock } }) => {
+const DetailProductPage: NextPage<Props> = ({  producto: { title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail, description, shipping, stock } }) => {
+    
+    const [currentPage, setCurrentPage] = useState(imgProduct[0] as string)
+
+    const handleChangeImage = ( image: string ) => {
+        setCurrentPage( image )
+    }
+    
     return (
         <LayoutDefault 
             title={ title } 
@@ -50,11 +58,14 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                             <div className='mt-2 ml-2'>
                                 {
                                     imgProduct.map( (img, idx) => (
-                                        <div className="mb-1" key={ idx } 
+                                        <div 
+                                            key={ idx } 
+                                            onMouseOver={ () => handleChangeImage(img) }
+                                            className="mb-1 pointer" 
                                             style={{ 
                                                 padding: "0.2rem",
                                                 borderRadius: "0.6rem",
-                                                border: "1px solid rgba(0,0,0,.25)", 
+                                                border: `${ img === currentPage ? "2px solid #3483fa" : "1px solid rgba(0,0,0,.25)"}`, 
                                             }}
                                         >
                                             <div
@@ -75,12 +86,13 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                                 }
                             </div>
                             <div className='mt-full'>
-                                <div style={{ position: "relative", height: "48rem", width: "38rem", padding: "1.6rem" }}>
+                                <div style={{  position: "sticky", height: "48rem", width: "38rem", padding: "1.6rem","top": 0  }}>
                                     <Image 
                                         alt={ title }
-                                        src={ imgProduct[0] }
+                                        src={ currentPage }
                                         layout="fill"
                                         objectFit='contain'
+                                        priority
                                     />
                                 </div>
                             </div>
@@ -94,7 +106,7 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                                             <FontAwesomeIcon icon={ faHandshakeSimple }/>
                                             <span style={{ fontSize: "1.2rem", color: "#fff", paddingLeft: "0.5rem" }}>RECOMENDADO</span>
                                         </div>
-                                        <span className='ml-1 font-s'>en { category[0].title }</span>
+                                        <span className='ml-1 font-s'>en { category[0] }</span>
                                     </>
                                 }
 
@@ -132,35 +144,72 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                         <div className='my-3 ml-3 br mt-full'></div>
                         <div className='pl-3'>
                             <p className='font-xxl mb-2'>Características</p>
-                            <div className='flex-row' style={{ rowGap: "4rem", columnGap: "4rem", flexWrap: "wrap" }}>
-                                {
-                                    characteristicsDetail?.map(( cd, idx ) => (
-                                        <div key={ idx } className="my-2 f-auto">
-                                            <p className='font-m f-bold mb-2'>{ cd.code }</p>
-                                            <div className='radius-default' style={{ border: "1px solid #ededed"}}>
-                                                {
-                                                    cd.info.map((c, id) => {
-                                                        if( id % 2 === 0 ){
+                            <div className='flex-row' style={{ rowGap: "4rem", columnGap: "4rem" }}>
+                                <div className='f-auto flex-col'>
+                                    {
+                                        characteristicsDetail?.map(( cd, idx ) => (
+                                            idx % 2 === 0 &&
+                                            <div key={ idx } className="my-2 f-auto">
+                                                <p className='font-m f-bold mb-2'>{ cd.code }</p>
+                                                <div className='radius-default' style={{ border: "1px solid #ededed"}}>
+                                                    {
+                                                        cd.info.map((c, id) => {
+                                                            if( id % 2 === 0 ){
+                                                                return (
+                                                                    <div className='flex-row p-2 flex-left' key={ id } style={{ background: "rgba(0,0,0,.08)" }}>
+                                                                        <p className='font-s f-auto f-bold'>{ c.title }</p>       
+                                                                        <p className='font-s f-auto f-bold'>{ c.description }</p>       
+                                                                    </div>
+                                                                )
+                                                            }
+
                                                             return (
-                                                                <div className='flex-row p-2 flex-left' key={ id } style={{ background: "rgba(0,0,0,.08)" }}>
-                                                                    <p className='font-s f-auto f-bold'>{ c.title }</p>       
-                                                                    <p className='font-s f-auto f-bold'>{ c.description }</p>       
+                                                                <div className='flex-row p-2 flex-left' key={ id }>
+                                                                    <p className="font-s f-auto f-bold">{ c.title }</p>       
+                                                                    <p className="font-s f-auto f-bold">{ c.description }</p>       
                                                                 </div>
                                                             )
-                                                        }
-
-                                                        return (
-                                                            <div className='flex-row p-2 flex-left' key={ id }>
-                                                                <p className="font-s f-auto f-bold">{ c.title }</p>       
-                                                                <p className="font-s f-auto f-bold">{ c.description }</p>       
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
+                                                        })
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
-                                    ) )
-                                }
+                                        ) )
+                                    }
+                                </div>
+                                <div className='f-auto flex-col'>
+
+                                    {
+                                        characteristicsDetail?.map(( cd, idx ) => (
+                                            idx % 2 === 1 ?
+                                            <div key={ idx } className="my-2 f-auto">
+                                                <p className='font-m f-bold mb-2'>{ cd.code }</p>
+                                                <div className='radius-default' style={{ border: "1px solid #ededed"}}>
+                                                    {
+                                                        cd.info.map((c, id) => {
+                                                            if( id % 2 === 0 ){
+                                                                return (
+                                                                    <div className='flex-row p-2 flex-left' key={ id } style={{ background: "rgba(0,0,0,.08)" }}>
+                                                                        <p className='font-s f-auto f-bold'>{ c.title }</p>       
+                                                                        <p className='font-s f-auto f-bold'>{ c.description }</p>       
+                                                                    </div>
+                                                                )
+                                                            }
+
+                                                            return (
+                                                                <div className='flex-row p-2 flex-left' key={ id }>
+                                                                    <p className="font-s f-auto f-bold">{ c.title }</p>       
+                                                                    <p className="font-s f-auto f-bold">{ c.description }</p>       
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                            : 
+                                                <div key={idx}></div>
+                                        ) )
+                                    }
+                                </div>
                             </div>
                             <div className='br mt-full'></div>
                             <section>
@@ -173,7 +222,7 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                             <section>
                                 <h2 className='font-xxl mt-3 f-normal'>Preguntas y respuestas</h2>
                                 <p className='mt-3 font-l f-bold'>Últimas realizadas</p>
-                                {
+                                {/* {
                                     questions.questions.map( q => (
                                         <div key={ q.created } className="mt-2">
                                             <p style={{ fontSize: "1.6rem" }}>{ q.question }</p>
@@ -189,7 +238,7 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
                                             </div>
                                         </div>
                                     ) )
-                                }
+                                } */}
                                 <div className='br my-full'></div>
                             </section>
                             {/* <section>
@@ -304,9 +353,9 @@ const DetailProductPage: NextPage<Props> = ({ questions, opinions, producto: { t
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     //En la url vamos a tener el titulo del producto y luego su ID, para 
-    const { producto: [ title, _id ] } = params as { producto: string[] } 
+    const { producto: [ title, _id ] } = params as { producto: string[] }
 
-    const producto = getProduct( _id );
+    const producto = await getProduct( _id );
     const questions = getAllObjs( _id );
     const opinions = Opinions.filter( opinion => opinion.idProduct === _id );
 
@@ -322,8 +371,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     return {
         props: {
             producto: JSON.parse( JSON.stringify( producto ) ),
-            questions: JSON.parse(JSON.stringify( questions[0] )),
-            opinions: JSON.parse( JSON.stringify( opinions ) )
+            // questions: JSON.parse(JSON.stringify( questions[0] )) || null,
+            // opinions: JSON.parse( JSON.stringify( opinions ) ) || null
         }
     }
 }

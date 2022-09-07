@@ -14,6 +14,7 @@ import { IUser } from '../../interface/users'
 import { productsDB } from '../../database/products'
 import { ProductList } from '../../components/products/ProductList'
 import { IProduct } from '../../interface/products'
+import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
@@ -131,8 +132,11 @@ const construccion: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
-    const subCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "construccion" )
-    const marcas = userDB.filter( marca => marca.type === "company-brand" && marca.category?.find( m => m === "construccion"))
+    const response = await fetchApi.get("/subcategory/construccion");
+    const subCategories = await response.data;
+
+    const response_2 = await fetchApi.get("/user/store-of-construccion");
+    const marcas = await response_2.data;
 
     return {
         props: {
@@ -141,6 +145,5 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         }
     }
 }
-
 
 export default construccion

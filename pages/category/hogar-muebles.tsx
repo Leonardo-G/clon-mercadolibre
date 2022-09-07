@@ -11,6 +11,7 @@ import { ISubCategory } from '../../interface/subCategory';
 import { IUser } from '../../interface/users';
 import { CardGridList } from '../../components/grid/CardGridList';
 import { ImagesCards } from '../../components/imageCard/ImagesCards';
+import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
@@ -77,12 +78,15 @@ const HogarMueblesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const getSubCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "hogar-muebles" );
-    const marcas = userDB.filter( user => user.category?.includes("hogar-muebles") && user.type === "company-brand");
+    
+    const response = await fetchApi.get("/subcategory/hogar-muebles");
+    const subCategories = await response.data;
+    const response_2 = await fetchApi.get("/user/store-of-hogar-muebles");
+    const marcas = await response_2.data;
 
     return {
         props: {
-            subCategories: getSubCategories,
+            subCategories,
             marcas
         }
     }

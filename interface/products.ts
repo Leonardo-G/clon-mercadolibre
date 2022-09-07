@@ -2,8 +2,8 @@ export interface IProduct {
     _id: string;
     title: string;
     imgProduct: string[];
-    category: ICategoryObj[],
-    subCategory: ISubCategoryObj[],
+    category: CategoryCodeProduct[],
+    subCategory: SubCategoryCodeProduct[],
     characteristics?: string[],
     characteristicsDetail?: 
         {
@@ -30,7 +30,7 @@ export interface IProduct {
     };
     interests: {
         accept: boolean;
-        until?: 3 | 6 | 12 | null
+        until: 3 | 6 | 12 | 0
     };
     condition: "nuevo" | "usado" | "reacondicionado";
 }

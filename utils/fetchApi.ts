@@ -1,11 +1,13 @@
+import { fetchApi } from "../axios/config";
 import { productsDB } from "../database/products";
 import { Questions } from "../database/questions";
 import { IProduct } from "../interface/products";
 
-export const getProduct = ( _id: string ): IProduct => {
-    const producto = productsDB.filter( p => p._id === _id );
+export const getProduct = async ( _id: string ): Promise<IProduct> => {
+    const response = await fetchApi.get( `/products/${ _id }` );
+    const producto = await response.data
 
-    return producto[0]
+    return producto
 }
 
 export const getAllObjs = ( _id: string ) => {

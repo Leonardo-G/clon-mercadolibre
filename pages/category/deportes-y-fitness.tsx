@@ -14,6 +14,7 @@ import { userDB } from '../../database/users';
 import { IUser } from '../../interface/users';
 import { CardCricle } from '../../components/cards/CardCricle';
 import { ImagesCards } from '../../components/imageCard/ImagesCards';
+import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
@@ -71,12 +72,14 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const getSubCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "deportes-y-fitness" )
-    const marcas = userDB.filter( marca => marca.category?.includes("deportes-y-fitness") && marca.type === "company-brand" )
+    const response = await fetchApi.get("/subcategory/deportes-y-fitness");
+    const subCategories = await response.data;
+    const response_2 = await fetchApi.get("/user/store-of-deportes-y-fitness");
+    const marcas = await response_2.data;
 
     return {
         props: {
-            subCategories: getSubCategories,
+            subCategories: subCategories,
             marcas
         }
     }

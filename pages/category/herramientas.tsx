@@ -12,6 +12,7 @@ import { ProductList } from '../../components/products/ProductList'
 import { userDB } from '../../database/users';
 import { IUser } from '../../interface/users'
 import { productsDB } from '../../database/products'
+import { fetchApi } from '../../axios/config'
 
 interface Props {
   //Todas las subcategorias de Herramientas
@@ -93,15 +94,17 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const subCategories = subCategoriesDB.filter( ( subCategory: ISubCategory )  => subCategory.category.code === "herramientas" );
-  const marcas = userDB.filter( marca => marca.type === "company-brand" && marca.category?.find( m => m === "herramientas"))
+    const response = await fetchApi.get("/subcategory/herramientas");
+    const subCategories = await response.data;
+    const response_2 = await fetchApi.get("/user/store-of-herramientas");
+    const marcas = await response_2.data;
 
-  return {
-    props: {
-        subCategories,
-        marcas
+    return {
+        props: {
+            subCategories,
+            marcas
+        }
     }
-  }
 }
 
 export default CategoriesPage

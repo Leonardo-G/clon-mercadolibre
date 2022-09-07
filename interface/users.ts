@@ -3,8 +3,8 @@ import { CategoryCodeProduct } from "./products";
 export interface IUser {
     _id: string;
     username: string;
-    type: "default" | "company-brand";
+    type: "user" | "official-store";
     imgUrl: string;
     created: string;
-    category?: CategoryCodeProduct[]
+    categories?: CategoryCodeProduct[]
 }

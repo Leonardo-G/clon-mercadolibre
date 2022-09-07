@@ -12,6 +12,7 @@ import { IUser } from '../../interface/users';
 import { ProductList } from '../../components/products/ProductList'
 import { productsDB } from '../../database/products';
 import { CardsList } from '../../components/cards/CardsList';
+import { fetchApi } from '../../axios/config'
 
 interface Props {
     subCategories: string[];
@@ -88,12 +89,14 @@ const RopaAccesoriosPage: NextPage<Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const getSubCategories = subCategoriesDB.filter( subCategory => subCategory.category.code === "ropa-y-accesorios" );
-    const marcas = userDB.filter( user => user.category?.includes("ropa-y-accesorios") && user.type === "company-brand");
+    const response = await fetchApi.get("/subcategory/ropa-y-accesorios");
+    const subCategories = await response.data;
+    const response_2 = await fetchApi.get("/user/store-of-ropa-y-accesorios");
+    const marcas = await response_2.data;
 
     return {
         props: {
-            subCategories: getSubCategories.map( s => s.imgUrl),
+            subCategories: subCategories.map( s => s.imgUrl),
             marcas
         }
     }
