@@ -4,15 +4,8 @@ export interface IProduct {
     imgProduct: string[];
     category: CategoryCodeProduct[],
     subCategory: SubCategoryCodeProduct[],
-    characteristics?: string[],
-    characteristicsDetail?: 
-        {
-            code: string,
-            info: {
-                title: string;
-                description: string
-            }[]
-        }[];
+    characteristics: string[],
+    characteristicsDetail: ICharacteristicsDetail[]
     recommended: boolean;
     visited: number;
     description: string;
@@ -20,10 +13,7 @@ export interface IProduct {
     sold: number;
     created: number;
     offer: boolean;
-    priceDetail:{
-        price: number;
-        offerPrice?: number
-    };
+    priceDetail: IPriceDetail;
     shipping: {
         code: 0 | 1 | 2,
         detail: "Envío gratis" | undefined
@@ -33,6 +23,20 @@ export interface IProduct {
         until: 3 | 6 | 12 | 0
     };
     condition: "nuevo" | "usado" | "reacondicionado";
+    tags: string[];
+}
+
+export interface ICharacteristicsDetail {
+    code: string,
+    info: {
+        title: string;
+        description: string
+    }[]
+}
+
+export interface IPriceDetail{
+    price: number;
+    offerPrice?: number
 }
 
 export interface ICategoryObj {

@@ -28,7 +28,7 @@ export const DeliveryUI: FC<Props> = ({ detail, code, shadow }) => {
                 style={{background: `${ shadow ? "#00a650": ""}`, color: `${ shadow ? "#fff" : ""}`, padding: `${ shadow ? '0.4rem' : ''}`, width: "fit-content"}}
             >{ detail }
             </p>
-            <p>
+            <div>
                 <FontAwesomeIcon 
                     icon={ faBoltLightning } 
                     style={{ color: "#00a650", fontSize: "1.3rem", paddingLeft: "0.5rem" }}
@@ -36,7 +36,7 @@ export const DeliveryUI: FC<Props> = ({ detail, code, shadow }) => {
                 <span className='title-green-shipping upper italic' style={{ marginLeft: "0.2rem", letterSpacing: "0.6px", fontSize: "1.2rem", fontWeight: 700 }}>
                     Full
                 </span>
-            </p>
+            </div>
         </div>
     )
 }

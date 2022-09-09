@@ -9,13 +9,14 @@ import { DeliveryUI } from '../UI/DeliveryUI';
 import Link from 'next/link';
 
 interface Props {
-    product: IProduct
+    product: IProduct;
+    widthItem?: string; // en REM
 }
 
-export const ProductCardS: FC<Props> = ({ product: { _id, offer, title, priceDetail, imgProduct, shipping, interests } }) => {
+export const ProductCardS: FC<Props> = ({ widthItem, product: { _id, offer, title, priceDetail, imgProduct, shipping, interests } }) => {
     return (
         <Link href={{pathname: `/producto/${ title.toLowerCase().replace(/(\s{1,})|\//g, "-") }/${ _id }`}} passHref>
-            <a className={ styles['product-card-s'] }>
+            <a className={ styles['product-card-s'] } style={{ width: `${widthItem ? widthItem : "100%"}` }}>
                 <div className={ styles.img__contain }>
                     <Image 
                         src={ imgProduct[0] }
