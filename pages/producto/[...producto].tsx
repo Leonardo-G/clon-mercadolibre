@@ -1,7 +1,6 @@
 
 import { NextPage, GetServerSideProps } from 'next';
 import { LayoutDefault } from '../../components/layout/LayoutDefault';
-import { Opinions } from '../../database/opinions';
 
 import { IProduct } from '../../interface/products';
 import { getAllObjs, getProduct } from '../../utils/fetchApi';
@@ -12,6 +11,7 @@ import { Tags } from '../../components/detailProduct/Tags';
 import { InfoProduct } from '../../components/detailProduct/InfoProduct';
 import { ProductsRecommended } from '../../components/detailProduct/ProductsRecommended';
 import { Questions } from '../../components/detailProduct/Questions';
+import { Opinions } from '../../components/detailProduct/Opinions';
 
 interface Props {
     producto: IProduct;
@@ -64,6 +64,8 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
 
                             <Questions idProduct={ _id }/>
 
+                            <Opinions idProduct={ _id }/>
+
                             {/* <section>
                                 <h2 className='font-xxl mt-3 f-normal'>Opiniones sobre el producto</h2>
                                 <div className='br mt-2'></div>
@@ -91,8 +93,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const { producto: [ title, _id ] } = params as { producto: string[] }
 
     const producto = await getProduct( _id );
-    const questions = getAllObjs( _id );
-    const opinions = Opinions.filter( opinion => opinion.idProduct === _id );
 
     if ( !producto ) {
         return {
@@ -105,9 +105,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
         props: {
-            producto: JSON.parse( JSON.stringify( producto ) ),
-            // questions: JSON.parse(JSON.stringify( questions[0] )) || null,
-            // opinions: JSON.parse( JSON.stringify( opinions ) ) || null
+            producto: JSON.parse( JSON.stringify( producto ) )
         }
     }
 }

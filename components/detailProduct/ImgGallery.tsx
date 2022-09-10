@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 interface Props {
     images: string[];
@@ -13,6 +13,10 @@ export const ImgGallery: FC<Props> = ({ images, title }) => {
     const handleChangeImage = ( image: string ) => {
         setCurrentPage( image )
     }
+
+    useEffect(() => {
+        setCurrentPage( images[0] )
+    }, [ images ])
 
     return (
         <>

@@ -15,7 +15,7 @@ interface Props {
 
 export const ProductCardS: FC<Props> = ({ widthItem, product: { _id, offer, title, priceDetail, imgProduct, shipping, interests } }) => {
     return (
-        <Link href={{pathname: `/producto/${ title.toLowerCase().replace(/(\s{1,})|\//g, "-") }/${ _id }`}} passHref>
+        <Link href={{pathname: `/producto/${ title.toLowerCase().replace(/(\s{1,})|\//g, "-") }/${ _id }`}}>
             <a className={ styles['product-card-s'] } style={{ width: `${widthItem ? widthItem : "100%"}` }}>
                 <div className={ styles.img__contain }>
                     <Image 
