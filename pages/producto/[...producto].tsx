@@ -12,11 +12,11 @@ import { InfoProduct } from '../../components/detailProduct/InfoProduct';
 import { ProductsRecommended } from '../../components/detailProduct/ProductsRecommended';
 import { Questions } from '../../components/detailProduct/Questions';
 import { Opinions } from '../../components/opinions/OpinionsContainer';
+import { ImageFull } from '../../components/imageCard/ImageFull';
+import Link from 'next/link';
 
 interface Props {
     producto: IProduct;
-    // questions: IQuestion;
-    // opinions: IOpinion[];
 }
 
 const DetailProductPage: NextPage<Props> = ({ producto }) => {
@@ -30,7 +30,7 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
         >
             <Tags tags={ tags }/>
             <div className='container mt-2 background-wh radius-default'>
-                <div className='flex-row'>
+                <div className='flex-row relative'>
                     <div style={{ flex: 1 }}>
 
                         <div className='flex-row' style={{ flex: 1 }}>
@@ -51,7 +51,7 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                         </div>
                         <div className='my-3 ml-3 br mt-full'></div>
                         <ProductsRecommended subCategory={ subCategory[0] }/>
-                        <div className='pl-3'>
+                        <div className='pl-3 py-2'>
                             <CharacteristicsDetail characteristicsDetail={ characteristicsDetail }/>
                             <div className='br mt-full'></div>
                             <section>
@@ -66,21 +66,52 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
 
                             <Opinions idProduct={ _id }/>
 
-                            {/* <section>
-                                <h2 className='font-xxl mt-3 f-normal'>Opiniones sobre el producto</h2>
-                                <div className='br mt-2'></div>
-                                <div>
-
-                                </div>
-                            </section> */}
                         </div>
                     </div>
                     <div 
-                        style={{ flex: characteristics.length > 0 ? 0.4 : 0.5 }}
+                        style={{ 
+                            flex: characteristics.length > 0 ? 0.4 : 0.5,
+                            position: "sticky",
+                            top: 0
+                        }}
+                        className="pb-2"
                     >
                         <AsideDetailProduct producto={ producto }/>
                         
                     </div>
+                </div>
+            </div>
+            <div className='container my-3 flex' style={{ height: "25rem" }}>
+                <div className='f-auto'>
+                    <ImageFull 
+                        src='https://http2.mlstatic.com/D_NQ_844168-MLA51443063649_092022-OO.jpg'
+                        height='25rem'
+                        objectFit='cover'
+                    />
+                </div>
+                <div 
+                    className='flex-col flex-center pl-3'
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                        flex: .6,
+                        color: "#ffffff",
+                        background: "#8533af"
+                    }}
+                >
+                    <p 
+                        className='mb font-s upper color-wh'
+                        style={{
+                            letterSpacing: "4px"
+                        }}    
+                    >sólo por hoy</p>
+                    <p 
+                        className='mb-2 color-wh upper f-bold'
+                        style={{ fontSize: "2.8rem", width: "60%" }}    
+                    >ofertas y hasta 12x sin interés</p>
+                    <Link href="/" passHref>
+                        <a className='font-l color-wh'> Ver más </a>
+                    </Link>
                 </div>
             </div>
         </LayoutDefault>

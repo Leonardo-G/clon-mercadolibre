@@ -13,108 +13,112 @@ interface Props {
 
 export const AsideDetailProduct: FC<Props> = ({ producto: { characteristics, priceDetail, condition, title, sold, recommended, shipping, offer, category, stock } }) => {
     return (
-        <>
-            <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
-                {
-                    characteristics.length === 0 &&
-                    <InfoProduct 
-                        condition={ condition } 
-                        recommended={ recommended } 
-                        title={ title } 
-                        sold={ sold } 
-                        category={ category } 
-                        offer={ offer } 
-                        priceDetail={ priceDetail } 
-                        characteristics={ characteristics }                        
-                    />
-                }
-                <DeliveryUI code={ shipping.code } detail={ shipping.detail }/>
-                <div className='flex-row flex-left mt-1 gap-none'>
-                    <FontAwesomeIcon 
-                        className='color-blue'
-                        style={{ fontSize: "1.5rem" }}
-                        icon={ faLocationDot }
-                    />
-                    <p className='ml-1 color-blue'>Enviar a Capital Federal 14xx</p>
-                </div>
-                <div className='mt-2 line-h'>
-                    <div>
-                        <span>Vendido por </span>
-                        <span className='color-blue upper'>Usuario</span>
+        <div style={{ height: "100%" }}>
+            <div style={{ position: "sticky", top: 0 }}>
+                <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
+                    {
+                        characteristics.length === 0 &&
+                        <InfoProduct 
+                            condition={ condition } 
+                            recommended={ recommended } 
+                            title={ title } 
+                            sold={ sold } 
+                            category={ category } 
+                            offer={ offer } 
+                            priceDetail={ priceDetail } 
+                            characteristics={ characteristics }                        
+                        />
+                    }
+                    <DeliveryUI code={ shipping.code } detail={ shipping.detail }/>
+                    <div className='flex-row flex-left mt-1 gap-none'>
+                        <FontAwesomeIcon 
+                            className='color-blue'
+                            style={{ fontSize: "1.5rem" }}
+                            icon={ faLocationDot }
+                        />
+                        <p className='ml-1 color-blue'>Enviar a Capital Federal 14xx</p>
                     </div>
-                    <p className='line-height'>MercadoLider | 1 venta</p>
-                    <p className='color-grey-2 font-s'>Hace Factura A</p>
-                </div>
-                {
-                    stock > 0 &&
+                    <div className='mt-2 line-h'>
+                        <div>
+                            <span>Vendido por </span>
+                            <span className='color-blue upper'>Usuario</span>
+                        </div>
+                        <p className='line-height'>MercadoLider | 1 venta</p>
+                        <p className='color-grey-2 font-s'>Hace Factura A</p>
+                    </div>
+                    {
+                        stock > 0 &&
+                        <div className='mt-2'>
+                            <p className='f-bold' style={{fontSize: "1.6rem" }}>Stock disponible</p>
+                            <div className='mt-2 flex-row flex-left gap-none'>
+                                <p style={{fontSize: "1.6rem" }}>Cantidad</p>
+                                <input 
+                                    className='ml-1 center font-m'
+                                    style={{ width: "5rem", border: "none", borderBottom: "1px solid #3483fa" }}
+                                    type="number" 
+                                    name="quantity"
+                                    defaultValue={ 1 }
+                                />
+                                <p className='ml-1 color-grey-2'>({ stock } disponibles)</p>
+                            </div>
+                        </div>
+                    }
+                    <div className='flex-col mt-2'>
+                        <button className='btn btn--blue'>Comprar ahora</button>
+                        <button className='btn btn-blue-2 mt-1'>Agregar al carrito</button>
+                    </div>
                     <div className='mt-2'>
-                        <p className='f-bold' style={{fontSize: "1.6rem" }}>Stock disponible</p>
-                        <div className='mt-2 flex-row flex-left gap-none'>
-                            <p style={{fontSize: "1.6rem" }}>Cantidad</p>
-                            <input 
-                                className='ml-1 center font-m'
-                                style={{ width: "5rem", border: "none", borderBottom: "1px solid #3483fa" }}
-                                type="number" 
-                                name="quantity"
-                                defaultValue={ 1 }
-                            />
-                            <p className='ml-1 color-grey-2'>({ stock } disponibles)</p>
+                        <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                            <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faRotateLeft }/>
+                            <div>
+                                <span className='color-blue'>Devolución gratis.</span>
+                                <span>Tenés 30 días desde que lo recibís</span>
+                            </div>
                         </div>
                     </div>
-                }
-                <div className='flex-col mt-2'>
-                    <button className='btn btn--blue'>Comprar ahora</button>
-                    <button className='btn btn-blue-2 mt-1'>Agregar al carrito</button>
+                    <div className='mt-2'>
+                        <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                            <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faCircleCheck }/>
+                            <div>
+                                <span className='color-blue'>Compra Protegida.</span>
+                                <span>, recibí el producto que esperabas o te devolvemos tu dinero.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mt-2'>
+                        <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                            <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faTrophy }/>
+                            <div>
+                                <span className='color-blue'>Mercado Puntos</span>
+                                <span>, Sumas 50 puntos.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mt-2'>
+                        <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
+                            <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faAward }/>
+                            <p>24 meses de garantía de fábrica.</p>
+                        </div>
+                    </div>
                 </div>
-                <div className='mt-2'>
-                    <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
-                        <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faRotateLeft }/>
+                <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)", position: "sticky", top: 0 }}>
+                    <p className='mt-1' style={{ fontSize: "1.8rem" }}>Información sobre el vendedor</p>
+                    <div className='color-grey-2 mt-2 flex-row flex-left'>
+                        <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faLocationDot }/>
                         <div>
-                            <span className='color-blue'>Devolución gratis.</span>
-                            <span>Tenés 30 días desde que lo recibís</span>
+                            <span className='font-m '>Ubicación</span>
+                            <p className='f-weight'>xxxx, Buenos aires</p>
                         </div>
                     </div>
-                </div>
-                <div className='mt-2'>
-                    <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
-                        <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faCircleCheck }/>
-                        <span className='color-blue'>Compra Protegida.</span>
-                        <span>, recibí el producto que esperabas o te devolvemos tu dinero.</span>
-                    </div>
-                </div>
-                <div className='mt-2'>
-                    <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
-                        <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faTrophy }/>
+                    <div className='col-green mt-2 flex-row flex-left color-green'>
+                        <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faAward }/>
                         <div>
-                            <span className='color-blue'>Mercado Puntos</span>
-                            <span>, Sumas 50 puntos.</span>
+                            <span className='font-m color-green f-bold'>MercadoLider</span>
+                            <p className='f-weight'>xxxx, Buenos aires</p>
                         </div>
-                    </div>
-                </div>
-                <div className='mt-2'>
-                    <div className='flex gap-1 align-center color-grey-2 f-weight line-h'>
-                        <FontAwesomeIcon style={{ fontSize: "1.5rem" }} icon={ faAward }/>
-                        <p>24 meses de garantía de fábrica.</p>
                     </div>
                 </div>
             </div>
-            <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
-                <p className='mt-1' style={{ fontSize: "1.8rem" }}>Información sobre el vendedor</p>
-                <div className='color-grey-2 mt-2 flex-row flex-left'>
-                    <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faLocationDot }/>
-                    <div>
-                        <span className='font-m '>Ubicación</span>
-                        <p className='f-weight'>xxxx, Buenos aires</p>
-                    </div>
-                </div>
-                <div className='col-green mt-2 flex-row flex-left color-green'>
-                    <FontAwesomeIcon style={{ fontSize: "1.7rem" }} icon={ faAward }/>
-                    <div>
-                        <span className='font-m color-green f-bold'>MercadoLider</span>
-                        <p className='f-weight'>xxxx, Buenos aires</p>
-                    </div>
-                </div>
-            </div>
-        </>
+        </div>
     )
 }

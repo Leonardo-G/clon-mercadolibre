@@ -144,6 +144,10 @@ ul, ol {
   justify-content: left;
 }
 
+.flex-center{
+  justify-content: center;
+}
+
 .flex-row-2{
   display: flex;
   align-items: flex-end;

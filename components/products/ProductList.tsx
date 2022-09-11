@@ -10,7 +10,7 @@ interface Props {
 
 export const ProductList: FC<Props> = ({ products, widthItem }) => {
     return (
-      <div className='relative mt-2 ov-hidd' style={{ minHeight: "38rem" }}>
+      <div className='relative mt-2' style={{ minHeight: "38rem"}}>
           <div className='pos-initial flex c-gap-2' id='carrusel'>
               {
                   products.map(( product, idx ) => {
