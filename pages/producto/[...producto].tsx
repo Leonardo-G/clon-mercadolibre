@@ -11,7 +11,7 @@ import { Tags } from '../../components/detailProduct/Tags';
 import { InfoProduct } from '../../components/detailProduct/InfoProduct';
 import { ProductsRecommended } from '../../components/detailProduct/ProductsRecommended';
 import { Questions } from '../../components/detailProduct/Questions';
-import { Opinions } from '../../components/detailProduct/Opinions';
+import { Opinions } from '../../components/opinions/OpinionsContainer';
 
 interface Props {
     producto: IProduct;

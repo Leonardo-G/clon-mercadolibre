@@ -13,7 +13,6 @@ export const LineProgress: FC<Props> = ({ rate, total, idx }) => {
             <div style={{ width: "17rem", display: "inline-block", verticalAlign: "0.2rem", marginLeft: "2rem" }}>
                 <div
                     style={{ 
-                        zIndex: 99,
                         backgroundColor : "rgba(0,0,0,.1)", 
                         height: ".4rem", 
                         width: "17rem",
@@ -31,7 +30,6 @@ export const LineProgress: FC<Props> = ({ rate, total, idx }) => {
                             height: ".4rem", 
                             width: `${ ( Number(rate) / total ) * 100  }%`,
                             borderRadius: "100px",
-                            zIndex: 9
                         }}
                     ></div>
                 </div>
