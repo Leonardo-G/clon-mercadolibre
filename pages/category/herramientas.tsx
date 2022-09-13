@@ -5,23 +5,22 @@ import Image from 'next/image'
 
 import { CardsList } from '../../components/cards/CardsList'
 import { LayoutDefault } from '../../components/layout/LayoutDefault'
-import { subCategoriesDB } from '../../database/subCategories'
 import { ISubCategory } from '../../interface/subCategory'
 import { TitleCenter } from '../../components/UI/TitleCenter';
 import { ProductList } from '../../components/products/ProductList'
-import { userDB } from '../../database/users';
 import { IUser } from '../../interface/users'
-import { productsDB } from '../../database/products'
 import { fetchApi } from '../../axios/config'
+import { IProduct } from '../../interface/products'
 
 interface Props {
   //Todas las subcategorias de Herramientas
   subCategories: ISubCategory[]
   //Marcas de herramientas
-  marcas: IUser[]
+  marcas: IUser[];
+  products: IProduct[]
 }
 
-const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
+const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) => {
 
   return (
     <LayoutDefault 
@@ -72,7 +71,7 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
         </div>
         <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
         <div className='container'>
-            <ProductList products={ productsDB }/>
+            <ProductList products={ products }/>
         </div>
         <TitleCenter title='tus marcas favoritos'/>
         <div className='container'>
@@ -94,15 +93,19 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await fetchApi.get("/subcategory/herramientas");
+    const response = await fetchApi.get("/subcategory/herramientas?limit=8");
     const subCategories = await response.data;
-    const response_2 = await fetchApi.get("/user/store-of-herramientas");
+    
+    const response_2 = await fetchApi.get("/user/store-of-herramientas?limit=8");
     const marcas = await response_2.data;
 
+    const response_3 = await fetchApi.get("/products?category=herramientas&limit=5");
+    const products = await response_3.data;
     return {
         props: {
             subCategories,
-            marcas
+            marcas,
+            products
         }
     }
 }

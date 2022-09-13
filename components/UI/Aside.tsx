@@ -1,25 +1,75 @@
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { FC, useState } from 'react'
+import { useRouter } from 'next/router';
+import React, { FC, useRef, useState } from 'react'
+import { IQuerys } from '../../interface/querys';
+import { formatPrice } from '../../utils/formatPrice';
+import { TagsCard } from './TagsCard';
 
 interface Props{
     params?: string[],
-    querys?: { search?: string, shipping?: number };
+    querys: IQuerys;
     results: number
 }
 
 export const Aside:FC<Props> = ({ params, querys, results }) => {
 
-    const [querySearch, setQuerySearch] = useState({
-        search: querys?.search,
-        shipping: querys?.shipping
-    })
+    const [querySearch, setQuerySearch] = useState(querys);
+    const router = useRouter();
+    
+    const handleRemoveQuery = ( query: string ) => {
+        if( querys ) delete querys[query as "category"]
+        setQuerySearch(querys)
+
+        router.push({
+            pathname: "/productos",
+            query: {
+                ...querys
+            }
+        })
+    }
+
+    const newQuery = ( query: string, value: string, query_2?: string, value_2?: string ) => {
+        const q = {
+            ...querySearch,
+            [query]: value
+        }
+        if ( query_2 ) q[query_2] = value_2;
+
+        setQuerySearch(q)
+
+        router.push({
+            pathname: "/productos",
+            query: {
+                ...q
+            }
+        })
+    }
 
     return (
         <div style={{ flex: 1 }} className="mt-full">
             <h1 className='font-xl capitalize font-grey f-bold mt-3' style={{ width: "80%" }}>{` ${ params ? params.toString().replace(/,/, " ") : querys?.search } `}</h1>
             <p className='font-grey f-weight '>{results} { results === 1 ? "resultado" : "resultados"  }</p>
 
+            {
+                querys &&
+                <div className='flex r-gap c-gap-1 mt-1 wrap'>
+                    {
+                        Object.entries( querys! ).map( q => {
+                            if (querySearch.price_gte && querySearch.price_lte && q[0] === "price_lte" ){
+                                return (
+                                    <TagsCard query={ "untilPrice" } value={ `${ formatPrice(Number(querySearch.price_gte)) } a ${ formatPrice(Number(querySearch.price_lte)) }` } handleRemoveQuery={ handleRemoveQuery }/>
+                                )
+                            }
+                            if ( querySearch.price_gte && querySearch.price_lte && q[0] === "price_gte" ) return;
+                            
+                            return (
+                                <TagsCard key={ q[0] } query={ q[0] } value={ q[1] } handleRemoveQuery={ handleRemoveQuery }/>
+                            )
+                        })
+                    }
+                </div>
+            }
             <div className='mt-3'>
                 <div>
                     <div className='background-wh p-2 flex-row align-center'>
@@ -54,37 +104,82 @@ export const Aside:FC<Props> = ({ params, querys, results }) => {
                         </div>
                     </div>
                 </div>
-                <div className='mt-3'>
-                    <p className='color-grey-bold' style={{ fontSize: "1.6rem" }}>Categorías</p>                    
-                    
-                    <ol className='p-none mt-1 font-size-default'>
-                        <li className='subtitle-grey f-normal mt'>Herramientas <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Construcción <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Deportes y Fitness <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Hogar y Muebles <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Electrodomésticos <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Ropa y Accesorios <span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                    </ol>
-                </div>
-                <div>
-                    <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Condición</p>
-                    <ol className='p-none mt-1 font-size-default'>
-                        <li className='subtitle-grey f-normal mt'>Nuevo<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Usado<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                    </ol>
-                </div>
-                <div>
-                    <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Pago</p>
-                    <ol className='p-none mt-1 font-size-default'>
-                        <li className='subtitle-grey f-normal mt'>Cuotas sin interés<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                    </ol>
-                </div>
+                {
+                    !querySearch?.category &&
+                    <div className='mt-3'>
+                        <p className='color-grey-bold' style={{ fontSize: "1.6rem" }}>Categorías</p>                    
+                        
+                        <ol className='p-none mt-1 font-size-default'>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "herramientas" ) }
+                            >Herramientas <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "construccion" ) }
+                            >Construcción <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "deportes-y-fitness" ) }
+                            >Deportes y Fitness <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "hogar-y-muebles" ) }
+                            >Hogar y Muebles <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "electrodomesticos" ) }
+                            >Electrodomésticos <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "category", "ropa-y-accesorios" ) }
+                            >Ropa y Accesorios <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                        </ol>
+                    </div>
+                }
+                {
+                    !querySearch.condition &&
+                    <div>
+                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Condición</p>
+                        <ol className='p-none mt-1 font-size-default'>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "condition", "nuevo" ) }
+                            >Nuevo<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "condition", "usado" ) }
+                            >Usado<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                        </ol>
+                    </div>
+                }
+                {
+                    !querySearch.interest &&
+                    <div>
+                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Pago</p>
+                        <ol className='p-none mt-1 font-size-default'>
+                            <li 
+                                className='subtitle-grey f-normal mt pointer'
+                                onClick={ () => newQuery( "interest", "true" ) }
+                                >Cuotas sin interés<span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        </ol>
+                    </div>
+                }
                 <div>
                     <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Precio</p>
                     <ol className='p-none mt-1 font-size-default'>
-                        <li className='subtitle-grey f-normal mt'>Hasta $ 3.500<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>$ 3.500 a $ 7.000<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        <li className='subtitle-grey f-normal mt'>Más de $ 7.000<span className='pl col-grey-w f-weight'>(1.751)</span></li>
+                        <li 
+                            className='subtitle-grey f-normal mt pointer'
+                            onClick={ () => newQuery( "price_lte", "3500" ) }
+                        >Hasta $ 3.500<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                        <li 
+                            className='subtitle-grey f-normal mt pointer'
+                            onClick={ () => newQuery( "price_gte", "3500", "price_lte", "7000" ) }
+                        >$ 3.500 a $ 7.000<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
+                        <li 
+                            className='subtitle-grey f-normal mt pointer'
+                            onClick={ () => newQuery( "price_gte", "7000" ) }
+                        >Más de $ 7.000<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
                     </ol>
                 </div>
                 <div>

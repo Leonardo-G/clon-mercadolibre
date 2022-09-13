@@ -19,11 +19,11 @@ export const DeliveryUI: FC<Props> = ({ detail, code, shadow }) => {
         return (
             <div className='flex align-center'>
                 <FontAwesomeIcon 
-                    className='mt-1 font-m'
+                    className=' font-m'
                     icon={ faTruckFast }
                     style={{ color: "#00a650", paddingRight: "0.5rem" }}    
                 />
-                <p className='color-green mt-1 font-m'>{ detail }</p>
+                <p className='color-green font-m'>{ detail }</p>
             </div>
         )
     }
@@ -32,11 +32,11 @@ export const DeliveryUI: FC<Props> = ({ detail, code, shadow }) => {
         <div className='flex-row-center'>
             <p 
                 className='title-green-shipping radius-default f-normal' 
-                style={{background: `${ shadow ? "##00a650": ""}`, color: `${ shadow ? "#fff" : ""}`, padding: `${ shadow ? '0.4rem' : ''}`, width: "fit-content"}}
+                style={{background: `${ shadow ? "#00a650": ""}`, color: `${ shadow ? "#fff" : ""}`, padding: `${ shadow ? '0.4rem' : ''}`, width: "fit-content"}}
             >{ detail }
             </p>
             <div>
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
                     icon={ faBoltLightning } 
                     style={{ color: "#00a650", fontSize: "1.3rem", paddingLeft: "0.5rem" }}
                 />

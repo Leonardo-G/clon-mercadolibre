@@ -12,7 +12,7 @@ interface Props {
     item: IProduct
 }
 
-export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail, offer, shipping, recommended }}) => {
+export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail, offer, shipping, recommended, interests, condition }}) => {
  
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -38,7 +38,7 @@ export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail,
                 </a>
             </Link>
             <Link href={{pathname: `/producto/${ title.replace(/(\s{1,})|\//g, "-") }/${ _id }`}} passHref>
-                <a>
+                <a className="f-auto">
                     {
                         recommended &&
 
@@ -47,7 +47,7 @@ export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail,
                             <span style={{ fontSize: "1.2rem", color: "#fff", paddingLeft: "0.5rem" }}>RECOMENDADO</span>
                         </div>
                     }
-                    <h2 className='font-l font-grey f-weight capitalize'>{ title }</h2>
+                    <h2 className='font-l font-grey f-weight capitalize mb-1'>{ title }</h2>
                     <div>
                         <div>
                             {
@@ -69,11 +69,21 @@ export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail,
                                 
                             </p>
                         </div>
-                        <DeliveryUI 
-                            code={ shipping.code }
-                            detail={ shipping.detail }
-                            shadow
-                        />
+                        {
+                            interests.accept &&
+                            <p className='color-green font-xs mt'>Hasta { interests.until } sin interés</p>
+                        }
+                        <div className='mt-2'>
+                            <DeliveryUI 
+                                code={ shipping.code }
+                                detail={ shipping.detail }
+                                shadow
+                            />
+                        </div>
+                        {
+                            condition === "reacondicionado" &&
+                            <p className='color-grey-3 mt-1'>Reacondicionado</p>
+                        }
                     </div>
                 </a>
             </Link>

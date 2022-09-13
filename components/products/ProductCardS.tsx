@@ -53,12 +53,12 @@ export const ProductCardS: FC<Props> = ({ widthItem, product: { _id, offer, titl
                             interests.accept &&
                             <p className='font-green-main'>{ interests.until }x { formatPrice( priceDetail.price / interests.until! ) } sin interés </p> 
                         }
-                        
-                        <DeliveryUI 
-                            code={ shipping.code }
-                            detail={ shipping.detail }
-                        />
-
+                        <div className='mt'>
+                            <DeliveryUI 
+                                code={ shipping.code }
+                                detail={ shipping.detail }
+                            />
+                        </div>
                         <p className={ styles['product-description__title'] }>{ title }</p>
                     </div>
                 </div>

@@ -217,6 +217,18 @@ ul, ol {
   flex: 1;
 }
 
+.r-gap{
+  row-gap: 0.5rem;
+}
+
+.r-gap-2{
+  row-gap: 2rem;
+}
+
+.c-gap-1{
+  column-gap: 1rem;
+}
+
 .c-gap-2{
   column-gap: 2rem;
 }
@@ -259,6 +271,10 @@ ul, ol {
 /* PADDING */
 .p-none{
   padding: 0;
+}
+
+.p{
+  padding: 0.5rem
 }
 
 .p-1{

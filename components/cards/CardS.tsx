@@ -9,7 +9,7 @@ interface Props{
 
 export const CardS: FC<Props> = ({ items }) => {
     return (
-        <Link href={`/productos/${items.category.code}/${ items.subCategory.code }`}>
+        <Link href={`/productos?subcategory=${ items.subCategory.code }`}>
             <a>
                 <div className='relative radius-default ov-hidd my-5 shadow-default'>
                     <div style={{ height: "24rem", width: "28.5rem" }}>
