@@ -1,7 +1,6 @@
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
-import { formatPrice } from '../../utils/formatPrice';
 
 interface Props {
     query: string;
@@ -12,6 +11,14 @@ interface Props {
 export const TagsCard: FC<Props> = ({ query, value, handleRemoveQuery }) => {
 
     if ( query === "search" ) {
+        return <></>
+    }
+
+    if ( query === "shipping" ) {
+        return <></>
+    }
+
+    if ( query === "sort" ) {
         return <></>
     }
     
@@ -28,6 +35,11 @@ export const TagsCard: FC<Props> = ({ query, value, handleRemoveQuery }) => {
                     : query === "untilPrice"
                     ? value
 
+                    : query === "offer"
+                    ? "Oferta"
+
+                    : query === "interest"
+                    ? "Sin interés"
                     : value
                 }
             </p>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { NextPage, GetServerSideProps } from 'next';
 import { IProduct } from '../../interface/products';
@@ -11,19 +11,19 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { NotFound } from '../../components/products/NotFound';
 import { Aside } from '../../components/UI/Aside';
 import { fetchApi } from '../../axios/config';
+import { IQuerys } from '../../interface/querys';
+import { chartUpper } from '../../utils/chartUpper';
 
 interface Props {
     products: IProduct[];
-    params?: string[],
-    query?: { 
-        search: string;
-        category: string;
-        subcategory: string;
-    };
+    params?: string[];
+    query: IQuerys;
     results?: number;
 }
 
 const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, results }) => {
+
+    const [querySearch, setQuerySearch] = useState({...query});
 
     if ( products.length <= 0 ) {
         return (
@@ -32,13 +32,23 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
             </LayoutDefault>
         )
     }
+
+    const newQuery = ( querysUpdate: IQuerys ) => {
+        setQuerySearch({
+            ...query,
+            ...querysUpdate
+        })
+        
+    }
+
     return (
         <LayoutDefault 
             title= {
                 query?.search ?
-                    `${ query?.search } | Mercado Libre`
-                : query?.category ? `${ query?.category } | Mercado Libre`
-                : query?.subcategory! && `${ query?.subcategory } | Mercado Libre`
+                    `${ chartUpper(query?.search) } | Mercado Libre`
+                : query?.category ? `${ chartUpper(query?.category) } | Mercado Libre`
+                : query?.subcategory ? `${ chartUpper(query?.subcategory) } | Mercado Libre`
+                : "Productos | Mercado Libre"
             }   
             description={`Descubrí los productos más buscados que no te podés perder en productos publicado por Mejores vendedores ✓ Con Envío Gratis en 24 hs ❤ Aprovechá Compras Internacionales.`}  
         >
@@ -52,6 +62,9 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                     params={ params }
                     querys={ query }
                     results={ results! }
+                    querySearch={ querySearch }
+                    setQuerySearch={ setQuerySearch }
+                    newQuery={ newQuery }
                 />
                 <div style={{ flex: 3.5 }} className="my-full">
                     <div className='flex-row-center flex-right'>
@@ -62,9 +75,19 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                             WebkitAppearance: "none",
                             outline: "none",
                             padding: "1rem",
-                        }}>
-                            <option value="relevant" selected>Más relevantes</option>
-                            <option value="lower_price">Menor precio</option>
+                        }}
+                            onChange={ (e) => newQuery( e.target.value === "lower_price" 
+                                        ? { sort: "price_asc" }
+                                        : { sort: "relevant" }
+                                    )}
+                        >
+                            <option 
+                                value="relevant" 
+                                selected
+                            >Más relevantes</option>
+                            <option 
+                                value="lower_price"
+                            >Menor precio</option>
                         </select>
                         <FontAwesomeIcon className='color-blue font-s' icon={ faAngleDown }/>
                     </div>
