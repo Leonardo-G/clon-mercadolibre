@@ -51,7 +51,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         }
 
         try {
-            const response = await fetch(`${ process.env.API_URL }/auth/sign-in`, {
+            const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL }/user/sign-in`, {
                 method: "POST",
                 body: JSON.stringify({ username, email, password }),
                 headers: {
@@ -103,7 +103,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     const logIn = async (email: string, password: string): Promise<{ hasError: boolean, error: string }> => {
         
         try {
-            const response = await fetch(`${ process.env.API_URL }/auth/login`, {
+            const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL }/user/login`, {
                 method: "POST",
                 body: JSON.stringify({ email, password }),
                 headers: {

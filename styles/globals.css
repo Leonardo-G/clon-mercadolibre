@@ -122,6 +122,10 @@ ul, ol {
   column-gap: 2rem;
 }
 
+.space-around{
+  justify-content: space-around;
+}
+
 .space-center{
   justify-content: center;
   align-items: center;
@@ -460,6 +464,10 @@ ul, ol {
   cursor: default !important;
 }
 
+.shadow-static{
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+}
+
 .shadow-default{
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
   transition: box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
@@ -612,6 +620,13 @@ ul, ol {
   bottom: 0;
   left: 0;
   z-index: 9;
+}
+
+.pos-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pos-bottom{
