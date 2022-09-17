@@ -30,7 +30,7 @@ export const Modal: FC<Props> = ({ handleShowModal, average, totalOpinions, rati
         }
 
         if ( type === "positive" ) {
-            setOpinionsShort( opinions.filter(( o, idx ) => o.rate >= 3 ) )
+            setOpinionsShort( opinions.filter(( o, idx ) => o.rate >= 4 ) )
             setOpinionsShow("positive")
             return;
         }
@@ -51,7 +51,8 @@ export const Modal: FC<Props> = ({ handleShowModal, average, totalOpinions, rati
                 width: "100%",
                 height: "100%",
                 backgroundColor: "rgba(0,0,0,.8)",
-                paddingBottom: "5rem"
+                paddingBottom: "5rem",
+                zIndex: 999
             }}
         >
             <div

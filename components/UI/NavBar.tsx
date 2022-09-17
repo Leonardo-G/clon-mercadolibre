@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import Image from 'next/future/image'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import logo from "../../public/assets/logo.png"
 import dplus from "../../public/assets/dplus.webp"
@@ -30,7 +30,7 @@ export const NavBar = () => {
 
     return (
         <div className='background-main'>
-            <div className='container flex-col py-1'>
+            <div className='container flex-col pt-1'>
                 <div className='flex-row'>
                     <Link href="/">
                         <a href="#">
@@ -66,16 +66,32 @@ export const NavBar = () => {
                         width={ 340 }
                     />
                 </div>
-                <nav className='flex-row ptop-2'>
-                    <div>
-                        <Link href="/">
-                            <a 
-                                style={{ paddingLeft: "0" }}
-                                className='font-3 p-1 hover-a'
-                            >Categorías</a>
-                        </Link>
-                        <a className='font-3 p-1 hover-a' href="#">Ofertas</a>
-                        <a className='font-3 p-1 hover-a' href="#">Historial</a>
+                <nav className='flex-row pt-1 align-center'>
+                    <div className='flex-row align-center'>
+                        <div className='flex pb-1'>
+                            <FontAwesomeIcon 
+                                className='font-xxl'    
+                                icon={ faLocationDot }
+                            />
+                            <div className='pl'>
+                                <p className='font-s color-grey-2'>Enviar a</p>
+                                <p>Capital federal 1406</p>
+                            </div>
+                        </div>
+                        <div className='ml-2'>
+                            <Link href="/">
+                                <a 
+                                    style={{ paddingLeft: "0" }}
+                                    className='font-3 p-1 hover-a'
+                                >Categorías</a>
+                            </Link>
+                            <a className='font-3 p-1 hover-a' href="#">Ofertas</a>
+                            <a className='font-3 p-1 hover-a' href="#">Historial</a>
+                            <a className='font-3 p-1 hover-a' href="#">Supermercado</a>
+                            <a className='font-3 p-1 hover-a' href="#">Moda</a>
+                            <a className='font-3 p-1 hover-a' href="#">Vender</a>
+                            <a className='font-3 p-1 hover-a' href="#">Ayuda</a>
+                        </div>
                     </div>
                     <div>
                         <div>

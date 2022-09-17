@@ -1,6 +1,6 @@
 export interface IQuestion {
     _id: string;
-    created: string;
+    created: number;
     idProduct: string;
     question: string;
     response: string,

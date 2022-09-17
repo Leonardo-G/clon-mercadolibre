@@ -13,6 +13,7 @@ import { Aside } from '../../components/UI/Aside';
 import { fetchApi } from '../../axios/config';
 import { IQuerys } from '../../interface/querys';
 import { chartUpper } from '../../utils/chartUpper';
+import Link from 'next/link';
 
 interface Props {
     products: IProduct[];
@@ -46,8 +47,8 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
             title= {
                 query?.search ?
                     `${ chartUpper(query?.search) } | Mercado Libre`
-                : query?.category ? `${ chartUpper(query?.category) } | Mercado Libre`
-                : query?.subcategory ? `${ chartUpper(query?.subcategory) } | Mercado Libre`
+                : query?.category ? `${ chartUpper(query?.category ) } | Mercado Libre`
+                : query?.subcategory ? `${ chartUpper(query?.subcategory ) } | Mercado Libre`
                 : "Productos | Mercado Libre"
             }   
             description={`Descubrí los productos más buscados que no te podés perder en productos publicado por Mejores vendedores ✓ Con Envío Gratis en 24 hs ❤ Aprovechá Compras Internacionales.`}  
@@ -57,7 +58,23 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                 objectFit='cover'
                 height='9rem'
             />
-            <div className='flex-row container'>
+            <div className='container'>
+                <span className='f-bold'>Búsquedas relacionadas: </span>
+                {
+                    products[0].tags.map(( t, idx ) => {
+                        if ( idx + 1 === products[0].tags.length ) return (<Link key={ idx } href={{ pathname: "/productos", query: { search: t } }} ><a> { t } </a></Link>)
+                        return (
+                            <Link 
+                                key={ idx }
+                                href={{ pathname: "/productos", query: { search: t } }}    
+                            >
+                                <a> { t } -</a>
+                            </Link> 
+                        )
+                    } )
+                }
+            </div>
+            <div className='flex-row container mb-2'>
                 <Aside 
                     params={ params }
                     querys={ query }
@@ -66,7 +83,7 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                     setQuerySearch={ setQuerySearch }
                     newQuery={ newQuery }
                 />
-                <div style={{ flex: 3.5 }} className="my-full">
+                <div style={{ flex: 3.5 }} className="mt-2">
                     <div className='flex-row-center flex-right'>
                         <p>Ordenar por</p>
                         <select className='pointer' name="option" style={{

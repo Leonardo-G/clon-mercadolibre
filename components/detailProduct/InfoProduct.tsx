@@ -26,13 +26,21 @@ export const InfoProduct: FC<Props> = ({ condition, recommended, category,charac
             }
             <div>
                 {
-                    offer && priceDetail.price > priceDetail.offerPrice! &&
+                    offer && priceDetail.price > priceDetail.offerPrice! ?
                     <>
                         <p className='mt font-s col-grey-w dash'>{ formatPrice(priceDetail.price!) }</p>
                         <p 
                             className='f-weight'
                             style={{ fontSize: "3.6rem" }}
                         >{ formatPrice( priceDetail.offerPrice! ) }
+                        </p>
+                    </>
+                    :
+                    <>
+                        <p 
+                            className='f-weight'
+                            style={{ fontSize: "3.6rem" }}
+                        >{ formatPrice( priceDetail.price ) }
                         </p>
                     </>
                 }

@@ -60,7 +60,7 @@ export const Opinions: FC<Props> = ({ idProduct }) => {
         }
 
         if ( type === "positive" ) {
-            setOpinionsShort( opinions.opinions.filter(( o, idx ) => o.rate >= 3 ).filter((o, idx) => idx >= 0 && idx <= 2) )
+            setOpinionsShort( opinions.opinions.filter(( o, idx ) => o.rate >= 4 ).filter((o, idx) => idx >= 0 && idx <= 2) )
             setOpinionsShow("positive")
             return;
         }
@@ -74,48 +74,66 @@ export const Opinions: FC<Props> = ({ idProduct }) => {
 
     
     return (
-        <div>
-            <h2 className='font-xxl mt-3 f-normal'>Opiniones sobre el producto</h2>
-            <div className='mt-3'></div>
-            <div className='flex-row'>
-                <Rating 
-                    average={ average }
-                    rating={ opinions.rating }
-                    totalOpinions={ opinions.totalOpinions }
-                />
-            </div>
-            <div>
-                <div className="flex mt-3">
-                    <ButtonOpinions 
-                        handleChangeOpinions={ handleChangeOpinions }
-                        opinionsShow={ opinionsShow }
-                    />
-                </div>
-                <div>
-                    {
-                        opinionsShort &&
-                        opinionsShort.map( opinion => (
-                            <Opinion key={ opinion._id } opinion={ opinion }/>
-                        ))
-                    }
-                    
-                </div>
-            </div>
-            
-            <p 
-                onClick={ handleShowModal }
-                className='mt-2 color-blue pointer'
-            >Ver todas las opiniones</p>
+        <>
             {
-                modalShow &&
-                <Modal 
-                    handleShowModal={ handleShowModal }
-                    average={ average }
-                    opinionsTotal={ opinions.opinions }
-                    rating={ opinions.rating }
-                    totalOpinions={ opinions.totalOpinions }
-                />
+                opinions.opinions && opinions.opinions.length === 0 
+                ? <></>
+                :
+                    <div>
+                        <h2 className='font-xxl mt-3 f-normal'>Opiniones sobre el producto</h2>
+                        <div className='mt-3'></div>
+                        <div className='flex-row'>
+                            <Rating 
+                                average={ average }
+                                rating={ opinions.rating }
+                                totalOpinions={ opinions.totalOpinions }
+                            />
+                        </div>
+                        <div>
+                            <div className="flex mt-3">
+                                <ButtonOpinions 
+                                    handleChangeOpinions={ handleChangeOpinions }
+                                    opinionsShow={ opinionsShow }
+                                />
+                            </div>
+                            <div>
+                                {
+                                    opinionsShort &&
+                                    opinionsShort.map( opinion => (
+                                        <Opinion key={ opinion._id } opinion={ opinion }/>
+                                    ))
+                                }
+                                {
+                                    opinionsShort.length === 0 &&
+                                    opinionsShow === "negative" &&
+
+                                    <div className='center my-full'>
+                                        <p>Nada por acá!</p>
+                                        <p 
+                                            className='mt-2'
+                                        >Este producto aún no tiene opiniones negativas.</p>
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                        
+                        <p 
+                            onClick={ handleShowModal }
+                            className='mt-2 color-blue pointer'
+                        >Ver todas las opiniones</p>
+                        {
+                            modalShow &&
+                            <Modal 
+                                handleShowModal={ handleShowModal }
+                                average={ average }
+                                opinionsTotal={ opinions.opinions }
+                                rating={ opinions.rating }
+                                totalOpinions={ opinions.totalOpinions }
+                            />
+                        }
+                    </div>
             }
-        </div>
+        </>
     )
 }
