@@ -1,9 +1,13 @@
 
+import { useEffect, useState } from 'react';
 import { NextPage, GetServerSideProps } from 'next';
 import { LayoutDefault } from '../../components/layout/LayoutDefault';
 
+import { fetchApi } from '../../axios/config';
+import { getProduct } from '../../utils/fetchApi';
 import { IProduct } from '../../interface/products';
-import { getAllObjs, getProduct } from '../../utils/fetchApi';
+import { IQuestion } from '../../interface/question';
+
 import { ImgGallery } from '../../components/detailProduct/ImgGallery';
 import { CharacteristicsDetail } from '../../components/detailProduct/CharacteristicsDetail';
 import { AsideDetailProduct } from '../../components/detailProduct/AsideDetailProduct';
@@ -12,11 +16,6 @@ import { InfoProduct } from '../../components/detailProduct/InfoProduct';
 import { ProductsRecommended } from '../../components/detailProduct/ProductsRecommended';
 import { Questions } from '../../components/detailProduct/Questions';
 import { Opinions } from '../../components/opinions/OpinionsContainer';
-import { ImageFull } from '../../components/imageCard/ImageFull';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { IQuestion } from '../../interface/question';
-import { fetchApi } from '../../axios/config';
 import { Modal } from '../../components/detailProduct/Modal';
 import { Ad } from '../../components/UI/Ad';
 
@@ -85,8 +84,6 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                             </section>
                             <div className='br mt-full'></div>
                             <section>
-                                
-                                
                                 <h2 className='font-xxl mt-3 f-normal'>Preguntas y respuestas</h2>
                                 <p className='mt-full font-l f-bold'>Qué querés saber?</p>
                                 <div className='mt-3'>

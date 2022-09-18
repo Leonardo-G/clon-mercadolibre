@@ -1,6 +1,7 @@
+import React, { FC } from 'react'
+
 import { faMagnifyingGlassMinus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { FC } from 'react'
 
 export const NotFound: FC = () => {
     return (

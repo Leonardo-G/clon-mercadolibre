@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router';
 import { IQuerys } from '../../interface/querys';
 import { formatPrice } from '../../utils/formatPrice';
-import { TagsCard } from './TagsCard';
+import { TagsQuerys } from '../search/TagsQuerys';
+import { Condition } from '../search/Condition';
+import { Interest } from '../search/Interest';
+import { ByPrice } from '../search/ByPrice';
+import { Offer } from '../search/Offer';
+import { CategorySearch } from '../search/CategorySearch';
 
 interface Props{
     params?: string[],
@@ -27,7 +32,7 @@ export const Aside:FC<Props> = ({ params, querys, results, querySearch, setQuery
             delete querys["price_lte" as "shipping"]
             delete querys["price_gte" as "shipping"]
         }
-        console.log(isa) 
+        
         setQuerySearch( {
             ...querys,
         } )
@@ -50,7 +55,7 @@ export const Aside:FC<Props> = ({ params, querys, results, querySearch, setQuery
     }, [querySearch])
 
     return (
-        <div style={{ flex: 1 }} className="mt-full">
+        <div style={{ flex: 1 }} className="mt-1">
             <h1 
                 className='font-xl capitalize font-grey f-bold mt-3' 
                 style={{ width: "80%" }}
@@ -73,13 +78,13 @@ export const Aside:FC<Props> = ({ params, querys, results, querySearch, setQuery
                         Object.entries( querys! ).map( q => {
                             if (querys.price_gte && querys.price_lte && q[0] === "price_lte" ){
                                 return (
-                                    <TagsCard query={ "untilPrice" } value={ `${ formatPrice(Number(querys.price_gte)) } a ${ formatPrice(Number(querys.price_lte)) }` } handleRemoveQuery={ handleRemoveQuery }/>
+                                    <TagsQuerys query={ "untilPrice" } value={ `${ formatPrice(Number(querys.price_gte)) } a ${ formatPrice(Number(querys.price_lte)) }` } handleRemoveQuery={ handleRemoveQuery }/>
                                 )
                             }
                             if ( querys.price_gte && querys.price_lte && q[0] === "price_gte" ) return;
                             
                             return (
-                                <TagsCard key={ q[0] } query={ q[0] } value={ q[1] } handleRemoveQuery={ handleRemoveQuery }/>
+                                <TagsQuerys key={ q[0] } query={ q[0] } value={ q[1] } handleRemoveQuery={ handleRemoveQuery }/>
                             )
                         })
                     }
@@ -121,101 +126,24 @@ export const Aside:FC<Props> = ({ params, querys, results, querySearch, setQuery
                 </div>
                 {
                     !querys?.category &&
-                    <div className='mt-3'>
-                        <p className='color-grey-bold' style={{ fontSize: "1.6rem" }}>Categorías</p>                    
-                        
-                        <ol className='p-none mt-1 font-size-default'>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "herramientas" } ) }
-                            >Herramientas <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "construccion" } ) }
-                            >Construcción <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "deportes-y-fitness" } )} 
-                            >Deportes y Fitness <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "hogar-y-muebles" } ) }
-                            >Hogar y Muebles <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "electrodomesticos" } ) }
-                            >Electrodomésticos <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { category: "ropa-y-accesorios" } ) }
-                            >Ropa y Accesorios <span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                        </ol>
-                    </div>
+                    <CategorySearch newQuery={ newQuery }/>
                 }
                 {
                     !querys.condition &&
-                    <div>
-                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Condición</p>
-                        <ol className='p-none mt-1 font-size-default'>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { condition: "nuevo" } ) }
-                            >Nuevo<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery({ condition: "usado" }) }
-                            >Usado<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery({ category: "reacondicionado" }) }
-                            >Reacondicionado<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                        </ol>
-                    </div>
+                    <Condition newQuery={ newQuery }/>
                 }
                 {
                     !querys.interest &&
-                    <div>
-                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Pago</p>
-                        <ol className='p-none mt-1 font-size-default'>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery({ interest: "true" }) }
-                                >Cuotas sin interés<span className='pl col-grey-w f-weight'>(1.751)</span></li>
-                        </ol>
-                    </div>
+                    <Interest newQuery={ newQuery }/>
                 }
                 {
-                    !querys.price_gte || !querys.price_lte ?
-                    <div>
-                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Precio</p>
-                        <ol className='p-none mt-1 font-size-default'>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery({ price_lte: "3500" }) }
-                            >Hasta $ 3.500<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { price_gte: "3500", price_lte: "7000" } ) }
-                            >$ 3.500 a $ 7.000<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { price_gte: "7000" } ) }
-                            >Más de $ 7.000<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                        </ol>
-                    </div>
+                    !querys.price_gte || !querys.price_lte 
+                    ? <ByPrice newQuery={ newQuery }/>
                     : ""
                 }
                 {
                     !querys.offer &&
-                    <div>
-                        <p className='color-grey-bold mt-2' style={{ fontSize: "1.6rem" }}>Descuentos</p>
-                        <ol className='p-none mt-1 font-size-default'>
-                            <li 
-                                className='subtitle-grey f-normal mt pointer'
-                                onClick={ () => newQuery( { offer: "true" } ) }
-                            >Con ofertas disponibles<span className='pl col-grey-w f-weight'>(xxxx)</span></li>
-                        </ol>
-                    </div>
+                    <Offer newQuery={ newQuery }/>
                 }
 
             </div>

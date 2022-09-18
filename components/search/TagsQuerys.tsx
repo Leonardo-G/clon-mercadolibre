@@ -8,7 +8,7 @@ interface Props {
     handleRemoveQuery: ( query: string ) => void;
 }
 
-export const TagsCard: FC<Props> = ({ query, value, handleRemoveQuery }) => {
+export const TagsQuerys: FC<Props> = ({ query, value, handleRemoveQuery }) => {
 
     if ( query === "search" ) {
         return <></>

@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-
 import { NextPage, GetServerSideProps } from 'next';
+
+import { fetchApi } from '../../axios/config';
+import { chartUpper } from '../../utils/chartUpper';
 import { IProduct } from '../../interface/products';
+import { IQuerys } from '../../interface/querys';
 
 import { LayoutDefault } from '../../components/layout/LayoutDefault';
 import { CardsList } from '../../components/cards/CardsList';
 import { ImageFull } from '../../components/imageCard/ImageFull';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { NotFound } from '../../components/products/NotFound';
 import { Aside } from '../../components/UI/Aside';
-import { fetchApi } from '../../axios/config';
-import { IQuerys } from '../../interface/querys';
-import { chartUpper } from '../../utils/chartUpper';
-import Link from 'next/link';
+import { Tags } from '../../components/search/Tags';
+import { OrderBy } from '../../components/search/OrderBy';
 
 interface Props {
     products: IProduct[];
@@ -61,17 +60,9 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
             <div className='container'>
                 <span className='f-bold'>Búsquedas relacionadas: </span>
                 {
-                    products[0].tags.map(( t, idx ) => {
-                        if ( idx + 1 === products[0].tags.length ) return (<Link key={ idx } href={{ pathname: "/productos", query: { search: t } }} ><a> { t } </a></Link>)
-                        return (
-                            <Link 
-                                key={ idx }
-                                href={{ pathname: "/productos", query: { search: t } }}    
-                            >
-                                <a> { t } -</a>
-                            </Link> 
-                        )
-                    } )
+                    products[0].tags.map(( tag, idx ) => (
+                        <Tags key={ idx } idx={ idx } tag={ tag } totalTags={ products[0].tags.length }/>
+                    ))
                 }
             </div>
             <div className='flex-row container mb-2'>
@@ -84,30 +75,7 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                     newQuery={ newQuery }
                 />
                 <div style={{ flex: 3.5 }} className="mt-2">
-                    <div className='flex-row-center flex-right'>
-                        <p>Ordenar por</p>
-                        <select className='pointer' name="option" style={{
-                            border: "none",
-                            background: "transparent",
-                            WebkitAppearance: "none",
-                            outline: "none",
-                            padding: "1rem",
-                        }}
-                            onChange={ (e) => newQuery( e.target.value === "lower_price" 
-                                        ? { sort: "price_asc" }
-                                        : { sort: "relevant" }
-                                    )}
-                        >
-                            <option 
-                                value="relevant" 
-                                selected
-                            >Más relevantes</option>
-                            <option 
-                                value="lower_price"
-                            >Menor precio</option>
-                        </select>
-                        <FontAwesomeIcon className='color-blue font-s' icon={ faAngleDown }/>
-                    </div>
+                    <OrderBy newQuery={ newQuery }/>
                     <CardsList 
                         items={ products }
                         typeCard="Card_XL"
@@ -119,7 +87,6 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params, query }) => {
-    console.log(query)
 
     const response = await fetchApi.get("/products", {
         params: {
@@ -128,10 +95,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params, query }) 
         }
     })
     const products = await response.data;
+
     return {
         props: {
             query,
-            products
+            products: products.products,
+            results: products.totalProducts
         }
     }
 }

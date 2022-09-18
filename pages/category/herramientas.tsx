@@ -99,7 +99,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const response_2 = await fetchApi.get("/user/store-of-herramientas?limit=8");
     const marcas = await response_2.data;
 
-    const response_3 = await fetchApi.get("/products?category=herramientas&limit=5");
+    const response_3 = await fetchApi.get("/products?category=herramientas&limit=5&offer=true");
     const products = await response_3.data;
     return {
         props: {
