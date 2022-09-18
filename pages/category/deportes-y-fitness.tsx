@@ -2,26 +2,25 @@ import React from 'react'
 
 import { GetStaticProps, NextPage } from "next";
 
+import { fetchApi } from '../../axios/config';
+import { IProduct } from '../../interface/products';
+import { IUser } from '../../interface/users';
+
 import { LayoutDefault } from '../../components/layout/LayoutDefault'
 import { ImageFull } from '../../components/imageCard/ImageFull';
 import { TitleCenter } from '../../components/UI/TitleCenter';
 import { CardsList } from '../../components/cards/CardsList';
-import { subCategoriesDB } from '../../database/subCategories';
 import { ISubCategory } from '../../interface/subCategory';
-import { productsDB } from '../../database/products';
 import { ProductList } from '../../components/products/ProductList';
-import { userDB } from '../../database/users';
-import { IUser } from '../../interface/users';
-import { CardCricle } from '../../components/cards/CardCricle';
 import { ImagesCards } from '../../components/imageCard/ImagesCards';
-import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
-    marcas: IUser[]
+    marcas: IUser[];
+    products: IProduct[];
 }
 
-const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas }) => {
+const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas, products }) => {
     return (
         <LayoutDefault title='Deportes y fitness en Mercado Libre' description='Encontrá lo que buscás en Deportes y Fitness. Todo lo que necesitas lo conseguís en un solo lugar, en Mercado Libre.'>
             <ImageFull 
@@ -47,7 +46,7 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas }) => {
             </section>
             <section className='container'>
                 <TitleCenter title='los más vendidos'/>
-                <ProductList products={ productsDB }/>
+                <ProductList products={ products }/>
                 <ImageFull 
                     src='https://http2.mlstatic.com/D_NQ_NP_626602-MLA45686065486_042021-OO.webp'
                     styles
@@ -72,16 +71,22 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const response = await fetchApi.get("/subcategory/deportes-y-fitness");
+    const response = await fetchApi.get("/subcategory/deportes-y-fitness?limit=10");
     const subCategories = await response.data;
-    const response_2 = await fetchApi.get("/user/store-of-deportes-y-fitness");
+    
+    const response_2 = await fetchApi.get("/user/store-of-deportes-y-fitness?limit=8");
     const marcas = await response_2.data;
+    
+    const response_3 = await fetchApi.get("/products?category=deportes-y-fitness&limit=5&offer=true");
+    const products = await response_3.data;
 
     return {
         props: {
             subCategories: subCategories,
-            marcas
-        }
+            marcas,
+            products
+        },
+        revalidate: 86400   // 1 DIA
     }
 }
 

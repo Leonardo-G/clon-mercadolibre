@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { FC, ReactNode } from 'react'
+import { Footer } from '../UI/Footer';
 import { NavBar } from '../UI/NavBar';
 
 interface Props {
@@ -24,9 +25,8 @@ export const LayoutDefault: FC<Props> = ({ title, description, children }) => {
             <main>
                 { children }
             </main>
-            <footer>
-
-            </footer>
+            
+            <Footer />
         </>
     )
 }

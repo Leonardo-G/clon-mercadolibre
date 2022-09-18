@@ -2,26 +2,26 @@ import React from 'react'
 
 import { NextPage, GetStaticProps } from 'next'
 
+import { fetchApi } from '../../axios/config'
+import { IProduct } from '../../interface/products'
+import { IUser } from '../../interface/users'
+
 import { CardsList } from '../../components/cards/CardsList'
 import { LayoutDefault } from '../../components/layout/LayoutDefault'
 import { TitleCenter } from '../../components/UI/TitleCenter'
-import { subCategoriesDB } from '../../database/subCategories'
 import { ISubCategory } from '../../interface/subCategory'
 import { ImageFull } from '../../components/imageCard/ImageFull'
 import { CardGridList } from '../../components/grid/CardGridList'
 import { ImagesCards } from '../../components/imageCard/ImagesCards'
-import { userDB } from '../../database/users';
-import { IUser } from '../../interface/users'
 import { ProductList } from '../../components/products/ProductList'
-import { productsDB } from '../../database/products'
-import { fetchApi } from '../../axios/config'
 
 interface Props {
     subCategories: ISubCategory[];
-    marcas: IUser[]
+    marcas: IUser[];
+    products: IProduct[]
 }
 
-const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas }) => {
+const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas, products }) => {
     return (
         <LayoutDefault title='Electrodomésticos y Aires Ac. en Mercado Libre' description='Encontrá lo que buscás en Electrodomésticos y Aires Ac.. Todo lo que necesitas lo conseguís en un solo lugar, en Mercado Libre.'>
             <ImageFull 
@@ -64,7 +64,7 @@ const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas }) => {
             </section>
             <section className='container'>
                 <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
-                <ProductList products={ productsDB }/>
+                <ProductList products={ products }/>
                 <ImagesCards images={["https://http2.mlstatic.com/D_NQ_NP_852022-MLA43058241954_082020-OO.webp", "https://http2.mlstatic.com/D_NQ_NP_725215-MLA43059003673_082020-OO.webp"]}/>
             </section>
         </LayoutDefault>
@@ -72,16 +72,22 @@ const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const response = await fetchApi.get("/subcategory/electrodomesticos");
+    const response = await fetchApi.get("/subcategory/electrodomesticos?limit=12");
     const subCategories = await response.data;
-    const response_2 = await fetchApi.get("/user/store-of-electrodomesticos");
+
+    const response_2 = await fetchApi.get("/user/store-of-electrodomesticos?limit=12");
     const marcas = await response_2.data;
+
+    const response_3 = await fetchApi.get("/products?category=electrodomesticos&limit=5&offer=true");
+    const products = await response_3.data;
 
     return {
         props: {
             subCategories,
-            marcas
-        }
+            marcas,
+            products
+        },
+        revalidate: 86400   // 1 DIA
     }
 }
 

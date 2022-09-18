@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import type { NextPage, GetStaticProps } from 'next'
 
 import { fetchApi } from '../axios/config';
+
+import { IProduct } from '../interface/products'
 
 import { Categories } from '../components/home/Categories'
 import { Discover } from '../components/home/Discover'
@@ -11,11 +12,11 @@ import { ProductList } from '../components/products/ProductList'
 import { Carrousel } from '../components/UI/Carrousel'
 import { Profit } from '../components/UI/Profit'
 import { TitleSection } from '../components/UI/TitleSection'
-
-import { IProduct } from '../interface/products'
 import { Subscription } from '../components/home/Subscription';
 import { Payment } from '../components/home/Payment';
+
 import { discover } from '../database/discover';
+import { Ad } from '../components/UI/Ad';
 
 interface Props {
   productsByOffer: IProduct[]
@@ -52,6 +53,9 @@ const Home: NextPage<Props> = ({ productsByOffer }) => {
                         discover={ discover.filter((d, idx) => idx >= 0 && idx <= 1) }
                     />
                 </section>
+                <section>
+                    <Ad />
+                </section>
                 <section className='my-full container'>
                     <TitleSection title="Te puede interesar"/>
                     <Discover 
@@ -77,7 +81,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       productsByOffer: JSON.parse( JSON.stringify(productsByOffer) )
-    }
+    },
+    revalidate: 86400   // 1 DIA
   }
 } 
 

@@ -1,17 +1,16 @@
 import React from 'react';
 import { NextPage, GetStaticProps } from 'next';
 
+import { fetchApi } from '../../axios/config';
+import { ISubCategory } from '../../interface/subCategory';
+import { IUser } from '../../interface/users';
+
 import { CardsList } from '../../components/cards/CardsList'
 import { ImageFull } from '../../components/imageCard/ImageFull'
 import { LayoutDefault } from '../../components/layout/LayoutDefault'
 import { TitleCenter } from '../../components/UI/TitleCenter'
-import { subCategoriesDB } from '../../database/subCategories';
-import { userDB } from '../../database/users';
-import { ISubCategory } from '../../interface/subCategory';
-import { IUser } from '../../interface/users';
 import { CardGridList } from '../../components/grid/CardGridList';
 import { ImagesCards } from '../../components/imageCard/ImagesCards';
-import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
@@ -79,16 +78,22 @@ const HogarMueblesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
-    const response = await fetchApi.get("/subcategory/hogar-muebles");
+    const response = await fetchApi.get("/subcategory/hogar-muebles?limit=12");
     const subCategories = await response.data;
-    const response_2 = await fetchApi.get("/user/store-of-hogar-muebles");
+
+    const response_2 = await fetchApi.get("/user/store-of-hogar-muebles?limit=18");
     const marcas = await response_2.data;
+
+    const response_3 = await fetchApi.get("/products?category=hogar-muebles&limit=5&offer=true");
+    const products = await response_3.data;
 
     return {
         props: {
             subCategories,
-            marcas
-        }
+            marcas,
+            products
+        },
+        revalidate: 86400   // 1 DIA
     }
 }
 

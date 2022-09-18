@@ -54,7 +54,7 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) =>
                 </div>
                 <div className='relative radius-default ov-hidd' style={{ height: "16.5rem", width:"100%", flex: 1 }}>
                     <Image 
-                      src="https://http2.mlstatic.com/D_NQ_NP_846766-MLA50400201462_062022-OO.webp"
+                      src="https://http2.mlstatic.com/D_NQ_NP_817200-MLA48452827216_122021-OO.webp"
                       alt="Herramientas información"
                       objectFit='cover'
                       layout='fill'
@@ -69,7 +69,7 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) =>
                 items={ subCategories.filter( (item, idx) => idx >= 4 && idx <= 7 && item ) }
             />
         </div>
-        <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
+        <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más' redirect='/productos?offer=true&category=herramientas'/>
         <div className='container'>
             <ProductList products={ products }/>
         </div>
@@ -106,7 +106,8 @@ export const getStaticProps: GetStaticProps = async () => {
             subCategories,
             marcas,
             products
-        }
+        },
+        revalidate: 86400   // 1 DIA
     }
 }
 

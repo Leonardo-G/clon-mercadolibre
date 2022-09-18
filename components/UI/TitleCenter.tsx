@@ -5,9 +5,10 @@ interface Props {
     title: string;
     url?: boolean;
     urlTitle?: string;
+    redirect?: string;
 }
 
-export const TitleCenter: FC<Props> = ({ title, url, urlTitle }) => {
+export const TitleCenter: FC<Props> = ({ title, url, urlTitle, redirect }) => {
 
     if ( !url ) {
         return (
@@ -18,8 +19,8 @@ export const TitleCenter: FC<Props> = ({ title, url, urlTitle }) => {
     return (
         <h2 className='title-grey-upper mt-full mb-2'>
             { title }
-            <Link href="/">
-                <span className='font-5 px-2'>{ urlTitle }</span>
+            <Link href={ redirect ? redirect : "/"}>
+                <span className='font-5 px-2 pointer'>{ urlTitle }</span>
             </Link>
         </h2>
         

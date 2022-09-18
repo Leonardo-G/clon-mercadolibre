@@ -1,4 +1,4 @@
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { faBoxArchive, faCreditCard, faShield } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
@@ -15,13 +15,13 @@ export const Info = () => {
                     <p>Comó pagar tus compras.</p>
                 </div>
                 <div className={ styles.info__description }>
-                    <FontAwesomeIcon icon={ faCreditCard } className={ styles['description--icon']}/>
+                    <FontAwesomeIcon icon={ faBoxArchive } className={ styles['description--icon']}/>
                     <h3>Envío gratis desde $ 5.500</h3>
                     <p>Solo por estar registrado en Mercado Libre tenés envíos gratis en miles de productos. Es un beneficio de Mercado Puntos.</p>
                     <p>Conocé más sobre este beneficio</p>
                 </div>
                 <div className={ styles.info__description }>
-                    <FontAwesomeIcon icon={ faCreditCard } className={ styles['description--icon']}/>
+                    <FontAwesomeIcon icon={ faShield } className={ styles['description--icon']}/>
                     <h3>Seguridad, de principio a fin</h3>
                     <p>No te gusta? Devolvelo! En Mercado Libre, no hay nada que no puedas hacer, porque estás siempre protegid.</p>
                     <p>Comó pagar tus compras.</p>

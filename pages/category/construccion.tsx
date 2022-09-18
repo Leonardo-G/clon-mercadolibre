@@ -13,15 +13,16 @@ import { userDB } from '../../database/users'
 import { IUser } from '../../interface/users'
 import { productsDB } from '../../database/products'
 import { ProductList } from '../../components/products/ProductList'
-import { IProduct } from '../../interface/products'
+import { IProduct } from '../../interface/products';
 import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
-    marcas: IUser[]
+    marcas: IUser[];
+    products: IProduct[];
 }
 
-const construccion: NextPage<Props> = ({ subCategories, marcas }) => {
+const construccion: NextPage<Props> = ({ subCategories, marcas, products }) => {
     return (
         <LayoutDefault 
             title='Construcción en Mercado Libre Argentina'
@@ -115,9 +116,11 @@ const construccion: NextPage<Props> = ({ subCategories, marcas }) => {
                     <CardsList items={ marcas } typeCard="Card_Circle" />
                 </div>
             </section>
-            <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
-            <ProductList products={ productsDB }/>
+            <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más' redirect='/productos?offer=true&category=construccion'/>
             <div className='container'>
+                <ProductList products={ products }/>
+            </div>
+            <div className='container mt-2'>
                 <div className='relative shadow-default radius-default mb-2' style={{ height: "16.5rem" }}>
                     <Image 
                         src="https://http2.mlstatic.com/D_NQ_NP_779467-MLA45342134582_032021-OO.webp"
@@ -132,17 +135,22 @@ const construccion: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
-    const response = await fetchApi.get("/subcategory/construccion");
+    const response = await fetchApi.get("/subcategory/construccion?limit=8");
     const subCategories = await response.data;
 
-    const response_2 = await fetchApi.get("/user/store-of-construccion");
+    const response_2 = await fetchApi.get("/user/store-of-construccion?limit=8");
     const marcas = await response_2.data;
+
+    const response_3 = await fetchApi.get("/products?category=construccion&limit=5&offer=true");
+    const products = await response_3.data;
 
     return {
         props: {
             subCategories,
-            marcas
-        }
+            marcas,
+            products
+        },
+        revalidate: 86400   // 1 DIA
     }
 }
 
