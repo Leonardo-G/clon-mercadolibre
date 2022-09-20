@@ -1,15 +1,18 @@
 import React, { FC, SetStateAction, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router';
+
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useRouter } from 'next/router';
+
 import { IQuerys } from '../../interface/querys';
 import { formatPrice } from '../../utils/formatPrice';
+
+import { CategorySearch } from '../search/CategorySearch';
 import { TagsQuerys } from '../search/TagsQuerys';
 import { Condition } from '../search/Condition';
 import { Interest } from '../search/Interest';
 import { ByPrice } from '../search/ByPrice';
 import { Offer } from '../search/Offer';
-import { CategorySearch } from '../search/CategorySearch';
 
 interface Props{
     params?: string[],

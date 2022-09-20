@@ -1,5 +1,10 @@
 export interface IProduct {
     _id: string;
+    idUser: {
+        _id: string;
+        typeUser: "user" | "official-store";
+        username: "string";
+    }
     title: string;
     imgProduct: string[];
     category: CategoryCodeProduct[],
@@ -18,10 +23,7 @@ export interface IProduct {
         code: 0 | 1 | 2,
         detail: "Envío gratis" | undefined
     };
-    interests: {
-        accept: boolean;
-        until: 3 | 6 | 12 | 0
-    };
+    interests: InterfaceInterests;
     condition: "nuevo" | "usado" | "reacondicionado";
     tags: string[];
 }
@@ -37,6 +39,17 @@ export interface ICharacteristicsDetail {
 export interface IPriceDetail{
     price: number;
     offerPrice?: number
+}
+
+export interface InterfaceInterests{
+    accept: boolean;
+    until: 3 | 6 | 12 | 0
+}
+
+export interface IHistoryMinin {
+    _id: string;
+    title: string;
+    imgUrl: string;
 }
 
 export interface ICategoryObj {

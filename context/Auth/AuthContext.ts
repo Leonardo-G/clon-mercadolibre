@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { IErrorApi } from "../../interface/errorsApi";
 
 export interface IAuthContext {
     user: { 

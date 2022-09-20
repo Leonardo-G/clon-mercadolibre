@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Tag } from '../search/Tag';
 
 interface Props {
     tags: string[];
@@ -11,13 +12,9 @@ export const Tags: FC<Props> = ({ tags }) => {
                 <span style={{ fontWeight: 500, color: "#000" }}>También puede interesarte:</span>
                 <span> 
                     {
-                        tags.map(( t, idx) => {
-                            if ( tags.length === idx + 1 ) return <span key={ idx }> { t } </span>
-                             
-                            return (
-                                <span key={ idx }> { t } -</span>
-                            )
-                        })
+                        tags.map(( t, idx) => (
+                            <Tag key={ idx } idx={ idx } totalTags={ tags.length } tag={ t }/>
+                        ))
                     }
                 </span>
             </div>

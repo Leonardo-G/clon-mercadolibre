@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
-import { faArrowRotateLeft, faAward, faCircleCheck, faHandshakeSimple, faLocationDot, faRotateLeft, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRotateLeft, faAward, faCircleCheck, faLocationDot, faRotateLeft, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { DeliveryUI } from '../UI/DeliveryUI';
 import { IProduct } from '../../interface/products';
-import { formatPrice } from '../../utils/formatPrice';
+
+import { DeliveryUI } from '../UI/DeliveryUI';
 import { InfoProduct } from './InfoProduct';
 
 interface Props {
     producto: IProduct
 }
 
-export const AsideDetailProduct: FC<Props> = ({ producto: { characteristics, priceDetail, condition, title, sold, recommended, shipping, offer, category, stock } }) => {
-    console.log(characteristics.length)
+export const AsideDetailProduct: FC<Props> = ({ producto: { idUser, characteristics, priceDetail, condition, title, sold, recommended, shipping, offer, category, stock, interests } }) => {
+   
     return (
         <div style={{ height: "100%" }}>
                 <div className='m-2 p-2' style={{ border: "1px solid rgba(0,0,0,.1)" }}>
@@ -26,10 +26,11 @@ export const AsideDetailProduct: FC<Props> = ({ producto: { characteristics, pri
                             category={ category } 
                             offer={ offer } 
                             priceDetail={ priceDetail } 
-                            characteristics={ characteristics }                        
+                            characteristics={ characteristics }  
+                            interests={ interests }                     
                         />
                     }
-                    <div className='mt-3'>
+                    <div className='mt-1'>
                         <DeliveryUI code={ shipping.code } detail={ shipping.detail }/>
                         <div className='ml-2'>
                             <p className='col-grey-w mt'>Comprando desde ahora</p>
@@ -50,9 +51,12 @@ export const AsideDetailProduct: FC<Props> = ({ producto: { characteristics, pri
                             <div className='mt-2 line-h'>
                                 <div>
                                     <span>Vendido por </span>
-                                    <span className='color-blue upper'>Usuario</span>
+                                    <span className='color-blue upper'>{ idUser.username }</span>
                                 </div>
-                                <p className='line-height'>MercadoLider | 1 venta</p>
+                                {
+                                    idUser.typeUser === "official-store" &&
+                                    <p className='line-height'>MercadoLider | 42045 venta</p>
+                                }
                                 <p className='color-grey-2 font-s'>Hace Factura A</p>
                             </div>
                         </>

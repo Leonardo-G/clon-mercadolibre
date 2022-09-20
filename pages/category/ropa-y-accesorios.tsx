@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         props: {
             subCategories: subCategories.map((s: ISubCategory) => s.imgUrl),
             marcas,
-            products
+            products: products.products
         },
         revalidate: 86400   // 1 DIA
     }

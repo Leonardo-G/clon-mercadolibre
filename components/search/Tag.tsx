@@ -7,7 +7,7 @@ interface Props {
     idx: number;
 }
 
-export const Tags: FC<Props> = ({ tag, totalTags, idx }) => {
+export const Tag: FC<Props> = ({ tag, totalTags, idx }) => {
 
     if ( idx + 1 === totalTags ) {
         return (

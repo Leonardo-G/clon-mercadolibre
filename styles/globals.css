@@ -464,6 +464,10 @@ ul, ol {
   cursor: pointer;
 }
 
+.cursor-zoom{
+  cursor: zoom-in;
+}
+
 .cursor-default{
   cursor: default !important;
 }
@@ -605,6 +609,10 @@ ul, ol {
   font-size: 2rem;
 }
 
+.font-xm{
+  font-size: 1.8rem;
+}
+
 .font-m{
   font-size: 1.5rem;
 }
@@ -618,6 +626,13 @@ ul, ol {
 }
 
 /* globales componentes */
+
+.pos-left-top{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
 
 .pos-left-bot{
   position: absolute;

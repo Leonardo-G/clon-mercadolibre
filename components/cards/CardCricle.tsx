@@ -1,6 +1,7 @@
+import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { FC } from 'react'
+
 import { IUser } from '../../interface/users'
 
 interface Props {

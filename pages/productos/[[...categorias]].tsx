@@ -11,7 +11,7 @@ import { CardsList } from '../../components/cards/CardsList';
 import { ImageFull } from '../../components/imageCard/ImageFull';
 import { NotFound } from '../../components/products/NotFound';
 import { Aside } from '../../components/UI/Aside';
-import { Tags } from '../../components/search/Tags';
+import { Tag } from '../../components/search/Tag';
 import { OrderBy } from '../../components/search/OrderBy';
 
 interface Props {
@@ -61,7 +61,7 @@ const ProductosCategoriaPage: NextPage<Props> = ({ products, params, query, resu
                 <span className='f-bold'>Búsquedas relacionadas: </span>
                 {
                     products[0].tags.map(( tag, idx ) => (
-                        <Tags key={ idx } idx={ idx } tag={ tag } totalTags={ products[0].tags.length }/>
+                        <Tag key={ idx } idx={ idx } tag={ tag } totalTags={ products[0].tags.length }/>
                     ))
                 }
             </div>

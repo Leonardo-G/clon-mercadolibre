@@ -1,10 +1,13 @@
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHandshakeSimple, faHeart as faHearSolid } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FC, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { FC, useState } from 'react'
+
+import { faHandshakeSimple, faHeart as faHearSolid } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { IProduct } from '../../interface/products'
+
 import { discountPercentage, formatPrice } from '../../utils/formatPrice';
 import { DeliveryUI } from '../UI/DeliveryUI';
 

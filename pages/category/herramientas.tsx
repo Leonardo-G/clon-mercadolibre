@@ -105,7 +105,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             subCategories,
             marcas,
-            products
+            products: products.products
         },
         revalidate: 86400   // 1 DIA
     }

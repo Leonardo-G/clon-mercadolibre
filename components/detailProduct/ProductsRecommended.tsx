@@ -5,17 +5,20 @@ import { ProductList } from '../products/ProductList';
 
 interface Props {
     subCategory: string;
+    id: string
 }
 
-export const ProductsRecommended: FC<Props> = ({ subCategory }) => {
+export const ProductsRecommended: FC<Props> = ({ subCategory, id }) => {
     
     const [products, setProducts] = useState([] as IProduct[]);
 
     const getProductsRecommended = async () => {
-        const response = await fetchApi(`/products/short/by-${ subCategory }?limit=3`);
-        const results = await response.data; 
+        const response = await fetchApi(`/products/short/by-${ subCategory }?limit=4`);
+        const results: IProduct[] = await response.data; 
 
-        setProducts( results )
+        const productsRecommended = results.filter(( r )=> r._id ).filter((r, idx) => idx >= 0 && idx <= 2)
+
+        setProducts( productsRecommended )
     }
     
     useEffect(() => {

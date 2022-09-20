@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import type { NextPage, GetStaticProps } from 'next'
 
 import { fetchApi } from '../axios/config';
 
 import { IProduct } from '../interface/products'
+import { discover } from '../database/discover';
 
+import { HistoryContext } from '../context/History/HistoryContext';
 import { Categories } from '../components/home/Categories'
 import { Discover } from '../components/home/Discover'
 import { Info } from '../components/home/Info'
@@ -14,15 +17,18 @@ import { Profit } from '../components/UI/Profit'
 import { TitleSection } from '../components/UI/TitleSection'
 import { Subscription } from '../components/home/Subscription';
 import { Payment } from '../components/home/Payment';
-
-import { discover } from '../database/discover';
 import { Ad } from '../components/UI/Ad';
+import { CardsList } from '../components/cards/CardsList';
+
 
 interface Props {
   productsByOffer: IProduct[]
 }
 
 const Home: NextPage<Props> = ({ productsByOffer }) => {
+
+    const { productos } = useContext( HistoryContext )
+
     return (
         <LayoutDefault
             description='Comprá productos con Envío Gratis en el día en Mercado Libre Argentina. Encontrá miles de marcas y productos a precios increíbles.'
@@ -65,7 +71,21 @@ const Home: NextPage<Props> = ({ productsByOffer }) => {
                 <section className='my-full container'>
                     <Categories />
                 </section>
-                <section className='background-wh'>
+                <section className='my-full container'>
+                    <TitleSection 
+                        title='Tu historial'
+                    />
+                    <div className='relative' style={{ minHeight: "25rem" }}>
+                        <div className='pos-left-top' style={{ width: "100%" }}>
+                            <CardsList 
+                                items={ productos }
+                                typeCard="Card_UltraS"
+                                width='15rem'
+                            />
+                        </div>
+                    </div>
+                </section>
+                <section className='background-wh mt-3'>
                     <Info />
                 </section>
             </div>

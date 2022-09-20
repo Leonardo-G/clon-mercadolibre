@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react'
+import { Modal } from './Modal';
 
 interface Props {
     images: string[];
@@ -8,10 +9,15 @@ interface Props {
 
 export const ImgGallery: FC<Props> = ({ images, title }) => {
         
-    const [currentPage, setCurrentPage] = useState(images[0] as string)
+    const [currentPage, setCurrentPage] = useState(images[0] as string);
+    const [modalImg, setModalImg] = useState(false);
 
     const handleChangeImage = ( image: string ) => {
         setCurrentPage( image )
+    }
+
+    const handleShowModal = () => {
+        setModalImg( !modalImg )
     }
 
     useEffect(() => {
@@ -34,8 +40,8 @@ export const ImgGallery: FC<Props> = ({ images, title }) => {
                             }}
                         >
                             <div
+                                className='relative'
                                 style={{ 
-                                    position: "relative", 
                                     width: "4.4rem", 
                                     height: "4.4rem",
                                 }}>
@@ -50,8 +56,11 @@ export const ImgGallery: FC<Props> = ({ images, title }) => {
                     ))
                 }
             </div>
-            <div className='mt-full f-auto'>
-                <div style={{  position: "sticky", height: "48rem", width: "100%", padding: "1.6rem", "top": 0  }}>
+            <div className='mt-full f-auto cursor-zoom'>
+                <div 
+                    onClick={ handleShowModal }
+                    style={{  position: "sticky", height: "48rem", width: "100%", padding: "1.6rem", "top": 0  }}
+                >
                     <Image 
                         alt={ title }
                         src={ currentPage }
@@ -61,6 +70,14 @@ export const ImgGallery: FC<Props> = ({ images, title }) => {
                     />
                 </div>
             </div>
+            {
+                modalImg &&
+                <Modal 
+                    handleShowModal={ handleShowModal }
+                    type="zoom"
+                    info={ currentPage }
+                />
+            }
         </>
     )
 }

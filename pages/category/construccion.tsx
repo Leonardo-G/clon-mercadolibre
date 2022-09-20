@@ -46,7 +46,7 @@ const construccion: NextPage<Props> = ({ subCategories, marcas, products }) => {
                 />
             </div>
             <div className='container flex-row my-2'>
-                <Link href={ `/`}>
+                <Link href={ `/productos?subcategory=baños` }>
                     <a className='relative radius-default ov-hidd shadow-default' style={{ height: "24rem", width: "100%" }}>
                         <Image 
                             src="https://http2.mlstatic.com/D_NQ_NP_789402-MLA45334068235_032021-B.webp"
@@ -60,7 +60,7 @@ const construccion: NextPage<Props> = ({ subCategories, marcas, products }) => {
                         </div>
                     </a>
                 </Link>
-                <Link href={ `/`}>
+                <Link href={ `/productos?subcategory=cocinas` }>
                     <a className='relative radius-default ov-hidd shadow-default' style={{ height: "24rem", width: "100%" }}>
                         <Image 
                             src="https://http2.mlstatic.com/D_NQ_NP_914637-MLA45333661541_032021-B.webp"
@@ -148,7 +148,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         props: {
             subCategories,
             marcas,
-            products
+            products: products.products
         },
         revalidate: 86400   // 1 DIA
     }

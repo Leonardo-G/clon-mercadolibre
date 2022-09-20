@@ -1,12 +1,8 @@
-
-import { useEffect, useState } from 'react';
 import { NextPage, GetServerSideProps } from 'next';
-import { LayoutDefault } from '../../components/layout/LayoutDefault';
 
-import { fetchApi } from '../../axios/config';
+import { LayoutDefault } from '../../components/layout/LayoutDefault';
 import { getProduct } from '../../utils/fetchApi';
 import { IProduct } from '../../interface/products';
-import { IQuestion } from '../../interface/question';
 
 import { ImgGallery } from '../../components/detailProduct/ImgGallery';
 import { CharacteristicsDetail } from '../../components/detailProduct/CharacteristicsDetail';
@@ -14,10 +10,12 @@ import { AsideDetailProduct } from '../../components/detailProduct/AsideDetailPr
 import { Tags } from '../../components/detailProduct/Tags';
 import { InfoProduct } from '../../components/detailProduct/InfoProduct';
 import { ProductsRecommended } from '../../components/detailProduct/ProductsRecommended';
-import { Questions } from '../../components/detailProduct/Questions';
+
 import { Opinions } from '../../components/opinions/OpinionsContainer';
-import { Modal } from '../../components/detailProduct/Modal';
 import { Ad } from '../../components/UI/Ad';
+import { QuestionContainer } from '../../components/questions/QuestionContainer';
+import { useContext, useEffect } from 'react';
+import { HistoryContext } from '../../context/History/HistoryContext';
 
 interface Props {
     producto: IProduct;
@@ -25,25 +23,12 @@ interface Props {
 
 const DetailProductPage: NextPage<Props> = ({ producto }) => {
 
-    const { _id, title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail, description, shipping, stock, tags, subCategory } = producto
-    const [questions, setQuestions] = useState([] as IQuestion[]);
-    const [openModalQuestion, setOpenModalQuestion] = useState(false);
-
-    const getApi = async () => {
-        const response = await fetchApi.get(`/questions/${ _id }/get`);
-        const results = await response.data;
-        
-        setQuestions( results );
-    }
-
+    const { _id, title, imgProduct, condition, sold, recommended, category, priceDetail, offer, characteristics, characteristicsDetail, description, shipping, stock, tags, subCategory, interests } = producto
+    const { addProductHistory } = useContext( HistoryContext )
+    
     useEffect(() => {
-        getApi()
-            .catch( err => console.log(err))
+        addProductHistory( _id, title, imgProduct[0] )
     }, [])
-
-    const handleShowModalQuestion = () => {
-        setOpenModalQuestion( !openModalQuestion )
-    }
 
     return (
         <LayoutDefault 
@@ -55,7 +40,7 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                 <div className='flex-row'>
                     <div style={{ flex: 1 }}>
 
-                        <div className='flex-row' style={{ flex: 1 }}>
+                        <div className='flex-row' style={{ flex: 1, minHeight: "70rem" }}>
                             <ImgGallery images={ imgProduct } title={ title }/>
                             {
                                 characteristics?.length > 0 &&
@@ -68,11 +53,13 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                                     category={ category } 
                                     offer={ offer } 
                                     priceDetail={ priceDetail } 
-                                    characteristics={ characteristics }                                />
+                                    characteristics={ characteristics }                                
+                                    interests={ interests }
+                                />
                             }
                         </div>
                         <div className='my-3 ml-3 br mt-full'></div>
-                        <ProductsRecommended subCategory={ subCategory[0] }/>
+                        <ProductsRecommended subCategory={ subCategory[0] } id={ _id }/>
                         <div className='pl-3 py-2'>
                             <CharacteristicsDetail characteristicsDetail={ characteristicsDetail }/>
                             <div className='br mt-full'></div>
@@ -84,61 +71,7 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                             </section>
                             <div className='br mt-full'></div>
                             <section>
-                                <h2 className='font-xxl mt-3 f-normal'>Preguntas y respuestas</h2>
-                                <p className='mt-full font-l f-bold'>Qué querés saber?</p>
-                                <div className='mt-3'>
-                                    <span className='pointer radius-default color-blue p-1 f-bold' style={{ background: "rgba(65,137,230,.15)" }}>Costo y tiempo de envío</span>
-                                    <span className='pointer radius-default color-blue p-1 f-bold ml-1' style={{ background: "rgba(65,137,230,.15)" }}>Devoluciones gratis</span>
-                                    <span className='pointer radius-default color-blue p-1 f-bold ml-1' style={{ background: "rgba(65,137,230,.15)" }}>Medios de pago y promociones</span>
-                                    <span className='pointer radius-default color-blue p-1 f-bold ml-1' style={{ background: "rgba(65,137,230,.15)" }}>Garantía</span>
-                                </div>
-                                <h3 className='mt-full f-bold font-l'>Preguntale al vendedor</h3>
-                                <div className='mt-2 flex c-gap-2'>
-                                    <input 
-                                        type="text" 
-                                        name="question" 
-                                        placeholder='Escribí tu pregunta'
-                                        style={{
-                                            height: "4.8rem",
-                                            fontSize: "1.6rem",
-                                            paddingLeft: "1rem",
-                                            borderRadius: "6px",
-                                            flex: 1,
-                                            outline: "none",
-                                            border: "none",
-                                            boxShadow: "0 0 0 1px rgb(0 0 0 / 25%)"
-                                        }}
-                                    />
-                                    <button 
-                                        className='btn btn--blue'
-                                        style={{ flex: 0.2 }}    
-                                    >Preguntar</button>
-                                </div>
-                                {
-                                    questions.length === 0 ?
-                                    <p className='mt-3'>Nadie hizo preguntas todavía. Hacé la primera!</p>
-
-                                    : 
-                                        <>
-                                            <Questions questions={ questions.filter((q, idx) => idx >= 0 && idx <= 6 ) }/>
-                                            <p 
-                                                className='mt-3 color-blue pointer'
-                                                onClick={ handleShowModalQuestion }    
-                                            >Ver todas las preguntas</p>
-                                        </>
-                                }
-
-                                <div className='br my-full'></div>
-                                
-                                {
-                                    openModalQuestion &&
-
-                                    <Modal 
-                                        array={ questions.reverse() as IQuestion[] }
-                                        type="questions"
-                                        handleShowModal={ handleShowModalQuestion }
-                                    />
-                                }
+                               <QuestionContainer id={ _id }/>
                             </section>
 
                             <Opinions idProduct={ _id }/>
