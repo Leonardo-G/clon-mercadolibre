@@ -1,20 +1,17 @@
 import React from 'react'
 
-import Image from 'next/image'
 import { NextPage, GetStaticProps } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 
+import { IProduct } from '../../interface/products';
+import { IUser } from '../../interface/users'
+import { fetchApi } from '../../axios/config';
 import { LayoutDefault } from '../../components/layout/LayoutDefault'
 import { TitleCenter } from '../../components/UI/TitleCenter'
-import { subCategoriesDB } from '../../database/subCategories'
 import { ISubCategory } from '../../interface/subCategory'
 import { CardsList } from '../../components/cards/CardsList'
-import Link from 'next/link'
-import { userDB } from '../../database/users'
-import { IUser } from '../../interface/users'
-import { productsDB } from '../../database/products'
 import { ProductList } from '../../components/products/ProductList'
-import { IProduct } from '../../interface/products';
-import { fetchApi } from '../../axios/config';
 
 interface Props {
     subCategories: ISubCategory[];
