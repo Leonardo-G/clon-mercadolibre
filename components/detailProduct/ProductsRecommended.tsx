@@ -27,6 +27,8 @@ export const ProductsRecommended: FC<Props> = ({ subCategory, id }) => {
 
         getProductsRecommended()
             .catch( err => console.log(err) )
+
+            //eslint-disable-next-line
     }, [ asPath ])
 
     return (
