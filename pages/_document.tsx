@@ -12,7 +12,7 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link rel="stylesheet" href="http://fonts.cdnfonts.com/css/proxima-nova-2?styles=44819,44817,44821,44813,44815" />
+                    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44819,44817,44821,44813,44815" />
                     
                 </Head>
                 <body>
