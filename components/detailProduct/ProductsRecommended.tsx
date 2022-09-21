@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { FC, useEffect, useState } from 'react'
 import { fetchApi } from '../../axios/config';
 import { IProduct } from '../../interface/products';
@@ -10,14 +11,15 @@ interface Props {
 
 export const ProductsRecommended: FC<Props> = ({ subCategory, id }) => {
     
+    const { asPath } = useRouter()
     const [products, setProducts] = useState([] as IProduct[]);
 
     const getProductsRecommended = async () => {
         const response = await fetchApi(`/products/short/by-${ subCategory }?limit=4`);
         const results: IProduct[] = await response.data; 
 
-        const productsRecommended = results.filter(( r )=> r._id ).filter((r, idx) => idx >= 0 && idx <= 2)
-
+        const productsRecommended = results.filter(( r )=> r._id !== id ).filter((r, idx) => idx >= 0 && idx <= 2)
+        console.log(asPath)
         setProducts( productsRecommended )
     }
     
@@ -25,7 +27,7 @@ export const ProductsRecommended: FC<Props> = ({ subCategory, id }) => {
 
         getProductsRecommended()
             .catch( err => console.log(err) )
-    }, [])
+    }, [ asPath ])
 
     return (
         <div className='pl-3'>

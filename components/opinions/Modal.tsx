@@ -5,6 +5,7 @@ import { ButtonOpinions } from './ButtonOpinions';
 import { Rating } from './Rating';
 import { IOpinion } from '../../interface/opinion';
 import { Opinion } from './Opinion';
+import { ModalContainer } from '../detailProduct/ModalContainer';
 
 interface Props {
     handleShowModal: () => void;
@@ -43,45 +44,8 @@ export const Modal: FC<Props> = ({ handleShowModal, average, totalOpinions, rati
     }
 
     return (
-        <div
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0,0,0,.8)",
-                paddingBottom: "5rem",
-                zIndex: 999
-            }}
-        >
-            <div
-                onClick={ handleShowModal }
-                style={{
-                    position: "absolute",
-                    top: "5rem",
-                    right: "5rem",
-                    fontSize:"3rem",
-                    color: "#fff",
-                    cursor: "pointer"
-                }}
-            >
-                <FontAwesomeIcon icon={ faXmark }/>
-            </div>
-            <div
-                style={{
-                    position: "absolute",
-                    top: "5rem",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "80%",
-                    height: "80%",
-                    backgroundColor: "#fff",
-                    zIndex: 999,
-                    padding: "8rem 5rem",
-                    overflowY: "scroll",
-                }}
-            >
+        <ModalContainer handleShowModal={ handleShowModal }>
+            <>
                 <div className='flex-row'>
                     <Rating
                         average={ average }
@@ -105,7 +69,8 @@ export const Modal: FC<Props> = ({ handleShowModal, average, totalOpinions, rati
                         
                     </div>
                 </div>
-            </div>
-        </div>
+            </>
+        </ModalContainer>
+        
     )
 }

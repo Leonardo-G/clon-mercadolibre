@@ -75,7 +75,7 @@ export const NavBar = () => {
                             />
                             <div className='pl'>
                                 <p className='font-s color-grey-2'>Enviar a</p>
-                                <p>Capital federal 1406</p>
+                                <p>Capital federal 14xx</p>
                             </div>
                         </div>
                         <div className='ml-2'>
