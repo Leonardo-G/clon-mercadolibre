@@ -19,8 +19,7 @@
     "next": "12.2.5",
     "react": "18.2.0",
     "react-alice-carousel": "^2.6.4",
-    "react-dom": "18.2.0",
-    "react-slick": "^0.29.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",
