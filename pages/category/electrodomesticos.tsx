@@ -63,7 +63,7 @@ const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas, produc
                 />
             </section>
             <section className='container'>
-                <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más'/>
+                <TitleCenter title='ofertas imperdibles' url urlTitle='Ver más' redirect='/productos?category=electrodomesticos&offer=true'/>
                 <ProductList products={ products }/>
                 <ImagesCards images={["https://http2.mlstatic.com/D_NQ_NP_852022-MLA43058241954_082020-OO.webp", "https://http2.mlstatic.com/D_NQ_NP_725215-MLA43059003673_082020-OO.webp"]}/>
             </section>

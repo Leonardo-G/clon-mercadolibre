@@ -59,7 +59,7 @@ const DetailProductPage: NextPage<Props> = ({ producto }) => {
                             }
                         </div>
                         <div className='my-3 ml-3 br mt-full'></div>
-                        <ProductsRecommended subCategory={ subCategory[0] } id={ _id }/>
+                        <ProductsRecommended category={ category[0] } id={ _id }/>
                         <div className='pl-3 py-2'>
                             <CharacteristicsDetail characteristicsDetail={ characteristicsDetail }/>
                             <div className='br mt-full'></div>

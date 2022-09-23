@@ -5,21 +5,21 @@ import { IProduct } from '../../interface/products';
 import { ProductList } from '../products/ProductList';
 
 interface Props {
-    subCategory: string;
+    category: string;
     id: string
 }
 
-export const ProductsRecommended: FC<Props> = ({ subCategory, id }) => {
+export const ProductsRecommended: FC<Props> = ({ category, id }) => {
     
     const { asPath } = useRouter()
     const [products, setProducts] = useState([] as IProduct[]);
 
     const getProductsRecommended = async () => {
-        const response = await fetchApi(`/products/short/by-${ subCategory }?limit=4`);
-        const results: IProduct[] = await response.data; 
+        const response = await fetchApi.get(`/products?category=${ category }&limit=4`);
+        const results: { products: IProduct[] } = await response.data; 
+        
+        const productsRecommended = results.products.filter(( r )=> r._id !== id ).filter((r, idx) => idx >= 0 && idx <= 2)
 
-        const productsRecommended = results.filter(( r )=> r._id !== id ).filter((r, idx) => idx >= 0 && idx <= 2)
-        console.log(asPath)
         setProducts( productsRecommended )
     }
     

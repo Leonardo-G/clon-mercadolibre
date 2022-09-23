@@ -118,13 +118,15 @@ const construccion: NextPage<Props> = ({ subCategories, marcas, products }) => {
                 <ProductList products={ products }/>
             </div>
             <div className='container mt-2'>
-                <div className='relative shadow-default radius-default mb-2' style={{ height: "16.5rem" }}>
-                    <Image 
-                        src="https://http2.mlstatic.com/D_NQ_NP_779467-MLA45342134582_032021-OO.webp"
-                        alt="Servicios, encontrá los mejores profesionales"
-                        layout='fill'
-                    />
-                </div>
+                <Link href="/productos?category=construccion" passHref>
+                    <div className='relative shadow-default radius-default mb-2 pointer' style={{ height: "16.5rem" }}>
+                        <Image 
+                            src="https://http2.mlstatic.com/D_NQ_NP_779467-MLA45342134582_032021-OO.webp"
+                            alt="Servicios, encontrá los mejores profesionales"
+                            layout='fill'
+                        />
+                    </div>
+                </Link>
             </div>
         </LayoutDefault>
     )

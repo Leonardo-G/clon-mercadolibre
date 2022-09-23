@@ -52,6 +52,7 @@ const HogarMueblesPage: NextPage<Props> = ({ subCategories, marcas }) => {
                     <ImageFull 
                         src='https://http2.mlstatic.com/D_NQ_NP_878973-MLA48133612309_112021-OO.webp'
                         objectFit='cover'
+                        url='/productos?category=hogar-muebles&until=12'
                     />
                 </div>
             </section>
@@ -66,6 +67,7 @@ const HogarMueblesPage: NextPage<Props> = ({ subCategories, marcas }) => {
                     <ImageFull 
                         src='https://http2.mlstatic.com/D_NQ_NP_918943-MLA48452661508_122021-OO.webp'
                         objectFit='cover'
+                        url='/productos?category=hogar-muebles&until=12'
                     />
                 </div>
                 <ImagesCards 

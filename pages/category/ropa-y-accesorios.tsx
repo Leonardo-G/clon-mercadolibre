@@ -63,7 +63,7 @@ const RopaAccesoriosPage: NextPage<Props> = ({ subCategories, marcas, products }
                 />
             </section>
             <section className='container'>
-                <TitleCenter title='adelantate a la nueva temporada' url urlTitle='Ver más'/>
+                <TitleCenter title='adelantate a la nueva temporada' url urlTitle='Ver más' redirect='/productos?category=ropa-y-accesorios'/>
                 <ProductList 
                     products={ products }
                 />

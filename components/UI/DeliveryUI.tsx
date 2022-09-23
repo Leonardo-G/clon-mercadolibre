@@ -32,7 +32,7 @@ export const DeliveryUI: FC<Props> = ({ detail, code, shadow }) => {
         <div className='flex-row-center'>
             <p 
                 className='title-green-shipping radius-default f-normal' 
-                style={{background: `${ shadow ? "#00a650": ""}`, color: `${ shadow ? "#fff" : ""}`, padding: `${ shadow ? '0.4rem' : ''}`, width: "fit-content"}}
+                style={{background: `${ shadow ? "#00a650": ""}`, color: `${ shadow ? "#fff" : ""}`, padding: `${ shadow ? '0.4rem' : ''}`}}
             >{ detail }
             </p>
             <div>

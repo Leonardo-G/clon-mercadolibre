@@ -41,6 +41,7 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas, produc
                         height='16.5rem'
                         objectFit='cover'
                         styles
+                        url='/productos?search=futbol'
                     />
                 </div>
             </section>
@@ -51,6 +52,7 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas, produc
                     src='https://http2.mlstatic.com/D_NQ_NP_626602-MLA45686065486_042021-OO.webp'
                     styles
                     objectFit='cover'
+                    url='/productos?search=zapatillas'
                 />
             </section>
             <section className='container'>

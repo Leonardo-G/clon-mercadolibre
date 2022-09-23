@@ -56,11 +56,16 @@ export const CardXL: FC<Props> = ({ item: { _id, imgProduct, title, priceDetail,
                             {
                                 offer && priceDetail.price > priceDetail.offerPrice! &&
 
-                                <p className='mt-1 font-s col-grey-w dash'>{ formatPrice(priceDetail.offerPrice!) }</p>
+                                <p className='mt-1 font-s col-grey-w dash'>{ formatPrice(priceDetail.price!) }</p>
                             }
                             <p 
                                 className='font-xl'
-                            >{ formatPrice(priceDetail.price) }
+                            >
+                                { 
+                                    offer 
+                                    ? formatPrice(priceDetail.offerPrice!) 
+                                    : formatPrice(priceDetail.price) 
+                                }
                                 
                                 {
                                     offer && priceDetail.price > priceDetail.offerPrice! &&

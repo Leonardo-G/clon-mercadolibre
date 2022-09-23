@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
+
 import { ISubCategory } from '../../interface/subCategory';
+
 import { CardGrid } from './CardGrid';
 
 interface Props {

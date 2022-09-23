@@ -11,6 +11,7 @@ import { ProductList } from '../../components/products/ProductList'
 import { IUser } from '../../interface/users'
 import { fetchApi } from '../../axios/config'
 import { IProduct } from '../../interface/products'
+import Link from 'next/link'
 
 interface Props {
   //Todas las subcategorias de Herramientas
@@ -44,22 +45,26 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) =>
         </div>
         <div className='container py-2'>
             <div className='flex-row c-gap-2'>
-                <div className='relative radius-default ov-hidd' style={{ height: "16.5rem", width:"100%", flex: 1 }}>
-                    <Image 
-                      src="https://http2.mlstatic.com/D_NQ_NP_846766-MLA50400201462_062022-OO.webp"
-                      alt="Herramientas información"
-                      objectFit='cover'
-                      layout='fill'
-                    />
-                </div>
-                <div className='relative radius-default ov-hidd' style={{ height: "16.5rem", width:"100%", flex: 1 }}>
-                    <Image 
-                      src="https://http2.mlstatic.com/D_NQ_NP_817200-MLA48452827216_122021-OO.webp"
-                      alt="Herramientas información"
-                      objectFit='cover'
-                      layout='fill'
-                    />
-                </div>
+                <Link href="/productos?category=herramientas&interest=true&until=6">
+                    <a className='relative radius-default ov-hidd' style={{ height: "16.5rem", width:"100%", flex: 1 }}>
+                        <Image 
+                        src="https://http2.mlstatic.com/D_NQ_NP_846766-MLA50400201462_062022-OO.webp"
+                        alt="Herramientas información"
+                        objectFit='cover'
+                        layout='fill'
+                        />
+                    </a>
+                </Link>
+                <Link href="/productos?category=herramientas&interest=true&until=12">
+                    <a className='relative radius-default ov-hidd' style={{ height: "16.5rem", width:"100%", flex: 1 }}>
+                        <Image 
+                        src="https://http2.mlstatic.com/D_NQ_NP_817200-MLA48452827216_122021-OO.webp"
+                        alt="Herramientas información"
+                        objectFit='cover'
+                        layout='fill'
+                        />
+                    </a>
+                </Link>
             </div>
         </div>
         <TitleCenter title='tus herramientas preferidas'/>
@@ -78,14 +83,16 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) =>
             <CardsList items={ marcas } typeCard="Card_M" />
         </div>
         <div className='container'>
-            <div className='relative my-2 pointer shadow-default' style={{ height: "16.5rem" }}>
-                <Image 
-                    alt='full, entrega más rápido'
-                    src="https://http2.mlstatic.com/D_NQ_NP_704337-MLA45346335455_032021-OO.webp"
-                    objectFit='cover'
-                    layout='fill'
-                />
-            </div>
+            <Link href="/productos?shipping=2&category=herramientas" passHref>
+                <div className='relative my-2 pointer shadow-default' style={{ height: "16.5rem" }}>
+                    <Image 
+                        alt='full, entrega más rápido'
+                        src="https://http2.mlstatic.com/D_NQ_NP_704337-MLA45346335455_032021-OO.webp"
+                        objectFit='cover'
+                        layout='fill'
+                    />
+                </div>
+            </Link>
         </div>
     </LayoutDefault>
   )
