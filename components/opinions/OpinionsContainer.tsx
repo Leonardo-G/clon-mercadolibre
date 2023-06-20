@@ -35,7 +35,7 @@ export const Opinions: FC<Props> = ({ idProduct }) => {
     const getOpinions = async () => {
         const response = await fetchApi.get( `/opinions/${ idProduct }`);
         const results = await response.data;
-
+        console.log(results);
         const promed: number = Number((( results.rating.rate_1 * 1 + results.rating.rate_2 * 2 + results.rating.rate_3 * 3 + results.rating.rate_4 * 4 + results.rating.rate_5 * 5) / results.totalOpinions ).toPrecision(2))
         setAverage( promed )
         setOpinions( results );

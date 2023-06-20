@@ -51,7 +51,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         }
 
         try {
-            const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL }/user/sign-in`, {
+            const response = await fetch(`${ process.env.NEXT_PUBLIC_API_URL }/user/register`, {
                 method: "POST",
                 body: JSON.stringify({ username, email, password }),
                 headers: {

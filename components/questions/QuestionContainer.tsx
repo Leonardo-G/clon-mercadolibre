@@ -14,7 +14,7 @@ export const QuestionContainer: FC<Props> = ({ id }) => {
     const [openModalQuestion, setOpenModalQuestion] = useState(false);
 
     const getApi = async () => {
-        const response = await fetchApi.get(`/questions/${ id }/get`);
+        const response = await fetchApi.get(`/questions/${ id }`);
         const results = await response.data;
         
         setQuestions( results );

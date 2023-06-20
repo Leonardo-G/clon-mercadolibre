@@ -42,7 +42,6 @@ export const Aside:FC<Props> = ({ params, querys, results, querySearch, setQuery
     }
 
     useEffect(() => {
-        console.log("ejecutando")
         if( isa.current === true ) {
             
             router.push({

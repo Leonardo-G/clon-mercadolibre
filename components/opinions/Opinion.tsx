@@ -10,8 +10,6 @@ interface Props {
 
 export const Opinion:FC<Props> = ({ opinion }) => {
 
-    
-
     return (
         <div className="my-3" style={{ lineHeight: 1.35 }}>
             <div>
