@@ -1,8 +1,8 @@
-import { ICategoryObj, ISubCategoryObj } from './products';
+import { ICategory } from "./category";
+import { ISubCategoryObj } from "./products";
 
-export interface ISubCategory {
+export interface ISubCategory extends ISubCategoryObj {
     _id: string;
-    category: ICategoryObj,
-    subCategory: ISubCategoryObj,
+    category: ICategory;
     imgUrl: string;
 }

@@ -100,10 +100,14 @@ const CategoriesPage: NextPage<Props> = ({ subCategories, marcas, products }) =>
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const response = await fetchApi.get("/subcategory/herramientas?limit=8");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "herramientas"
+        }
+    });
     const subCategories = await response.data;
-    
-    const response_2 = await fetchApi.get("/user/store-of-herramientas?limit=8");
+
+    const response_2 = await fetchApi.get("/user/store/herramientas?limit=8");
     const marcas = await response_2.data;
 
     const response_3 = await fetchApi.get("/products?category=herramientas&limit=5&offer=true");

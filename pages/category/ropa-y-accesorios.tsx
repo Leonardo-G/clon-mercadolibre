@@ -95,10 +95,14 @@ const RopaAccesoriosPage: NextPage<Props> = ({ subCategories, marcas, products }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const response = await fetchApi.get("/subcategory/ropa-y-accesorios?limit=10");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "ropa-y-accesorios"
+        }
+    });
     const subCategories = await response.data;
 
-    const response_2 = await fetchApi.get("/user/store-of-ropa-y-accesorios?limit=10");
+    const response_2 = await fetchApi.get("/user/store/ropa-y-accesorios?limit=10");
     const marcas = await response_2.data;
 
     const response_3 = await fetchApi.get("/products?category=ropa-y-accesorios&limit=5&offer=true");

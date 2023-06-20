@@ -73,10 +73,14 @@ const Deportes_Y_FitnnesPage: NextPage<Props> = ({ subCategories, marcas, produc
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const response = await fetchApi.get("/subcategory/deportes-y-fitness?limit=10");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "deportes-y-fitness"
+        }
+    });
     const subCategories = await response.data;
     
-    const response_2 = await fetchApi.get("/user/store-of-deportes-y-fitness?limit=8");
+    const response_2 = await fetchApi.get("/user/store/deportes-y-fitness?limit=8");
     const marcas = await response_2.data;
     
     const response_3 = await fetchApi.get("/products?category=deportes-y-fitness&limit=5&offer=true");

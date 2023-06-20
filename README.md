@@ -2,7 +2,7 @@
 
 Aplicación clon realizado con React.js/TypeScript, simulando parte de la página de Mercado Libre. Se puede crear una cuenta y ver los productos que se encuentran en la base de datos. Se realizó en el marco de desarollo de NEXT.js, aprovechando sus ventajas como el Server Side Rendering, Static Site Generation e Incremental Static Regeneration Este proyecto se consulta la API que se realizó con Node/Express/Mongo en [el repositorio de backend](https://github.com/Leonardo-G/api-clon-mercadolibre). Por el momento no hay muchos productos en la base de datos, si en la busqueda dice "No hay publicaciones que...", es porque no se encuentra en la base de datos.
 
-### Para ver el demo del proyecto se puede ir [a este link](https://clon-mercadolibre.vercel.app/);
+### Para ver el demo del proyecto se puede ir [a este link](https://clon-mercadolibre.vercel.app/). En este caso no es RESPONSIVE. Se puede ver otros proyectos responsive en mis otros proyectos.
 
 --------------------
 

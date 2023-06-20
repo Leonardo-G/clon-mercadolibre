@@ -134,10 +134,14 @@ const construccion: NextPage<Props> = ({ subCategories, marcas, products }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
-    const response = await fetchApi.get("/subcategory/construccion?limit=8");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "construccion"
+        }
+    });
     const subCategories = await response.data;
 
-    const response_2 = await fetchApi.get("/user/store-of-construccion?limit=8");
+    const response_2 = await fetchApi.get("/user/store/construccion?limit=8");
     const marcas = await response_2.data;
 
     const response_3 = await fetchApi.get("/products?category=construccion&limit=5&offer=true");

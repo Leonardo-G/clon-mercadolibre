@@ -80,12 +80,16 @@ const HogarMueblesPage: NextPage<Props> = ({ subCategories, marcas }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     
-    const response = await fetchApi.get("/subcategory/hogar-muebles?limit=12");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "hogar-muebles"
+        }
+    });
     const subCategories = await response.data;
 
-    const response_2 = await fetchApi.get("/user/store-of-hogar-muebles?limit=18");
+    const response_2 = await fetchApi.get("/user/store/hogar-muebles?limit=18");
     const marcas = await response_2.data;
-
+    
     const response_3 = await fetchApi.get("/products?category=hogar-muebles&limit=5&offer=true");
     const products = await response_3.data;
 

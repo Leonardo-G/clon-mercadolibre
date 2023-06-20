@@ -72,10 +72,14 @@ const ElectrodomesticosPage: NextPage <Props> = ({ subCategories, marcas, produc
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const response = await fetchApi.get("/subcategory/electrodomesticos?limit=12");
+    const response = await fetchApi.get("/subcategory/", {
+        data: {
+            category: "electrodomesticos"
+        }
+    });
     const subCategories = await response.data;
 
-    const response_2 = await fetchApi.get("/user/store-of-electrodomesticos?limit=12");
+    const response_2 = await fetchApi.get("/user/store/electrodomesticos?limit=12");
     const marcas = await response_2.data;
 
     const response_3 = await fetchApi.get("/products?category=electrodomesticos&limit=5&offer=true");

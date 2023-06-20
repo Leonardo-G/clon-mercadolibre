@@ -1,7 +1,5 @@
 import { ICategoryObj } from './products';
 
-export interface ICategory{
+export interface ICategory extends ICategoryObj {
     _id: string;
-    category: ICategoryObj;
-    images: string[];
 }
